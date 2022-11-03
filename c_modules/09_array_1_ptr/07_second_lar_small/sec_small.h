@@ -1,0 +1,1 @@
+int second_smallest(int* ,int);
