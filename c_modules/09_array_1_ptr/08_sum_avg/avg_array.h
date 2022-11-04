@@ -1,0 +1,1 @@
+float avg_array(int*, int);
