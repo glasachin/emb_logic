@@ -1,0 +1,17 @@
+print_unique: main.o get_array.o print_array.o print_uniques.o
+	gcc -o print_unique *.o
+
+main.o: main.c headers.h 
+	gcc -c main.c
+
+get_array.o: get_array.c headers.h 
+	gcc -c get_array.c
+
+print_array.o: print_array.c headers.h 
+	gcc -c print_array.c
+
+print_uniques.o: print_uniques.c headers.h 
+	gcc -c print_uniques.c
+
+clean:
+	rm *.o
