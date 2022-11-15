@@ -1,0 +1,1 @@
+void find_prime(int*,int,int**,int*);
