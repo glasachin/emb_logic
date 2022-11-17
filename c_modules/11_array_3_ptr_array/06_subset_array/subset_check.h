@@ -1,0 +1,1 @@
+void check_subset(int*,int,int*,int);
