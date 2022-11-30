@@ -1,0 +1,1 @@
+void add_2_arrays(int**,int,int,int,int);
