@@ -18,7 +18,7 @@ void get2Darray(char **arr, int *row, int *col)
 
 void fill2Darray(char *arr, int *row, int *col)
 {
-    int i, j, temp = *row-1;
+    int i, j, temp = 0;
     int rs = 4; //rhombous size
 
     for(i = 0; i < *row; i++)
@@ -45,6 +45,6 @@ void fill2Darray(char *arr, int *row, int *col)
         // {
         //     *(arr+(i*col)+j) = ' ';
         // }
-        temp -= 1;
+        temp += 1;
     }
 }

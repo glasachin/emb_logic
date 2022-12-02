@@ -1,5 +1,5 @@
-hollow_rhombus: main.o headers.h array_init.o array_print.o
-	gcc -o hollow_rhombus *.o
+opp_rhombus: main.o headers.h array_init.o array_print.o
+	gcc -o opp_rhombus *.o
 
 main.o: main.c headers.h 
 	gcc -c main.c
