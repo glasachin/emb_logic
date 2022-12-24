@@ -1,0 +1,16 @@
+int mainMenu();
+int exitProgram(char *);
+int compression();
+int compStats();
+int deCompression();
+int deCompStats();
+int openFile();
+char* creatMaterArray(int);
+int unique(char *, char, int);
+int codeLength(char *);
+int compress2(int, char*);
+int compress3(int, char*);
+int compress4(int, char*);
+int compress5(int, char*);
+int compress6(int, char*);
+int compress7(int, char*);

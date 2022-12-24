@@ -1,0 +1,47 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.12.18.02.44.21;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.12.18.02.40.39;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is first message.
+@
+
+
+1.2
+log
+@I have added a new line in the file.
+@
+text
+@#include<stdio.h>
+
+int main()
+{
+	printf("Hello world.\n");
+	printf("Hello, this is great tool to learn.\n");
+	return 0;
+}
+
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+@
