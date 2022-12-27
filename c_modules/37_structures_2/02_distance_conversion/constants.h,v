@@ -1,0 +1,53 @@
+head	1.2;
+access;
+symbols;
+locks
+	sachin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.12.27.16.25.02;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.12.27.16.04.39;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file contains the global variable definition.
+dis_feet_inch --> is a structure name for distance.
+@
+
+
+1.2
+log
+@added another structure for m-cm.
+@
+text
+@typedef struct 
+{
+    /* data */
+    int feet;
+    int inches;
+}dis_feet_inch;
+
+typedef struct
+{
+    /* data */
+    int m;
+    int cm;
+}dis_m_cm;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 7
+@

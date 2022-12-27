@@ -1,0 +1,26 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.27.16.05.56;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file include all required header files.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include<stdio.h>
+#include "constants.h"@
