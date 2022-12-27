@@ -1,0 +1,87 @@
+head	1.2;
+access;
+symbols;
+locks
+	sachin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2022.12.25.14.15.17;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2022.12.25.13.54.29;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is the first attempt. In this we store the data of three students in an structure array.
+@
+
+
+1.2
+log
+@removed bugs and modified the code accordingly
+@
+text
+@// This file do the example using structure variables
+#include<stdio.h>
+
+typedef struct
+{
+    /* data */
+    char name[50];
+    int roll;
+    float marks;
+}student;
+
+int main()
+{
+    int i, n_s;
+    student s[3];
+    // printf("Enter number of students you wanted to save: \n");
+    // scanf("%d",&n_s);
+    for(i = 0; i < 3; i++)
+    {
+        printf("Enter %d stdent name: \n",i);
+        scanf("%s",&s[i].name);
+        // getchar();
+        printf("Enter %d student roll no.: \n",i);
+        scanf("%d",&s[i].roll);
+        printf("Enter %d student marks:\n",i);
+        scanf("%f",&s[i].marks);
+    }
+
+    printf("Entered Students Data is as follows: \n");
+    for(i = 0; i < 3; i++)
+    {
+        printf("Stendt: %s, Roll No.: %d, Marks: %f\n",s[i].name,s[i].roll,s[i].marks);
+    }
+    return(0);
+
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d20 1
+a20 1
+        printf("Enter %d stdent name: \n");
+d22 2
+a23 1
+        printf("Enter %d student roll no.: \n");
+d25 2
+a26 2
+        printf("Enter %d student marks:\n");
+        scanf("%d",&s[i].marks);
+d32 1
+a32 1
+        printf("Stendt: %s, Roll No.: %d, Marks: %d\n",&s[i].name,&s[i].roll,&s[i].name);
+@
