@@ -1,0 +1,28 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.05.02.00.07;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include<stdio.h>
+#include<stdlib.h>
+#include"constants.h"
+
+@

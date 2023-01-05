@@ -1,0 +1,35 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.30.01.58.31;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file gives the compression statistics and this is first log.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "headers.h"
+#include "declarations.h"
+
+int compStats()
+{
+    #ifdef DEBUG
+        printf("Running: %s",__func__);
+    #endif
+
+    return 1;
+}@

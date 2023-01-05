@@ -1,0 +1,52 @@
+head	1.2;
+access;
+symbols;
+locks
+	sachin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2023.01.05.12.03.15;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2023.01.05.12.01.50;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+void convert_dis(dis *d)
+{
+    #ifdef DEBUG
+        printf("Starting: %s\n",__func__);
+    #endif
+
+    *d->dm->cm = (*d->dfi->ft*12+*d->dfi->inch)*2.56;
+    *d->dm->m = (int)*d->dm->cm/100;
+    *d->dm->cm -= *d->dm->m*100;
+}@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d4 1
+a4 1
+void conver_dis(dis *d)
+@

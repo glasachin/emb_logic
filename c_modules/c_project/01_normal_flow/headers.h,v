@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.30.02.12.47;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@this file stores all the header files use.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+// #include<io.h>
+#include<fcntl.h>
+// #include<sys/stst.h>
+@

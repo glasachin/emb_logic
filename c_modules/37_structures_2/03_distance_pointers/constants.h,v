@@ -1,0 +1,132 @@
+head	1.7;
+access;
+symbols;
+locks
+	sachin:1.7; strict;
+comment	@ * @;
+
+
+1.7
+date	2023.01.05.12.01.48;	author sachin;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2023.01.05.11.46.08;	author sachin;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2023.01.05.11.45.05;	author sachin;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2023.01.05.02.43.57;	author sachin;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2023.01.05.02.41.20;	author sachin;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2023.01.05.02.35.56;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2023.01.05.02.00.03;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@
+typedef struct 
+{
+    int *ft;
+    int *inch;
+}dis_feet_inch;
+
+typedef struct{
+    int *m;
+    float *cm;
+}dis_m_cm;
+
+typedef struct 
+{
+    dis_feet_inch *dfi;
+    dis_m_cm *dm;
+}dis;
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@a3 1
+    int a;
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d4 1
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d1 1
+a3 1
+    int a=5;
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d3 1
+a3 1
+    int a;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d3 1
+a3 1
+    int a = 5;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+@

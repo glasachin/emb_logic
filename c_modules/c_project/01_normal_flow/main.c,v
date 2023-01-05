@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.30.02.02.21;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is the main function file. This is the first log.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+int main()
+{
+    int choice;
+    #ifdef DEBUG
+        printf("Starting Function: %s\n", __func__);
+    #endif
+
+    mainMenu();
+
+
+    return 0;
+}@

@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.30.02.12.27;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file declares all the functions frototype used in the project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@int mainMenu();
+int exitProgram(char *);
+int compression();
+int compStats();
+int deCompression();
+int deCompStats();
+// int openFile();
+// char* creatMaterArray(int);
+// int unique(char *, char, int);
+// int codeLength(char *);
+// int compress2(int, char*);
+// int compress3(int, char*);
+// int compress4(int, char*);
+// int compress5(int, char*);
+// int compress6(int, char*);
+// int compress7(int, char*);
+@

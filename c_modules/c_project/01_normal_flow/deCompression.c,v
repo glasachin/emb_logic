@@ -1,0 +1,35 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2022.12.30.02.00.28;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file does the decompression. This is the first log.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "headers.h"
+#include "declarations.h"
+
+int deCompression()
+{
+    #ifdef DEBUG
+        printf("Running: %s",__func__);
+    #endif
+
+    return 1;
+}@

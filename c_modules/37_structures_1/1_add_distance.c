@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 typedef struct 
 {
     /* data */
@@ -27,9 +28,31 @@ distance* add_distance(distance *d1, distance *d2)
     return d;
 }
 
+typedef struct 
+{
+    int a;
+    int *ft;
+    int *inch;
+}dis_feet_inch;
+
+typedef struct 
+{
+    /* data */
+    dis_feet_inch *ds;
+}dis;
+
+
 int main()
 {
     distance *d1, *d2, *d3;
+    dis_feet_inch *d;
+    dis *di;
+    d->a = 10;
+    di=(dis*)malloc(sizeof(dis));
+    di->ds = (dis_feet_inch*)malloc(sizeof(dis_feet_inch));
+    di->ds->a = 100;
+    printf("%d\n", d->a);
+    printf("di: %d\n",di->ds->a);
     printf("Enter the 1st distance: \n");
     get_distance(d1);
     printf("Enter 2nd distance: \n");
