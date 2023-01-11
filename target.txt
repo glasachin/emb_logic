@@ -19,3 +19,9 @@
 10.Serial Port Device Driver Development with project.
 
 11. Block Device Driver Development with Project.
+
+12. STM32 Bare metal Programming
+
+13. NRF52840
+
+14. ESP32 Bare Metal Programming
