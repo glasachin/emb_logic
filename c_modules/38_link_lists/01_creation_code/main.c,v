@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.31.14;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is the function main function file of the project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+int main()
+{
+    Node *start;
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+        start = NULL;
+        init();
+        while(1)
+        {
+            start = (Node*)(*fptr[0])((void*)start); // calling Main Menu Function
+        }
+
+
+    #ifdef DEBUG
+        printf("%s: End\n", __func__);
+    #endif
+    return 0;
+}@

@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.29.29;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@this function returns the appropriate message and returns from the program.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+void* exit_program(void *status)
+{
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+
+    if(strncmp((char*) status, "success",7) == 0)
+        exit(EXIT_SUCCESS);
+    
+    else if(strncmp((char*)status, "failure",7)==0)
+        exit(EXIT_FAILURE);
+
+    #ifdef DEBUG
+        printf("%s: End\n", __func__);
+    #endif
+}@

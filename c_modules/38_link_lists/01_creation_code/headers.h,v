@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.29.53;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file contains the all headers file used in the project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>@

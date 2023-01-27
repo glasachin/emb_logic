@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.28.52;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is a header file and contains the definitions of all functions used in this project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef NOF
+#define NOF 4
+#endif
+
+int init();
+extern void* mainMenu(void*);
+extern void* exit_program(void*);
+extern void* createLinkList(void*);
+extern void* insertNode(void*);
+extern void* deleteNode(void*);
+// extern void* displayLinkLis(void*);
+// extern void* sortLinkList(void*);
+extern void* createNode(void*);
+
+extern void* (*fptr[NOF])(void*);@

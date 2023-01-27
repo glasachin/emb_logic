@@ -1,0 +1,28 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.31.47;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@this header file contains the definition of the node structure used in this project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@typedef struct node{
+    int info;
+    struct node *next;
+}Node;@

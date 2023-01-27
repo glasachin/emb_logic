@@ -1,0 +1,49 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.01.27.02.27.50;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file create intialize the link list with start pointer and index node.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+void* createLinkList(void *arg)
+{
+    Node *strt;
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+
+    if(arg)
+    {
+        printf("%s: Link List is already create.\n",__func__);
+        return arg;
+    }
+
+    
+
+    #ifdef DEBUG
+        printf("%s: End\n",__func__);
+    #endif
+
+    return (*fptr[7])(0); //create Node 
+}@
