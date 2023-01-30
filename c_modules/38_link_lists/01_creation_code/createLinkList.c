@@ -4,7 +4,7 @@
 
 void* createLinkList(void *arg)
 {
-    Node *strt;
+    Node *start;
     #ifdef DEBUG
         printf("%s: Begin\n",__func__);
     #endif

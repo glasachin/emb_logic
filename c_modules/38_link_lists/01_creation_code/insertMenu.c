@@ -9,11 +9,14 @@ void* insertMenu(void *arg)
     printf("%s __Insert Menu__\n", __func__);
     if(arg)
     {
-        printf("1. Insert at Beginning\n");
-        printf("2. Insert at End\n");
-        printf("3. Insert in between\n");
+        printf("%s: 1. Insert at Beginning\n",__func__);
+        printf("%s: 2. Insert at End\n",__func__);
+        printf("%s: 3. Insert at the key value\n",__func__);
+        printf("%s: 4. Insert at Nth Location\n",__func__);
+        printf("%s: Enter your choice: \n",__func__);
         scanf("%d\n", &choice);
-        printf("You have entered %d\n");
+
+        
         // switch(choice)
         // {
         //     case choice:

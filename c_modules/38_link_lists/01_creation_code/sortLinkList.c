@@ -2,7 +2,7 @@
 #include"structure.h"
 #include"declarations.h"
 
-void* insertNode(void *arg)
+void* sortLinkList(void *arg)
 {
     #ifdef DEBUG
         printf("%s: Begin\n",__func__);
