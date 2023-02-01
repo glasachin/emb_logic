@@ -18,7 +18,7 @@ void* createNode(void* arg)
     new->info = rand() % 100;
     new->next = NULL;
     #ifdef DEBUG
-        printf("%s: End\n");
+        printf("%s: End\n",__func__);
     #endif
     return (void*)new;
 }

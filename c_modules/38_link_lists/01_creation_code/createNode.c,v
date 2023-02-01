@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.01.02.25.59;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.01.27.02.28.27;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@bug fixed.
 @
 text
 @#include"headers.h"
@@ -42,7 +47,18 @@ void* createNode(void* arg)
     new->info = rand() % 100;
     new->next = NULL;
     #ifdef DEBUG
-        printf("%s: End\n");
+        printf("%s: End\n",__func__);
     #endif
     return (void*)new;
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d21 1
+a21 1
+        printf("%s: End\n");
+@

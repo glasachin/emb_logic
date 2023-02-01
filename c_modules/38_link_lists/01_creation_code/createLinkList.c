@@ -14,7 +14,6 @@ void* createLinkList(void *arg)
         printf("%s: Link List is already create.\n",__func__);
         return arg;
     }
-
     
 
     #ifdef DEBUG

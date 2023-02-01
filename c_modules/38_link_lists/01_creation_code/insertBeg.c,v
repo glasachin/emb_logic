@@ -1,4 +1,28 @@
-#include"headers.h"
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.02.01.02.26.58;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@created function and its definition.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
 #include"structure.h"
 #include"declarations.h"
 
@@ -24,4 +48,4 @@ void* insertBeg(void *arg)
         printf("%s: End\n",__func__);
     #endif
     return (void*)arg;
-}
+}@

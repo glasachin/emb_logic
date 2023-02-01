@@ -1,0 +1,352 @@
+
+RCS file: createLinkList.c,v
+Working file: createLinkList.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This file create intialize the link list with start pointer and index node.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:25:49;  author: sachin;  state: Exp;  lines: +1 -2
+*** empty log message ***
+----------------------------
+revision 1.1
+date: 2023/01/27 02:27:50;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: createNode.c,v
+Working file: createNode.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This function create a node and return the address of the same.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:25:59;  author: sachin;  state: Exp;  lines: +1 -1
+bug fixed.
+----------------------------
+revision 1.1
+date: 2023/01/27 02:28:27;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: declarations.h,v
+Working file: declarations.h
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This is a header file and contains the definitions of all functions used in this project.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:26:12;  author: sachin;  state: Exp;  lines: +8 -3
+*** empty log message ***
+----------------------------
+revision 1.1
+date: 2023/01/27 02:28:52;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: deleteNode.c,v
+Working file: deleteNode.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This file deletes a node.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:26:15;  author: sachin;  state: Exp;  lines: +1 -1
+function created.
+----------------------------
+revision 1.1
+date: 2023/01/27 02:29:15;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: displayLinkList.c,v
+Working file: displayLinkList.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+function creted for display link list.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:26:26;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: exitProgram.c,v
+Working file: exitProgram.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+this function returns the appropriate message and returns from the program.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/01/27 02:29:29;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: headers.h,v
+Working file: headers.h
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+This file contains the all headers file used in the project.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/01/27 02:29:53;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: init.c,v
+Working file: init.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This file initializes the function pointer array.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:26:39;  author: sachin;  state: Exp;  lines: +15 -4
+addition of functions.
+----------------------------
+revision 1.1
+date: 2023/01/27 02:30:12;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertBeg.c,v
+Working file: insertBeg.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+created function and its definition.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:26:58;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertEnd.c,v
+Working file: insertEnd.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+function created.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:27:18;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertKey.c,v
+Working file: insertKey.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+function created.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:27:27;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertMenu.c,v
+Working file: insertMenu.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This function display the Menu to insert a node in link list.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:27:33;  author: sachin;  state: Exp;  lines: +8 -5
+insert menu function created.
+----------------------------
+revision 1.1
+date: 2023/01/27 02:30:36;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertNode.c,v
+Working file: insertNode.c
+head: 1.2
+branch:
+locks: strict
+	sachin: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This function insert a node at given location.
+----------------------------
+revision 1.2	locked by: sachin;
+date: 2023/02/01 02:27:45;  author: sachin;  state: Exp;  lines: +5 -2
+bug fixed.
+----------------------------
+revision 1.1
+date: 2023/01/27 02:30:54;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: insertNth.c,v
+Working file: insertNth.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+function created.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:27:59;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: main.c,v
+Working file: main.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+This is the function main function file of the project.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/01/27 02:31:14;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: mainMenu.c,v
+Working file: mainMenu.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+This function displays the main Menu and then calls the corresponding function.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/01/27 02:31:27;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: sortLinkList.c,v
+Working file: sortLinkList.c
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+function created.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/02/01 02:28:06;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: structure.h,v
+Working file: structure.h
+head: 1.1
+branch:
+locks: strict
+	sachin: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+this header file contains the definition of the node structure used in this project.
+----------------------------
+revision 1.1	locked by: sachin;
+date: 2023/01/27 02:31:47;  author: sachin;  state: Exp;
+Initial revision
+=============================================================================

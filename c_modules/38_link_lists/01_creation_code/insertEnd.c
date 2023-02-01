@@ -9,7 +9,7 @@ void* insertEnd(void *arg)
     #endif
     
     #ifdef DEBUG
-        printf("%s: End\n");
+        printf("%s: End\n",__func__);
     #endif
     return 0;
 }

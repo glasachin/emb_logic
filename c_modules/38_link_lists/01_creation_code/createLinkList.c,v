@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.01.02.25.49;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.01.27.02.27.50;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@*** empty log message ***
 @
 text
 @#include"headers.h"
@@ -28,7 +33,7 @@ text
 
 void* createLinkList(void *arg)
 {
-    Node *strt;
+    Node *start;
     #ifdef DEBUG
         printf("%s: Begin\n",__func__);
     #endif
@@ -38,7 +43,6 @@ void* createLinkList(void *arg)
         printf("%s: Link List is already create.\n",__func__);
         return arg;
     }
-
     
 
     #ifdef DEBUG
@@ -47,3 +51,16 @@ void* createLinkList(void *arg)
 
     return (*fptr[7])(0); //create Node 
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+    Node *strt;
+a16 1
+
+@

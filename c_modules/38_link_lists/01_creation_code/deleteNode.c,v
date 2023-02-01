@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.01.02.26.15;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.01.27.02.29.15;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@function created.
 @
 text
 @#include"headers.h"
@@ -33,7 +38,18 @@ void* deleteNode(void* arg)
     #endif
 
     #ifdef DEBUG
-        printf("%s: End\n");
+        printf("%s: End\n",__func__);
     #endif
     return 0;
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d12 1
+a12 1
+        printf("%s: End\n");
+@

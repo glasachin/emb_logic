@@ -46,6 +46,15 @@ runbinary()
     fi
 }
 
+createLog()
+{
+    filename=log.`date +%y%m%d`
+    for file in $(ls *.h,v *.c,v)
+    do
+        rlog $file >> $filename
+    done
+}
+
 menu()
 {
     echo "__SCRIPT MENU__"
@@ -55,6 +64,7 @@ menu()
     echo "4: Build Program"
     echo "5: Run Application"
     echo "6: Check out for development"
+    echo "7: Create Log"
     echo "0: Exit script"
     echo "Please Enter your choice: "
     read -n1 choice
@@ -76,6 +86,9 @@ menu()
             ;;
         6)
             checkoutDev
+            ;;
+        7)
+            createLog
             ;;
         0)
             exit 0

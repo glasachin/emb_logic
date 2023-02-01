@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.01.02.27.33;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.01.27.02.30.36;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@insert menu function created.
 @
 text
 @#include"headers.h"
@@ -33,11 +38,14 @@ void* insertMenu(void *arg)
     printf("%s __Insert Menu__\n", __func__);
     if(arg)
     {
-        printf("1. Insert at Beginning\n");
-        printf("2. Insert at End\n");
-        printf("3. Insert in between\n");
-        scanf("%d\n", &choice);
-        printf("You have entered %d\n");
+        printf("%s: 1. Insert at Beginning\n",__func__);
+        printf("%s: 2. Insert at End\n",__func__);
+        printf("%s: 3. Insert at the key value\n",__func__);
+        printf("%s: 4. Insert at Nth Location\n",__func__);
+        printf("%s: Enter your choice: \n",__func__);
+        scanf("%d", &choice);
+
+        (*fptr[choice+8])(arg);
         // switch(choice)
         // {
         //     case choice:
@@ -49,4 +57,19 @@ void* insertMenu(void *arg)
     }
     return arg;
 }
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d12 8
+a19 5
+        printf("1. Insert at Beginning\n");
+        printf("2. Insert at End\n");
+        printf("3. Insert in between\n");
+        scanf("%d\n", &choice);
+        printf("You have entered %d\n");
 @

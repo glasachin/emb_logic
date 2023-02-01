@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.02.01.02.27.27;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@function created.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+void* insertKey(void *arg)
+{
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+    
+    #ifdef DEBUG
+        printf("%s: End\n",__func__);
+    #endif
+    return 0;
+}@

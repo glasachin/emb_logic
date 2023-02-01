@@ -14,9 +14,9 @@ void* insertMenu(void *arg)
         printf("%s: 3. Insert at the key value\n",__func__);
         printf("%s: 4. Insert at Nth Location\n",__func__);
         printf("%s: Enter your choice: \n",__func__);
-        scanf("%d\n", &choice);
+        scanf("%d", &choice);
 
-        
+        (*fptr[choice+8])(arg);
         // switch(choice)
         // {
         //     case choice:

@@ -1,4 +1,28 @@
-#include"headers.h"
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.02.01.02.28.06;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@function created.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
 #include"structure.h"
 #include"declarations.h"
 
@@ -12,4 +36,4 @@ void* sortLinkList(void *arg)
         printf("%s: End\n",__func__);
     #endif
     return 0;
-}
+}@

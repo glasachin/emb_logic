@@ -1,4 +1,28 @@
-#include"headers.h"
+head	1.1;
+access;
+symbols;
+locks
+	sachin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2023.02.01.02.26.26;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@function creted for display link list.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
 #include"declarations.h"
 #include"structure.h"
 
@@ -23,4 +47,4 @@ void* displayLinkList(void *arg)
     #endif
 
     return 0;
-}
+}@
