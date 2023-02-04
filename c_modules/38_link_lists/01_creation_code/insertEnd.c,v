@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.04.01.56.55;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.02.01.02.27.18;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@write the logic to insert value at the end.
 @
 text
 @#include"headers.h"
@@ -28,12 +33,29 @@ text
 
 void* insertEnd(void *arg)
 {
+    Node *cur;
     #ifdef DEBUG
         printf("%s: Begin\n",__func__);
     #endif
     
+    cur = (Node*)arg;
+    while(cur->next != NULL)
+        cur = cur->next;
+
+    cur->next = (Node*)(*fptr[7])(0);
+
     #ifdef DEBUG
         printf("%s: End\n",__func__);
     #endif
     return 0;
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+d12 6
+@

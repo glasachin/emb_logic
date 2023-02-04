@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.04.02.14.11;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.02.01.02.27.27;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@Implemented the logic for this.
 @
 text
 @#include"headers.h"
@@ -28,12 +33,45 @@ text
 
 void* insertKey(void *arg)
 {
+    Node *cur, *new;
+    int key;
     #ifdef DEBUG
         printf("%s: Begin\n",__func__);
     #endif
     
+    cur = (Node*)arg;
+    printf("Enter the key value: ");
+    scanf("%d",&key);
+    while((cur->next)->info != key)
+    {
+        cur = cur->next;
+        if(cur->next == NULL)
+        {
+            printf("Key not found! \n");
+            break;
+        }
+    }
+
+    if(cur->next != NULL)
+    {
+        new = (Node*)(*fptr[7])(0);
+        new->next = cur->next;
+        cur->next = new;
+    }
+
+
     #ifdef DEBUG
         printf("%s: End\n",__func__);
     #endif
     return 0;
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 2
+d13 21
+@

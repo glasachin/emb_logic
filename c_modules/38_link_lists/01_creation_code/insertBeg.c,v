@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	sachin:1.1; strict;
+	sachin:1.2; strict;
 comment	@ * @;
 
+
+1.2
+date	2023.02.04.01.56.39;	author sachin;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2023.02.01.02.26.58;	author sachin;	state Exp;
@@ -17,9 +22,9 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@updated the create node typecast
 @
 text
 @#include"headers.h"
@@ -34,7 +39,7 @@ void* insertBeg(void *arg)
     #endif
     // 0th node is treated as a index node. So, beginning is after 0th node
     cur = ((Node*)arg);
-    new = (*fptr[7])(0);
+    new = (Node*)(*fptr[7])(0);
     
     if(cur->next != NULL)
     {
@@ -49,3 +54,14 @@ void* insertBeg(void *arg)
     #endif
     return (void*)arg;
 }@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d13 1
+a13 1
+    new = (*fptr[7])(0);
+@

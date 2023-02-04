@@ -10,7 +10,7 @@ void* insertBeg(void *arg)
     #endif
     // 0th node is treated as a index node. So, beginning is after 0th node
     cur = ((Node*)arg);
-    new = (*fptr[7])(0);
+    new = (Node*)(*fptr[7])(0);
     
     if(cur->next != NULL)
     {
