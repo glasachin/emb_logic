@@ -1,0 +1,87 @@
+head	1.2;
+access;
+symbols;
+locks
+	sachin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2023.02.14.18.46.52;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2023.02.11.17.57.51;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@delete specific key.
+@
+
+
+1.2
+log
+@implemented the logic to delete a node at any key value.
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+void* deleteKey(void *arg)
+{
+    Node *cur, *del;
+    int key;
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+    
+    cur = (Node*)arg;
+    printf("Enter the key value: ");
+    scanf("%d",&key);
+    while((cur->next)->info != key)
+    {
+        cur = cur->next;
+        if(cur->next == NULL)
+        {
+            printf("Key not found! \n");
+            return 0;
+        }
+    }
+
+    del = cur->next;
+    cur->next = del->next;
+    del->next = NULL;
+    free(del);
+
+    #ifdef DEBUG
+        printf("%s: End\n",__func__);
+    #endif
+    return 0;
+}@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+    Node *cur, *new;
+d22 1
+a22 1
+            break;
+d26 4
+a29 7
+    if(cur->next != NULL)
+    {
+        new = (Node*)(*fptr[7])(0);
+        new->next = cur->next;
+        cur->next = new;
+    }
+
+@

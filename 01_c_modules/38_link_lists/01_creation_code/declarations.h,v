@@ -1,10 +1,15 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
 locks
-	sachin:1.2; strict;
+	sachin:1.3; strict;
 comment	@ * @;
 
+
+1.3
+date	2023.02.11.17.57.20;	author sachin;	state Exp;
+branches;
+next	1.2;
 
 1.2
 date	2023.02.01.02.26.12;	author sachin;	state Exp;
@@ -22,13 +27,13 @@ desc
 @
 
 
-1.2
+1.3
 log
-@*** empty log message ***
+@added additional functions.
 @
 text
 @#ifndef NOF
-#define NOF 13
+#define NOF 18
 #endif
 
 int init();
@@ -45,8 +50,25 @@ extern void* insertBeg(void*);
 extern void* insertEnd(void*);
 extern void* insertKey(void*);
 extern void* insertNth(void*);
+extern void* deleteMenu(void*);
+extern void* deleteBeg(void*);
+extern void* deleteEnd(void*);
+extern void* deleteKey(void*);
+extern void* deleteNth(void*);
 
 extern void* (*fptr[NOF])(void*);@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d2 1
+a2 1
+#define NOF 13
+d19 5
+@
 
 
 1.1

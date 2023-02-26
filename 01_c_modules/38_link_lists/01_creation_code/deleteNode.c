@@ -8,6 +8,9 @@ void* deleteNode(void* arg)
         printf("%s: Begin\n",__func__);
     #endif
 
+    // call deleteMenu
+    (*fptr[13])(arg);
+
     #ifdef DEBUG
         printf("%s: End\n",__func__);
     #endif

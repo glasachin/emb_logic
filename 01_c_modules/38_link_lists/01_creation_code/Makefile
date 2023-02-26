@@ -3,11 +3,26 @@
 DF=-DDEBUG
 
 ll: main.o init.o mainMenu.o exitProgram.o createLinkList.o insertNode.o deleteNode.o createNode.o \
-	displayLinkList.o sortLinkList.o insertMenu.o insertBeg.o insertEnd.o insertKey.o insertNth.o
+	displayLinkList.o sortLinkList.o insertMenu.o insertBeg.o insertEnd.o insertKey.o insertNth.o \
+	deleteMenu.o deleteBeg.o deleteEnd.o deleteKey.o deleteNth.o
 	gcc -o ll main.o init.o mainMenu.o exitProgram.o createLinkList.o insertNode.o deleteNode.o \
 	createNode.o displayLinkList.o sortLinkList.o insertMenu.o insertBeg.o insertEnd.o insertKey.o \
-	insertNth.o
+	insertNth.o deleteMenu.o deleteBeg.o deleteEnd.o deleteKey.o deleteNth.o
 
+deleteNth.o: deleteNth.c headers.h structure.h declarations.h
+	gcc ${DF} -c deleteNth.c
+
+deleteKey.o: deleteKey.c headers.h structure.h declarations.h
+	gcc ${DF} -c deleteKey.c
+
+deleteEnd.o: deleteEnd.c headers.h structure.h declarations.h
+	gcc ${DF} -c deleteEnd.c
+
+deleteBeg.o: deleteBeg.c headers.h structure.h declarations.h
+	gcc ${DF} -c deleteBeg.c
+
+deleteMenu.o: deleteMenu.c headers.h structure.h declarations.h
+	gcc ${DF} -c deleteMenu.c
 
 insertNth.o: insertNth.c headers.h structure.h declarations.h 
 	gcc ${DF} -c insertNth.c 

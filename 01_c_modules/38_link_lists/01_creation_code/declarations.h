@@ -1,5 +1,5 @@
 #ifndef NOF
-#define NOF 13
+#define NOF 18
 #endif
 
 int init();
@@ -16,5 +16,10 @@ extern void* insertBeg(void*);
 extern void* insertEnd(void*);
 extern void* insertKey(void*);
 extern void* insertNth(void*);
+extern void* deleteMenu(void*);
+extern void* deleteBeg(void*);
+extern void* deleteEnd(void*);
+extern void* deleteKey(void*);
+extern void* deleteNth(void*);
 
 extern void* (*fptr[NOF])(void*);

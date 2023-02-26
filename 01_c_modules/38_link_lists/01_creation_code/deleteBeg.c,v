@@ -1,0 +1,83 @@
+head	1.2;
+access;
+symbols;
+locks
+	sachin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2023.02.13.18.41.37;	author sachin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2023.02.11.17.57.31;	author sachin;	state Exp;
+branches;
+next	;
+
+
+desc
+@delete node from beginning.
+@
+
+
+1.2
+log
+@implemented logic to delete beginning node.
+@
+text
+@#include"headers.h"
+#include"structure.h"
+#include"declarations.h"
+
+void* deleteBeg(void *arg)
+{
+    Node *cur, *del_node;
+    #ifdef DEBUG
+        printf("%s: Begin\n",__func__);
+    #endif
+    // 0th node is treated as a index node. So, beginning is after 0th node
+    cur = ((Node*)arg);
+    // new = (Node*)(*fptr[7])(0);
+
+    if(cur->next == NULL)
+        printf("There is no node in the list.\n");
+    else
+    {
+        del_node = cur->next;
+        cur->next = del_node->next;
+        del_node->next = NULL;
+        free(del_node);
+    }
+    
+    #ifdef DEBUG
+        printf("%s: End\n",__func__);
+    #endif
+    return (void*)arg;
+}@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+    Node *cur, *new;
+d13 5
+a17 3
+    new = (Node*)(*fptr[7])(0);
+    
+    if(cur->next != NULL)
+d19 4
+a22 2
+        new->next = cur->next;
+        cur->next = new;
+d24 1
+a24 3
+    else
+        ((Node*)arg)->next = new;
+
+@
