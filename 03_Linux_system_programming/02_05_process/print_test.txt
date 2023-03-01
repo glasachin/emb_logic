@@ -1,0 +1,2 @@
+Hi, this is sachin sharma and we are
+testing dup2() call.
