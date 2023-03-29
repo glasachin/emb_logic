@@ -37,6 +37,5 @@ int main()
         strcpy(msg_buf.msg, strcat("Message Number: ", itoa(i)));
         msgsend();
     }
-
 }
 
