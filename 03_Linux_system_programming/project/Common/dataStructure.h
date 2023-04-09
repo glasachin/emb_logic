@@ -1,0 +1,27 @@
+#ifndef FIFONAME
+#define FIFONAME "reqFIFO"
+#endif
+
+#ifndef KEY_SHM
+#define KEY_SHM 2222
+#endif
+
+#ifndef KEY_MQ
+#define KEY_MQ 3333
+#endif
+
+typedef struct
+{
+    /* data */
+    int *pipe; // Pipes
+    char *fifoName; // FIFO
+    int mqKey; //message queue
+    int smKey; // shared memory 
+}Infra;
+
+typedef struct
+{
+    /* data */
+    pid_t cpid;
+    float result;
+}Result;
