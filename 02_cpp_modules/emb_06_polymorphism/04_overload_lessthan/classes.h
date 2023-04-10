@@ -13,5 +13,6 @@ class Rectangle
 		Rectangle(Rectangle & r);
 		int getDimesnion();
 		int computeArea();
+		Rectangle operator < (Rectangle) const;
 };
 
