@@ -1,7 +1,9 @@
-#define NOF 2
+#define NOF 3
 
-void init(void);
+int init(void);
+
 extern void* exitProgram(void*);
 extern void* createInfra(void*);
+extern void* processRequest(void*);
 
 extern void* (*fptr[NOF])(void*);

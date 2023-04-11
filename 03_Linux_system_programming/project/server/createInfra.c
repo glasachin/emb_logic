@@ -86,7 +86,18 @@ void* createInfra(void *arg)
         (*fptr[0])((void*)"failure");
     }
     
+    ret = sem_init(&infra->tsem, 0, 1);
+    if(ret == -1)
+    {
+        perror("msgget");
+        free(infra->pipe);
+        free(infra->fifoName);
+        free(infra->smKey);
+        free(infra->mqKey);
+        (*fptr[0])((void*)"failure");
+    }
     
+
     #ifdef DEBUG
         printf("%s: End.\n", __func__);
     #endif
