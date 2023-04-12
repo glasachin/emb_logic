@@ -2,6 +2,12 @@
 #include"classes.h"
 using namespace std;
 
+point:: point()
+{
+    x = 0;
+    y = 0;
+}
+
 point::point(int x1, int y1)
 {
     x = x1;

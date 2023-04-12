@@ -4,8 +4,8 @@ class point
 {
     int x;
     int y;
-    private:
-        point(){x = 0; y = 0;}
+    public:
+        point();
         point(int x1, int y1);
         point(point & p);
         ~point();
