@@ -3,14 +3,15 @@
 
 Rectangle Rectangle::operator < (Rectangle r1) const
 {
- if(r1.computeArea > r2.computeArea)
- {
-	 cout << "r1 rectangle is bigger" << endl;
-	 return r1;
- }
- else
- {
-	 cout << "r2 rectangle is bigger" << endl;
-	 return r2;
- }
+	if((len*wid) > r1.computeArea())
+	{
+		cout << "rectangle having len : "<< len <<" and width: " << wid <<" is bigger" << endl;
+		
+	}
+	else
+	{
+		cout << "rectangle having len : "<< r1.len <<" and width: " << r1.wid <<" is bigger" << endl;
+		
+	}
+	return r1;
 }
