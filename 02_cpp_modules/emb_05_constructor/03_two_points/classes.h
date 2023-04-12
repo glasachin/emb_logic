@@ -10,5 +10,5 @@ class point
         point(point & p);
         ~point();
         int getPoint(); //do not use void
-        float getDistance(point p1, point p2);
+        float getDistance(point p);
 };
