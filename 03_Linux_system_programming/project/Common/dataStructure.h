@@ -1,5 +1,5 @@
 #ifndef FIFONAME
-#define FIFONAME "reqFIFO"
+#define FIFONAME "./reqFIFO"
 #endif
 
 #ifndef KEY_SHM
@@ -26,3 +26,12 @@ typedef struct
     pid_t cpid;
     float result;
 }Result;
+
+typedef struct
+{
+    /* data */
+    pid_t cpid; // client process PID
+    int opr1; // operand 1
+    int opr2; // operand 2
+    char oper; // operation to perform
+}Request;

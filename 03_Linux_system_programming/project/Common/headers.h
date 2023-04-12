@@ -8,4 +8,5 @@
 #include<sys/shm.h>
 #include<semaphore.h>
 #include<pthread.h>
+#include<fcntl.h>
 
