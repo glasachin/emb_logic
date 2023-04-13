@@ -19,7 +19,7 @@ int main()
         //get semaphore
         sem_wait(&infra->tsem);
         // create thread
-        ret = pthread_create(&thid, NULL, fptr[2], 0);
+        ret = pthread_create(&thid, NULL, fptr[2], (void*)infra);
         if(ret == -1)
         {
             perror("pthread create");

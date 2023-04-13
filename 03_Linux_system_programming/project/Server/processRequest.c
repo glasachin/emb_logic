@@ -35,9 +35,12 @@ void* processRequest(void *arg)
         printf("%s: Read server bytes: %d\n",__func__, ret);
     #endif
 
+    // close the opened FIFO fd
+    close(fd);
+
     // release the semaphore
     sem_post(&infra->tsem);
-
+    printf("Semaphore released\n");
 
     #ifdef DEBUG
         printf("%s: End.\n",__func__);
