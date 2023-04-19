@@ -4,7 +4,8 @@
 
 void* processRequest(void *arg)
 {
-    int fd;
+    char prfd[2];
+    int fd, fret;
     Infra *infra;
     Request r;
     int ret;
@@ -35,13 +36,34 @@ void* processRequest(void *arg)
         printf("%s: Read server bytes: %d\n",__func__, ret);
     #endif
 
-    // close the opened FIFO fd
-    close(fd);
-
     // release the semaphore
     sem_post(&infra->tsem);
     printf("Semaphore released\n");
 
+    // fork to run new operation
+    fret = fork();
+    switch(fret)
+    {
+        case -1:
+            perror("fork");
+            (*fptr[0])((void*)"fialure");
+            break;
+        case 0:
+            sprintf(prfd,"%d",*(infra->pipe)+0);
+            execl("./adder","adder",prfd, NULL);
+            printf("%s: Error: execl() failed\n", __func__, ret);
+        default:
+            ret = write(*(infra->pipe)+1,&r,sizeof(Request));
+            if(ret == -1)
+            {
+                perror("read");
+                (*fptr[0])((void*)"failure");
+            }
+            printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);
+    }
+
+    // close the opened FIFO fd
+    close(fd);
     #ifdef DEBUG
         printf("%s: End.\n",__func__);
     #endif

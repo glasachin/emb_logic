@@ -1,0 +1,1 @@
+extern int obj_count;

@@ -24,5 +24,18 @@ buildServer()
     fi
 }
 
+buildVendors()
+{
+    if(gcc -o adder ./vendors/adder.c -DDEBUG)
+    then
+        echo "adder build successfully"
+        mv ./vendors/adder .
+    else
+        echo "Client build failed"
+        read
+    fi
+}
+
 buildClients
 buildServer
+buildVendors
