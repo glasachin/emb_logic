@@ -1,0 +1,1 @@
+void operator = (dismeter d1, disfeet d2);
