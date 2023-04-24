@@ -31,7 +31,31 @@ buildVendors()
         echo "adder build successfully"
         mv ./vendors/adder .
     else
-        echo "Client build failed"
+        echo "Adder build failed"
+        read
+    fi
+    if(gcc -o subtract ./vendors/subtract.c -DDEBUG)
+    then
+        echo "subtract build successfully"
+        mv ./vendors/subtract .
+    else
+        echo "Subtract build failed"
+        read
+    fi
+    if(gcc -o multiply ./vendors/multiply.c -DDEBUG)
+    then
+        echo "multiply build successfully"
+        mv ./vendors/multiply .
+    else
+        echo "Multiply build failed"
+        read
+    fi
+    if(gcc -o divide ./vendors/divide.c -DDEBUG)
+    then
+        echo "divide build successfully"
+        mv ./vendors/divide .
+    else
+        echo "divide build failed"
         read
     fi
 }

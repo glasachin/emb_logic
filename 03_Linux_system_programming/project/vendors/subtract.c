@@ -29,16 +29,10 @@ int main(int argc, char *argv[])
         perror("read");
         exit(EXIT_FAILURE);
     }
+    
     #ifdef DEBUG
         printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
     #endif
-
-    // adding the operands
-    res = r.opr1 + r.opr2;
-    printf("%s: result is: %d\n",__FILE__, res);
-
-    // Create and attach the shared memory
-    
 
     #ifdef DEBUG
         printf("%s: %s: END.\n",__FILE__, __func__);

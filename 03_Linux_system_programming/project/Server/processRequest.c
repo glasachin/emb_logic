@@ -50,8 +50,38 @@ void* processRequest(void *arg)
             break;
         case 0:
             sprintf(prfd,"%d",*(infra->pipe)+0);
-            execl("./adder","adder",prfd, NULL);
-            printf("%s: Error: execl() failed\n", __func__, ret);
+            // added by me
+            if(r.oper == '+')
+            {
+                printf("Calling Adder\n");
+                execl("./adder","adder",prfd, NULL);
+                printf("%s: Error: execl() failed\n", __func__, ret);
+            }
+            else if(r.oper == '-')
+            {
+                printf("Calling Subtractor\n");
+                execl("./subtract","subtract",prfd, NULL);
+                printf("%s: Error: execl() failed\n", __func__, ret);
+            }
+            else if(r.oper == '*')
+            {
+                printf("Calling Multiplier\n");
+                execl("./multiply","multiply",prfd, NULL);
+                printf("%s: Error: execl() failed\n", __func__, ret);
+            }
+            else if(r.oper == '/')
+            {
+                printf("Calling Divider\n");
+                execl("./divide","divide",prfd, NULL);
+                printf("%s: Error: execl() failed\n", __func__, ret);
+            }
+            else
+            {
+                printf("Wrong Choice\n");
+                exit(EXIT_SUCCESS);
+            }
+                
+            
         default:
             ret = write(*(infra->pipe)+1,&r,sizeof(Request));
             if(ret == -1)
