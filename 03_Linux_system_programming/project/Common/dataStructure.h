@@ -17,6 +17,7 @@ typedef struct
     char *fifoName; // FIFO
     int mqKey; //message queue
     int smKey; // shared memory 
+    void *smptr;
     sem_t tsem;
 }Infra;
 

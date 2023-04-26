@@ -9,6 +9,7 @@ void* processRequest(void *arg)
     Infra *infra;
     Request r;
     int ret;
+    Result *res;
     #ifdef DEBUG
         printf("%s: Begin.\n", __func__);
     #endif
@@ -89,7 +90,21 @@ void* processRequest(void *arg)
                 perror("read");
                 (*fptr[0])((void*)"failure");
             }
-            printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);
+            #ifdef DEBUG
+                printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);
+            #endif
+            res = (Result *)infra->smptr;
+            sleep(3); // just for test
+            #ifdef DEBUG
+                printf("%s:%s: Result  CPID: %d, Result: %0.2f\n", __FILE__,__func__, res->cpid, res->result);
+            #endif
+
+            ret = msgsnd(infra->mqKey, (void*)res, sizeof(float),0);
+            if(ret == -1)
+            {
+                perror("msgsnd");
+                (*fptr[0])((void*)"failure");
+            }
     }
 
     // close the opened FIFO fd

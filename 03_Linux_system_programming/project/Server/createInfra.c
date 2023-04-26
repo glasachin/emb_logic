@@ -73,6 +73,15 @@ void* createInfra(void *arg)
         free(infra);
         (*fptr[0])((void*)"failure");
     }
+    infra->smptr = shmat(infra->smKey, NULL, 0);
+    if(!infra->smptr)
+        {
+            perror("shmget");
+            free(infra->pipe);
+            free(infra->fifoName);
+            free(infra);
+            (*fptr[0])((void*)"failure");
+        }
 
     // Create Message Queue
     infra->mqKey = msgget((key_t)KEY_MQ, IPC_CREAT|0666);
