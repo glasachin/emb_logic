@@ -4,8 +4,8 @@ class disfeet;
 
 class dismeter
 {
-    int meter;
-    int cm;
+    float meter;
+    float cm;
     public:
         dismeter();
         dismeter(int, int);
@@ -16,8 +16,8 @@ class dismeter
 
 class disfeet
 {
-    int feet;
-    int inches;
+    float feet;
+    float inches;
     public:
         disfeet();
         disfeet(int, int);
