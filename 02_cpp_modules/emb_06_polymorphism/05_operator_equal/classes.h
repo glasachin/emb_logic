@@ -10,8 +10,8 @@ class dismeter
         dismeter();
         dismeter(int, int);
         void displayDismeter(void);
-        void operator = (const dismeter, const disfeet);
-        friend void operator = (disfeet, dismeter);
+        void operator = (disfeet);
+        
 };
 
 class disfeet
@@ -22,6 +22,5 @@ class disfeet
         disfeet();
         disfeet(int, int);
         void displayDisfeet(void);
-        friend void operator = (dismeter, disfeet);
-        friend void operator = (disfeet, dismeter );
+        void operator = (dismeter);
 };

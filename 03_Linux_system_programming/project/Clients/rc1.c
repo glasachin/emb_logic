@@ -24,16 +24,22 @@ int main()
     #endif
 
     // writing into fifo
-    r.cpid = getpid();
+    r.cpid = getpid(); // PID of client
+    #ifdef DEBUG
+        printf("%s: PID of client is %d\n",__FILE__,r.cpid);
+    #endif
     r.opr1 = 55;
     r.opr2 = 33;
     r.oper = '+';
-    ret = write(fd, &r, sizeof(Request));
+    ret = write(fd, &r, sizeof(Request)); // writing into fifo
     if(ret == -1)
     {
         perror("write");
         exit(EXIT_FAILURE);
     }
+    #ifdef DEBUG
+        printf("%s: Wrote %d bytes into FIFO.\n", __func__, ret);
+    #endif
 
     // receive data from message queue
     mqKey = msgget((key_t)KEY_MQ, IPC_CREAT|0666);
@@ -43,21 +49,13 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    if((msgrcv(mqKey, (void*)res, sizeof(float), 0, 0)) == -1) // same message type as was in the sender and ignoring the msg type
+    if((msgrcv(mqKey, (void*)res, sizeof(float), r.cpid, 0)) == -1) // same message type as was in the sender and ignoring the msg type
     {
         perror("Message Read");
         exit(EXIT_FAILURE);
     }
 
     printf("CPID: %d, Result is: %0.2f\n",res->cpid,res->result);
-
-    #ifdef DEBUG
-        printf("%s: Wrote %d bytes into FIFO.\n", __func__, ret);
-    #endif
-
-    
-
-
 
     #ifdef DEBUG
         printf("%s: END.\n", __func__);
