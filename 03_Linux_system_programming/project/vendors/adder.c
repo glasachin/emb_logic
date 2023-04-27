@@ -40,10 +40,6 @@ int main(int argc, char *argv[])
         printf("Wrong operand\n");
         return 0;
     }
-    // adding the operands
-    // res.result = r.opr1 + r.opr2;
-    // printf("%s: result is: %d\n",__FILE__, res.result);
-    // res.cpid = r.cpid;
 
     // Create and attach the shared memory
     smid = shmget((key_t)KEY_SHM, sizeof(Result), 0666|IPC_CREAT);

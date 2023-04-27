@@ -40,7 +40,7 @@ int main()
     #ifdef DEBUG
         printf("%s: Wrote %d bytes into FIFO.\n", __func__, ret);
     #endif
-
+    close(fd); // close FIFO fd
     // receive data from message queue
     mqKey = msgget((key_t)KEY_MQ, IPC_CREAT|0666);
     if(mqKey == -1)

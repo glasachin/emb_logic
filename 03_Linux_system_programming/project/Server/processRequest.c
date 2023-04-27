@@ -37,10 +37,6 @@ void* processRequest(void *arg)
         printf("%s: Read server bytes: %d\n",__func__, ret);
     #endif
 
-    // release the semaphore
-    sem_post(&infra->tsem);
-    printf("Semaphore released\n");
-
     // fork to run new operation
     fret = fork();
     switch(fret)
@@ -112,5 +108,9 @@ void* processRequest(void *arg)
     #ifdef DEBUG
         printf("%s: End.\n",__func__);
     #endif
+    
+    // release the semaphore
+    sem_post(&infra->tsem);
+    printf("Semaphore released\n");
     return 0;
 }
