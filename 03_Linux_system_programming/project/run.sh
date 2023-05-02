@@ -10,6 +10,24 @@ buildClients()
         echo "Client build failed"
         read
     fi
+
+    if ( gcc -DDEBUG -o rc2 ./Clients/rc2.c )
+    then
+        echo "Client build successfully"
+        mv ./Clients/rc2 .
+    else
+        echo "Client build failed"
+        read
+    fi
+
+    if ( gcc -DDEBUG -o rc3 ./Clients/rc3.c )
+    then
+        echo "Client build successfully"
+        mv ./Clients/rc3 .
+    else
+        echo "Client build failed"
+        read
+    fi
 }
 
 buildServer()

@@ -2,8 +2,11 @@
 
 DF=-DDEBUG
 
-server: server.o init.o processRequest.o createInfra.o exitProgram.o
-	gcc -o server server.o init.o processRequest.o createInfra.o exitProgram.o
+server: server.o init.o processRequest.o createInfra.o exitProgram.o readResult.o
+	gcc -o server server.o init.o processRequest.o createInfra.o exitProgram.o readResult.o
+
+readResult.o: readResult.c ../Common/headers.h ../Common/dataStructure.h 
+	gcc -c ${DF} readResult.c
 
 server.o: server.c ../Common/headers.h ../Common/dataStructure.h declarations.h
 	gcc -c ${DF} server.c

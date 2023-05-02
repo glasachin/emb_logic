@@ -14,6 +14,14 @@ int main()
     init();
     infra = (Infra*)(*fptr[1])(0); // Create Infra
 
+    // create 
+    ret = pthread_create(&thid, NULL, fptr[3], (void*)infra);
+    if(ret == -1)
+    {
+        perror("pthread create");
+        (*fptr[0])((void*)"Failure");
+    }
+
     while(1)
     {
         //get semaphore
