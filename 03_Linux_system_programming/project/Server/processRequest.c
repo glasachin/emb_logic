@@ -84,12 +84,25 @@ void* processRequest(void *arg)
                 
             
         default:
+            if(sem_wait((sem_t*)infra->smptr1) == -1)
+            {
+                printf("%s : %d: Error sem_wait fail\n",__func__,__LINE__);
+                (*fptr[0])((void*)"failure");
+            } 
+            //use semaphore before writing into pipe
             ret = write(*(infra->pipe)+1,&r,sizeof(Request));
             if(ret == -1)
             {
                 perror("read");
                 (*fptr[0])((void*)"failure");
             }
+
+            if(sem_post((sem_t*)infra->smptr1) == -1)
+            {
+                printf("%s:%d: Error, sem_post() Failed\n",__func__,__LINE__);
+                (*fptr[0])((void*)"failure");
+            }
+
             #ifdef DEBUG
                 printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);
             #endif

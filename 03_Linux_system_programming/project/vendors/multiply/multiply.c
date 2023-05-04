@@ -1,5 +1,5 @@
-#include"../Common/headers.h"
-#include"../Common/dataStructure.h"
+#include"headers.h"
+#include"declarations.h"
 
 
 int main(int argc, char *argv[])
@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     Result *res; 
     int smid;
     void *smptr;
+    pthread_t thid;
     #ifdef DEBUG
         printf("%s:%s: Begin.\n",__FILE__, __func__);
     #endif
@@ -35,10 +36,17 @@ int main(int argc, char *argv[])
         printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
     #endif
 
-    if(r.oper != '/')
+    if(r.oper != '*')
     {
         printf("Wrong operand\n");
         return 0;
+    }
+
+    // create thread
+    if(pthread_create(&thid, 0 , vThreadMultiply, (void*)&r) == -1)
+    {
+        perror("ptrhead_vendor create");
+        exit(EXIT_FAILURE);
     }
 
     // Create and attach the shared memory
@@ -52,7 +60,7 @@ int main(int argc, char *argv[])
     smptr = shmat(smid, NULL, 0);
     res = (Result*)smptr; // result will attach to shared memory
     
-    res->result = (float)(r.opr1 / r.opr2);
+    res->result = (float)(r.opr1 * r.opr2);
     res->cpid = r.cpid;
 
     #ifdef DEBUG

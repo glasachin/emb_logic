@@ -1,5 +1,5 @@
-#include"../Common/headers.h"
-#include"../Common/dataStructure.h"
+#include"headers.h"
+#include"declarations.h"
 
 
 int main(int argc, char *argv[])
@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     Result *res; 
     int smid;
     void *smptr;
+    pthread_t thid;
     #ifdef DEBUG
         printf("%s:%s: Begin.\n",__FILE__, __func__);
     #endif
@@ -39,6 +40,13 @@ int main(int argc, char *argv[])
     {
         printf("Wrong operand\n");
         return 0;
+    }
+
+    // create thread
+    if(pthread_create(&thid, 0 , vThreadSubtract, (void*)&r) == -1)
+    {
+        perror("ptrhead_vendor create");
+        exit(EXIT_FAILURE);
     }
 
     // Create and attach the shared memory
