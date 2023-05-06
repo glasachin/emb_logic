@@ -1,0 +1,3 @@
+/home/sachin/emb_logic/cmake/practice_step_1/step1_ex_3/CMakeFiles/hello_cpp.dir
+/home/sachin/emb_logic/cmake/practice_step_1/step1_ex_3/CMakeFiles/edit_cache.dir
+/home/sachin/emb_logic/cmake/practice_step_1/step1_ex_3/CMakeFiles/rebuild_cache.dir
