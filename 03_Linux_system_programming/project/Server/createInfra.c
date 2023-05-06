@@ -107,6 +107,40 @@ void* createInfra(void *arg)
     }
     
 
+    // create shared memory to store process semaphore
+    // we need to store the semaphore here so size of semaphore
+    infra->smKey1 = shmget((key_t)KEY_SHM1, sizeof(sem_t), IPC_CREAT|0666);
+    if(infra->smKey == -1)
+    {
+        perror("shmget");
+        free(infra->pipe);
+        free(infra->fifoName);
+        free(infra);
+        (*fptr[0])((void*)"failure");
+    }
+    infra->smptr1 = shmat(infra->smKey1, NULL, 0);
+    if(!infra->smptr)
+        {
+            perror("shmget");
+            free(infra->pipe);
+            free(infra->fifoName);
+            free(infra);
+            (*fptr[0])((void*)"failure");
+        }
+
+    // shared semaphore, put it into shared memory
+    ret = sem_init((sem_t*)&infra->smptr1, 1, 1);
+    if(ret == -1)
+    {
+        perror("msgget");
+        free(infra->pipe);
+        free(infra->fifoName);
+        free(infra->smKey);
+        free(infra->mqKey);
+        (*fptr[0])((void*)"failure");
+    }
+
+
     #ifdef DEBUG
         printf("%s: End.\n", __func__);
     #endif

@@ -1,0 +1,1 @@
+void* vThreadMultiply(void *arg);

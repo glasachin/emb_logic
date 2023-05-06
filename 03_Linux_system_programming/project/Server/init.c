@@ -4,6 +4,7 @@
 void* exitProgram(void*);
 void* createInfra(void*);
 void* processRequest(void*);
+void* readResult(void*);
 
 void* (*fptr[NOF])(void*);
 
@@ -17,6 +18,7 @@ int init()
     fptr[0] = exitProgram;
     fptr[1] = createInfra;
     fptr[2] = processRequest;
+    fptr[3] = readResult;
 
     #ifdef DEBUG
         printf("%s: END.\n", __func__);
