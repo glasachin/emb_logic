@@ -10,6 +10,9 @@ int main(int argc, char *argv[])
     int smid;
     void *smptr;
     pthread_t thid;
+
+    DataToProcess data;
+
     #ifdef DEBUG
         printf("%s:%s: Begin.\n",__FILE__, __func__);
     #endif
@@ -19,30 +22,30 @@ int main(int argc, char *argv[])
         printf("Error: Pipe fd not received\n");
         return -1;
     }
-    pfd = atoi(argv[1]);
+    data.pfd = atoi(argv[1]);
     
     #ifdef DEBUG
         printf("%s:%s: Pipe fd: %d \n",__FILE__, __func__, pfd);
     #endif
 
-    ret = read(pfd, &r, sizeof(Request));
-    if(ret == -1)
-    {
-        perror("read");
-        exit(EXIT_FAILURE);
-    }
-    #ifdef DEBUG
-        printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
-    #endif
+    // ret = read(data.pfd, &data.req, sizeof(Request));
+    // if(ret == -1)
+    // {
+    //     perror("read");
+    //     exit(EXIT_FAILURE);
+    // }
+    // #ifdef DEBUG
+    //     printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
+    // #endif
 
-    if(r.oper != '+')
-    {
-        printf("Wrong operand\n");
-        return 0;
-    }
+    // if(data.req.oper != '+')
+    // {
+    //     printf("Wrong operand\n");
+    //     return 0;
+    // }
 
     // create thread
-    if(pthread_create(&thid, 0 , vThreadAdder, (void*)&r) == -1)
+    if(pthread_create(&thid, 0 , vThreadAdder, (void*)&data) == -1)
     {
         perror("ptrhead_vendor create");
         exit(EXIT_FAILURE);
@@ -57,10 +60,10 @@ int main(int argc, char *argv[])
     }
 
     smptr = shmat(smid, NULL, 0);
-    res = (Result*)smptr; // result will attach to shared memory
+    data.res = (Result*)smptr; // result will attach to shared memory
     
-    res->result = (float)(r.opr1 + r.opr2);
-    res->cpid = r.cpid;
+    data.res->result = (float)(r.opr1 + r.opr2);
+    data.res->cpid = r.cpid;
 
     #ifdef DEBUG
         printf("%s: %s: END.\n",__FILE__, __func__);

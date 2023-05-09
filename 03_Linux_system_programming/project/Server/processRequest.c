@@ -97,11 +97,11 @@ void* processRequest(void *arg)
                 (*fptr[0])((void*)"failure");
             }
 
-            if(sem_post((sem_t*)infra->smptr1) == -1)
-            {
-                printf("%s:%d: Error, sem_post() Failed\n",__func__,__LINE__);
-                (*fptr[0])((void*)"failure");
-            }
+            // if(sem_post((sem_t*)infra->smptr1) == -1)
+            // {
+            //     printf("%s:%d: Error, sem_post() Failed\n",__func__,__LINE__);
+            //     (*fptr[0])((void*)"failure");
+            // }
 
             #ifdef DEBUG
                 printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);

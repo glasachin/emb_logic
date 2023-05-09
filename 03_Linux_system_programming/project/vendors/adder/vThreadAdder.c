@@ -13,6 +13,8 @@ void* vThreadAdder(void *arg)
     int smKey1;
     void *smptr1;
     sem_t tsem1;
+    DataToProcess *data;
+
     #ifdef DEBUG
         printf("%s:%s: Begin.\n",__FILE__, __func__);
     #endif
@@ -33,6 +35,8 @@ void* vThreadAdder(void *arg)
     res->cpid = r.cpid;
 */
 
+    data = (DataToProcess*)arg;
+
     smKey1 = shmget((key_t)KEY_SHM1, sizeof(sem_t), IPC_CREAT|0666);
     if(smKey1 == -1)
     {
@@ -51,6 +55,17 @@ void* vThreadAdder(void *arg)
         // free(infra);
         // (*fptr[0])((void*)"failure");
     }
+
+    ret = read(data->pfd, &data->req, sizeof(Request));
+    if(ret == -1)
+    {
+        perror("read pipe");
+        exit(EXIT_FAILURE);
+    }
+    #ifdef DEBUG
+        printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
+    #endif
+
 
     if(sem_post((sem_t*)smptr) == -1)
     {

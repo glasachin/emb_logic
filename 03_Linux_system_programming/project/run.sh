@@ -44,34 +44,38 @@ buildServer()
 
 buildVendors()
 {
-    if(gcc -o adder ./vendors/adder.c -DDEBUG)
+    if(make -C ./vendors/adder)
+    # if(gcc -o adder ./vendors/adder.c -DDEBUG)
     then
         echo "adder build successfully"
-        mv ./vendors/adder .
+        mv ./vendors/adder/adder .
     else
         echo "Adder build failed"
         read
     fi
-    if(gcc -o subtract ./vendors/subtract.c -DDEBUG)
+    if(make -C ./vendors/subtract)
+    # if(gcc -o subtract ./vendors/subtract.c -DDEBUG)
     then
         echo "subtract build successfully"
-        mv ./vendors/subtract .
+        mv ./vendors/subtract/subtract .
     else
         echo "Subtract build failed"
         read
     fi
-    if(gcc -o multiply ./vendors/multiply.c -DDEBUG)
+    if(make -C ./vendors/divide)
+    # if(gcc -o multiply ./vendors/multiply.c -DDEBUG)
     then
         echo "multiply build successfully"
-        mv ./vendors/multiply .
+        mv ./vendors/divide/divide .
     else
         echo "Multiply build failed"
         read
     fi
-    if(gcc -o divide ./vendors/divide.c -DDEBUG)
+    if(make -C ./vendors/multiply)
+    # if(gcc -o divide ./vendors/divide.c -DDEBUG)
     then
         echo "divide build successfully"
-        mv ./vendors/divide .
+        mv ./vendors/multiply/multiply .
     else
         echo "divide build failed"
         read
