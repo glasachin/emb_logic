@@ -119,7 +119,7 @@ void* createInfra(void *arg)
         (*fptr[0])((void*)"failure");
     }
     infra->smptr1 = shmat(infra->smKey1, NULL, 0);
-    if(!infra->smptr)
+    if(!infra->smptr1)
         {
             perror("shmget");
             free(infra->pipe);
@@ -129,7 +129,7 @@ void* createInfra(void *arg)
         }
 
     // shared semaphore, put it into shared memory
-    ret = sem_init((sem_t*)&infra->smptr1, 1, 1);
+    ret = sem_init((sem_t*)infra->smptr1, 1, 1);
     if(ret == -1)
     {
         perror("msgget");

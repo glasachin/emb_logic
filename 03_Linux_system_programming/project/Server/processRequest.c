@@ -39,7 +39,7 @@ void* processRequest(void *arg)
 
     // release the semaphore
     sem_post(&infra->tsem);
-    printf("Semaphore released\n");
+    printf("Process Request Thread Semaphore released\n");
 
     // fork to run new operation
     fret = fork();
@@ -89,6 +89,7 @@ void* processRequest(void *arg)
                 printf("%s : %d: Error sem_wait fail\n",__func__,__LINE__);
                 (*fptr[0])((void*)"failure");
             } 
+            printf("Started the semaphore to process the request from vendor.\n");
             //use semaphore before writing into pipe
             ret = write(*(infra->pipe)+1,&r,sizeof(Request));
             if(ret == -1)
@@ -97,17 +98,11 @@ void* processRequest(void *arg)
                 (*fptr[0])((void*)"failure");
             }
 
-            // if(sem_post((sem_t*)infra->smptr1) == -1)
-            // {
-            //     printf("%s:%d: Error, sem_post() Failed\n",__func__,__LINE__);
-            //     (*fptr[0])((void*)"failure");
-            // }
-
             #ifdef DEBUG
                 printf("%s:%s: Wrote Request %d Bytes \n", __FILE__,__func__, ret);
             #endif
             res = (Result *)infra->smptr;
-            sleep(3); // just for test
+            sleep(10); // just for test
             #ifdef DEBUG
                 printf("%s:%s: Result  CPID: %d, Result: %0.2f\n", __FILE__,__func__, res->cpid, res->result);
             #endif
@@ -115,7 +110,7 @@ void* processRequest(void *arg)
             ret = msgsnd(infra->mqKey, (void*)res, sizeof(float),0);
             if(ret == -1)
             {
-                perror("msgsnd");
+                perror("Process request msgsnd");
                 (*fptr[0])((void*)"failure");
             }
     }

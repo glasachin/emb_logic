@@ -4,7 +4,7 @@
 void* vThreadAdder(void *arg)
 {
     int pfd;
-    Request r;
+    Request req;
     int ret,fd;
     Result *res; 
     int smid;
@@ -13,7 +13,7 @@ void* vThreadAdder(void *arg)
     int smKey1;
     void *smptr1;
     sem_t tsem1;
-    DataToProcess *data;
+    // DataToProcess *data;
 
     #ifdef DEBUG
         printf("%s:%s: Begin.\n",__FILE__, __func__);
@@ -34,44 +34,47 @@ void* vThreadAdder(void *arg)
     res->result = (float)(r.opr1 + r.opr2);
     res->cpid = r.cpid;
 */
-
-    data = (DataToProcess*)arg;
+    pfd = *(int*)arg;
+    // data = (DataToProcess*)arg;
 
     smKey1 = shmget((key_t)KEY_SHM1, sizeof(sem_t), IPC_CREAT|0666);
     if(smKey1 == -1)
     {
-        perror("shmget");
-        // free(infra->pipe);
-        // free(infra->fifoName);
-        // free(infra);
-        // (*fptr[0])((void*)"failure");
-    }
-    smptr1 = shmat(smKey1, NULL, 0);
-    if(!smptr)
-    {
-        perror("shmget");
-        // free(infra->pipe);
-        // free(infra->fifoName);
-        // free(infra);
-        // (*fptr[0])((void*)"failure");
+        perror("vThread error: shmget");
+        exit(EXIT_FAILURE);
     }
 
-    ret = read(data->pfd, &data->req, sizeof(Request));
+    smptr1 = shmat(smKey1, NULL, 0);
+    if(!smptr1)
+    {
+        perror("vThread error: shmat smptr1");
+        exit(EXIT_FAILURE);
+    }
+
+    ret = read(pfd, &req, sizeof(Request));
     if(ret == -1)
     {
-        perror("read pipe");
+        perror("vThread error: read pipe");
         exit(EXIT_FAILURE);
     }
     #ifdef DEBUG
         printf("%s: %s: Read Request %d Bytes.\n",__FILE__, __func__, ret);
     #endif
 
-
-    if(sem_post((sem_t*)smptr) == -1)
+    printf("Received adder operator: \n", req.oper);
+    if(req.oper != '+')
     {
-        perror("sem_post");
+        printf("%s: Wrong operand\n", __FILE__);
+        return 0;
+    }
+
+    // release semaphore
+    if(sem_post((sem_t*)smptr1) == -1)
+    {
+        perror("vThread error: sem_post");
         exit(EXIT_FAILURE);
     }
+    printf("Adder Semaphore released.\n");
 
     #ifdef DEBUG
         printf("%s: %s: END.\n",__FILE__, __func__);

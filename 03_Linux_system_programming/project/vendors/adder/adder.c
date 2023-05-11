@@ -4,13 +4,14 @@
 int main(int argc, char *argv[])
 {
     int pfd;
-    Request r;
-    int ret,fd;
-    Result *res; 
-    int smid;
+//     Request r;
+//     int ret,fd;
+//     Result *res; 
+//     int smid;
     void *smptr;
     pthread_t thid;
-
+    void *thread_result;
+    int ret, smid;
     DataToProcess data;
 
     #ifdef DEBUG
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
         printf("Error: Pipe fd not received\n");
         return -1;
     }
-    data.pfd = atoi(argv[1]);
+    pfd = atoi(argv[1]);
     
     #ifdef DEBUG
         printf("%s:%s: Pipe fd: %d \n",__FILE__, __func__, pfd);
@@ -45,25 +46,27 @@ int main(int argc, char *argv[])
     // }
 
     // create thread
-    if(pthread_create(&thid, 0 , vThreadAdder, (void*)&data) == -1)
+    if(pthread_create(&thid, 0 , vThreadAdder, (void*)&pfd) == -1)
     {
         perror("ptrhead_vendor create");
         exit(EXIT_FAILURE);
     }
 
-    // Create and attach the shared memory
-    smid = shmget((key_t)KEY_SHM, sizeof(Result), 0666|IPC_CREAT);
-    if(smid == -1)
-    {
-        perror("shared memory error");
-        exit(EXIT_FAILURE);
-    }
+    pthread_join(thid, &thread_result);
+    printf("Thread joined: \n");
+    // // Create and attach the shared memory
+    // smid = shmget((key_t)KEY_SHM, sizeof(Result), 0666|IPC_CREAT);
+    // if(smid == -1)
+    // {
+    //     perror("shared memory error");
+    //     exit(EXIT_FAILURE);
+    // }
 
-    smptr = shmat(smid, NULL, 0);
-    data.res = (Result*)smptr; // result will attach to shared memory
+    // smptr = shmat(smid, NULL, 0);
+    // data.res = (Result*)smptr; // result will attach to shared memory
     
-    data.res->result = (float)(r.opr1 + r.opr2);
-    data.res->cpid = r.cpid;
+    // data.res->result = (float)(r.opr1 + r.opr2);
+    // data.res->cpid = r.cpid;
 
     #ifdef DEBUG
         printf("%s: %s: END.\n",__FILE__, __func__);
