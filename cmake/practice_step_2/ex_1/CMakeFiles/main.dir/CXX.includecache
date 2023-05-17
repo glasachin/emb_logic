@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1/main.cxx
+iostream
+-
+functions.h
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1/functions.h
+
+functions/functions.h
+

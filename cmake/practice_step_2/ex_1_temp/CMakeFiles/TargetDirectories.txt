@@ -1,0 +1,6 @@
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/CMakeFiles/rebuild_cache.dir
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/CMakeFiles/edit_cache.dir
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/CMakeFiles/Tutorial.dir
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/MathFunctions/CMakeFiles/rebuild_cache.dir
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/MathFunctions/CMakeFiles/edit_cache.dir
+/home/sachin/emb_logic/cmake/practice_step_2/ex_1_temp/MathFunctions/CMakeFiles/MathFunctions.dir
