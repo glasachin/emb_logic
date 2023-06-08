@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **envp)
     adr_inet.sin_family = AF_INET;
     adr_inet.sin_port = htons(9000);
     inet_aton("127.0.0.24", &adr_inet.sin_addr);
-
+    len_inet = sizeof(adr_inet);
     /*bind the address*/
     z = bind(sck_inet, (struct sockaddr *)&adr_inet, len_inet);
     if(z == -1)
