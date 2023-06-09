@@ -39,4 +39,60 @@ int main(int argc, char **argv)
     }
 
     /*create a UDP socket address*/
+    memset(&adr_srvr, 0, sizeof(adr_srvr));
+    adr_srvr.sin_family = AF_INET;
+    adr_srvr.sin_port = htons(9090);
+    adr_srvr.sin_addr.s_addr = inet_addr(srvr_addr);
+
+
+    if(adr_srvr.sin_addr.s_addr == INADDR_NONE)
+        bail("bad address.");
+
+    len_inet = sizeof(adr_srvr);
+
+    /* create a UDP socket to use */
+    s = socket(AF_INET, SOCK_DGRAM, 0);
+    if(s == -1)
+    {
+        bail("socket()");
+    } 
+
+    for(;;)
+    {
+        fputs("\nEnter format string: ", stdout);
+        if(!fgets(dgram, sizeof(dgram), stdin))
+            break;
+        
+        z = strlen(dgram);
+        if(z > 0 && dgram[-z] == '\n')
+            dgram[z] = 0;
+        
+        /* send format string to server */
+        z = sendto(s, dgram, strlen(dgram), 0, (struct sockaddr *)&adr_srvr, len_inet);
+        if(z < 0)
+            bail("sendto(2)");
+
+        /* test if we asked for a server shutdown */
+        if(!strcasecmp(dgram, "QUIT"))
+            break;
+        
+        /*wait for a response*/
+        x = sizeof(adr);
+        z = recvfrom(s, dgram, sizeof(dgram), 0, (struct sockaddr *)&adr, &x);
+        if(z < 0)
+        {
+            bail("recvfrom(2)");
+        }
+
+        dgram[z] = 0;
+
+        /*report result*/
+        printf("Result from %s port %u: \n\t'%s'\n", inet_ntoa(adr.sin_addr), (unsigned)ntohs(adr.sin_port), dgram);
+
+    }
+
+    /* close socket and exit */
+    close(s);
+    putchar('\n');
+    return 0;
 }
