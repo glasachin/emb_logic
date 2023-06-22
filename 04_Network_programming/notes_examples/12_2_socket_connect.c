@@ -7,8 +7,8 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-#define DEST_IP "127.0.0.1"
-#define DEST_PORT 80
+#define DEST_IP "127.0.0.2"
+#define DEST_PORT 8031
 
 int main(int argc, char *argv[])
 {
