@@ -6,5 +6,7 @@
 #include<stdlib.h>
 #include<semaphore.h>
 #include<pthread.h>
+#include<string.h>
+#include <ctype.h>
 
 #include"declarations.h"

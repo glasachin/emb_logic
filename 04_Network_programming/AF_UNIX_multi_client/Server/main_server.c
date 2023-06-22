@@ -33,7 +33,7 @@ int main()
     // Name the socket
     saf.sun_family = AF_UNIX;
     strcpy(saf.sun_path, "../server_socket");
-    server_len = sizeof(struct sockaddr);
+    server_len = sizeof(struct sockaddr_un);
     ret = bind(sfd, (struct sockaddr *)&saf, server_len);
     if(ret == -1)
     {

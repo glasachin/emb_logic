@@ -7,7 +7,7 @@ int main()
     int len;
     struct sockaddr_un saf;
     int result;
-    char ch = 'A';
+    char ch = 'a';
     
     printf("%s:%s: Begin.\n", __FILE__, __func__);
 
@@ -40,7 +40,10 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    // read(fd, &ch, 1);
+    printf("Writing to server = %c\n", ch);
+    
+    read(fd, &ch, 1);
+    
     printf("char from server = %c\n", ch);
     sleep(2);
     exit(0);

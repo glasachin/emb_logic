@@ -5,6 +5,7 @@ void* processRequest(void *arg)
     int fd, cfd, ret, len;
     int client_len;
     struct sockaddr_un csaf;
+    char ch;
     
 
     printf("%s:%s: Begin.\n", __FILE__, __func__);
@@ -23,6 +24,13 @@ void* processRequest(void *arg)
 
     sem_post(&sem);
     
+    // read and write to client on client_sockfd
+    read(cfd, &ch, 1);
+    // ch++;
+    ch = toupper(ch);
+    write(cfd, &ch, 1);
+
+
     printf("%s:%s: End.\n", __FILE__, __func__);
     return 0;
 }
