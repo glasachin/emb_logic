@@ -42,6 +42,7 @@ int main()
         exit(EXIT_FAILURE);
     }
     printf("%s: bind() Successfull\n", __func__);
+    
     // create a connection queue and wait for clients
     listen(sfd, 5);
 
