@@ -25,7 +25,7 @@ int main()
     my_addr.sin_family = AF_INET;
     /* short, network byete order */
     my_addr.sin_port = htons(MYPORT);
-    my_addr.sin_addr.s_addr = INADDR_ANY;
+    my_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     /*zero the rest of the struct */
     memset(&(my_addr.sin_zero), 0, 8);
     if(bind(sockfd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr)) == -1)

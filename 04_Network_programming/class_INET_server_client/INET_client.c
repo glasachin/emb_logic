@@ -1,4 +1,4 @@
-/* This file implements the AF_INET socket with Connect */
+/* This file implements the AF_INET client with Connect */
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -7,8 +7,8 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-#define DEST_IP "127.0.0.4"
-#define DEST_PORT 8034
+#define DEST_IP "127.0.0.1"
+#define DEST_PORT 7777
 
 int main(int argc, char *argv[])
 {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     dest_addr.sin_family = AF_INET;
     /*short, network byte order*/
     dest_addr.sin_port = htons(DEST_PORT);
-    dest_addr.sin_addr.s_addr = htonl(inet_addr(DEST_IP));
+    dest_addr.sin_addr.s_addr = inet_addr(DEST_IP);
     /*Zero the rest of the struct*/
     memset(&(dest_addr.sin_zero), 0, 8);
     if(connect(sockfd, (struct sockaddr *)&dest_addr, sizeof(struct sockaddr)) == -1)
@@ -39,5 +39,6 @@ int main(int argc, char *argv[])
     else
         printf("connect() is OK...\n");
     
+    while(1);
     return 0;
 }
