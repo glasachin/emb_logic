@@ -57,25 +57,30 @@ int main()
     
     /*....to read the received data....*/
     sin_size = sizeof(struct sockaddr_in);
-    new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
-    if(new_fd = -1)
+    while(1)
     {
-        perror("accept() error ");
-        exit(EXIT_FAILURE);
+        printf("Server waiting\n");
+        new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
+        if(new_fd = -1)
+        {
+            perror("accept() error ");
+            exit(EXIT_FAILURE);
+        }
+        else
+            printf("accept() is ok\n");
+        
+        // read data
+        printf("read data from client: \n");
+        read(new_fd, &ch, 1);
+        printf("data from client: %c\n",ch);
+        ch++;
+        // write back some data
+        printf("sending back data to client: %c\n",ch);
+        write(new_fd, &ch, 1);
+        close(new_fd);
     }
-    else
-        printf("accept() is ok\n");
-    // sleep(5);
-
-    // read data
-    printf("read data from client: \n");
-    read(new_fd, &ch, 1);
-    printf("data from client: %c\n",ch);
-    ch++;
-    // write back some data
-    printf("sending back data to client: %c\n",ch);
-    write(new_fd, &ch, 1);
-    close(new_fd);
+    
+    
     close(sockfd);
     return 0;
 
