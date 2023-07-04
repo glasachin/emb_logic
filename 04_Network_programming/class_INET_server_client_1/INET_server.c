@@ -7,9 +7,9 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-// #define DEST_IP "127.0.0.4"
+// #define DEST_IP "192.168.1.38"
 // #define DEST_PORT 8034
-#define MYPORT 8034
+#define MYPORT 8004
 #define BACKLOG 10
 
 int main()
@@ -38,6 +38,7 @@ int main()
     my_addr.sin_port = htons(MYPORT);
     /*auto-fill with my IP*/
     my_addr.sin_addr.s_addr = htonl(INADDR_ANY); //i.e. it will accept from any address
+     
     /*zero the rest of the struct*/
     memset(&(my_addr.sin_zero), 0, 8);
     if(bind(sockfd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr)) == -1)
