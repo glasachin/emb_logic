@@ -7,7 +7,7 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-#define DEST_IP "192.168.1.38"
+#define DEST_IP "192.168.1.50"
 #define DEST_PORT 8004
 
 int main(int argc, char *argv[])
