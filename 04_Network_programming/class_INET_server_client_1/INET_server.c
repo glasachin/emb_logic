@@ -6,10 +6,11 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netinet/in.h>
+#include<errno.h>
 
 // #define DEST_IP "192.168.1.38"
 // #define DEST_PORT 8034
-#define MYPORT 8004
+#define MYPORT 8008
 #define BACKLOG 10
 
 int main()
@@ -37,8 +38,8 @@ int main()
     /*short, network byte order*/
     my_addr.sin_port = htons(MYPORT);
     /*auto-fill with my IP*/
-    my_addr.sin_addr.s_addr = htonl(INADDR_ANY); //i.e. it will accept from any address
-     
+    // my_addr.sin_addr.s_addr = htonl(INADDR_ANY); //i.e. it will accept from any address
+    my_addr.sin_addr.s_addr = INADDR_ANY;
     /*zero the rest of the struct*/
     memset(&(my_addr.sin_zero), 0, 8);
     if(bind(sockfd, (struct sockaddr *)&my_addr, sizeof(struct sockaddr)) == -1)
@@ -61,10 +62,12 @@ int main()
     while(1)
     {
         printf("Server waiting\n");
-        new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
+        new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size, 0);
         if(new_fd = -1)
         {
-            perror("accept() error ");
+            perror("accept() error \n");
+            fprintf(stdout, "%s: write(2)\n",strerror(errno));
+            printf("%s: write(2)\n",strerror(errno));
             exit(EXIT_FAILURE);
         }
         else

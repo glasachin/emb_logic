@@ -6,9 +6,10 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netinet/in.h>
+#include"../common/headers.h"
 
-#define DEST_IP "192.168.1.38"
-#define DEST_PORT 8008
+// #define DEST_IP "192.168.1.38"
+// #define DEST_PORT 8008
 
 int main(int argc, char *argv[])
 {
@@ -42,7 +43,7 @@ int main(int argc, char *argv[])
         printf("connect() is OK...\n");
     
     //write some data to server
-    ch = 'A';
+    ch = 'AB';
     write(cfd, &ch, 1);
     // read data 
     read(cfd, &ch, 1);
