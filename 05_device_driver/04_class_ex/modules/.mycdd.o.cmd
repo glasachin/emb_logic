@@ -1,0 +1,1 @@
+cmd_/home/sachin/emb_logic/05_device_driver/04_class_ex/mycdd.o := ld  -m elf_x86_64 -z noexecstack     -r -o /home/sachin/emb_logic/05_device_driver/04_class_ex/mycdd.o /home/sachin/emb_logic/05_device_driver/04_class_ex/initFunc.o /home/sachin/emb_logic/05_device_driver/04_class_ex/exitFunc.o
