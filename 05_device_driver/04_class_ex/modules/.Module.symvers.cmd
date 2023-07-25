@@ -1,1 +1,0 @@
-cmd_/home/sachin/emb_logic/05_device_driver/04_class_ex/Module.symvers := sed 's/\.ko$$/\.o/' /home/sachin/emb_logic/05_device_driver/04_class_ex/modules.order | scripts/mod/modpost -m -a  -o /home/sachin/emb_logic/05_device_driver/04_class_ex/Module.symvers -e -i Module.symvers   -T -

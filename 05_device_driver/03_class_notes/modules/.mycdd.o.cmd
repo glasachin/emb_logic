@@ -1,1 +1,0 @@
-savedcmd_/home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.o := ld -m elf_x86_64 -z noexecstack   -r -o /home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.o @/home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.mod 

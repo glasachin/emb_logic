@@ -1,1 +1,0 @@
-cmd_/home/sachin/emb_logic/05_device_driver/04_class_ex/mycdd.mod := { echo  /home/sachin/emb_logic/05_device_driver/04_class_ex/initFunc.o /home/sachin/emb_logic/05_device_driver/04_class_ex/exitFunc.o;  echo; } > /home/sachin/emb_logic/05_device_driver/04_class_ex/mycdd.mod

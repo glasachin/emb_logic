@@ -1,1 +1,0 @@
-savedcmd_/home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.ko /home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.o /home/sachin/emb_logic/05_device_driver/03_class_notes/mycdd.mod.o;  true

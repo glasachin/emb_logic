@@ -37,7 +37,8 @@ static int __init myDevInit(void)
     }
 
     memset(dev, '\0', sizeof(Dev));
-
+    // device initialization
+    cdev_init();
     // printk(KERN_INFO "hello Kernel!!\n");
     printk(KERN_INFO "%s: End\n", __func__);
     return 0;
