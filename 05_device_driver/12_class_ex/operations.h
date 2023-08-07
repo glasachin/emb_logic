@@ -1,0 +1,5 @@
+struct file_operations fops=
+{
+    open:openDevice,
+    release : releaseDevice
+};
