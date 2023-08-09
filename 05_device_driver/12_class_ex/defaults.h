@@ -6,6 +6,10 @@
 #define CDDNAME "MyCharDev"
 #endif
 
+#ifndef DEVNAME
+#define DEVNAME "mycdd"
+#endif
+
 #ifndef MAJORNO
 #define MAJORNO 0
 #endif
@@ -15,5 +19,5 @@
 #endif
 
 #ifndef NOD
-#define NOD 20
+#define NOD 1
 #endif

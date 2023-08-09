@@ -1,7 +1,7 @@
 #include"headers.h"
 #include"defaults.h"
-#include"operations.h"
 #include"declarations.h"
+#include"operations.h"
 
 dev_t devid, devno;
 int majorNo, minorNo, nod;
@@ -25,6 +25,7 @@ static int __init myDevInit(void)
     if(ret == -1)
     {
         printk(KERN_ERR "%s: Error: Device Registration Failed\n", __func__);
+        goto OUT;
     }
     
     majorNo = MAJOR(devid);
@@ -36,20 +37,25 @@ static int __init myDevInit(void)
     if(!dev)
     {
         printk(KERN_ERR "%s: Error Device memory allocation failed \n", __func__);
-        return -1;
+        // return -1;
+        goto OUT;
     }
 
-    memset(dev, '\0', sizeof(Dev));
+    memset(dev, '\0', sizeof(Dev)*nod);
+    
     // device initialization
     for(i = 0; i < nod; i++)
     {
         cdev_init(&dev[i].c_dev, &fops);
+        dev[i].owner = THIS_MODULE;
+        dev[i].ops = &fops;
         devno = MKDEV(majorNo, i);
         ret = cdev_add(&dev[i].c_dev, devno, 1);
         if(ret == -1)
         {
             printk(KERN_ERR "%s: Error cdev_add() Failed.\n", __func__);
-            return -1;
+            // return -1;
+            goto OUT;
         }
         // minorNo = MINOR(devno);
         // printk(KERN_INFO "%s: Device Registration successful. Minor No: %d\n", __func__, minorNo);
@@ -59,6 +65,10 @@ static int __init myDevInit(void)
     // printk(KERN_INFO "hello Kernel!!\n");
     printk(KERN_INFO "%s: End\n", __func__);
     return 0;
+
+    OUT:
+        printk(KERN_ERR "%s: Error \n", __func__);
+        return -1;
 }
 
 module_init(myDevInit);
