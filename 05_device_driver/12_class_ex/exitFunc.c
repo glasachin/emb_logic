@@ -1,7 +1,7 @@
 #include"headers.h"
 #include"defaults.h"
 #include"declarations.h"
-#include"operations.h"
+//#include"operations.h"
 
 //Cleanup Function
 static void __exit myDevExit(void)
@@ -19,7 +19,7 @@ static void __exit myDevExit(void)
     // unregister_chrdev(majorNo, "MyCharDriver");
     unregister_chrdev_region(devid, nod);
     printk(KERN_INFO "Bye for Now!!\n");
-    return 0;
+    return ;
 }
 
 module_exit(myDevExit);

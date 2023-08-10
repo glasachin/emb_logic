@@ -6,6 +6,7 @@
 dev_t devid, devno;
 int majorNo, minorNo, nod;
 Dev *dev;
+//struct file_operations fops;
 // Initialization function. Here we have nod = 20, i.e. 20 devices
 // and then assign memory for them using kmalloc
 
@@ -47,8 +48,8 @@ static int __init myDevInit(void)
     for(i = 0; i < nod; i++)
     {
         cdev_init(&dev[i].c_dev, &fops);
-        dev[i].owner = THIS_MODULE;
-        dev[i].ops = &fops;
+        //dev[i].owner = THIS_MODULE;
+        //dev[i].ops = &fops;
         devno = MKDEV(majorNo, i);
         ret = cdev_add(&dev[i].c_dev, devno, 1);
         if(ret == -1)

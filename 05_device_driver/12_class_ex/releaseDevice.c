@@ -1,7 +1,7 @@
 #include"headers.h"
 #include"defaults.h"
 #include"declarations.h"
-#include"operations.h"
+//#include"operations.h"
 
 int releaseDevice(struct inode *inode, struct file *file)
 {
