@@ -42,7 +42,7 @@ static int __init myDevInit(void)
         goto OUT;
     }
 
-    memset(dev, '\0', sizeof(Dev)*nod);
+    memset(dev, '\0', sizeof(Dev));
     
     // device initialization
     for(i = 0; i < nod; i++)
