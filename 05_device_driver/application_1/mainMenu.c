@@ -14,7 +14,7 @@ void* mainMenu(void *arg)
 
     if(i == 0)
     {
-        ret = pthread_create(&thid, 0, fptr[1], 0); // creating a thread for exit function
+        ret = pthread_create(&thid, 0, fptr[1], (void*)"success"); // creating a thread for exit function
         if(ret == -1)
         {
             perror("pthread_create ");
@@ -23,7 +23,15 @@ void* mainMenu(void *arg)
         //(*fptr[i+1])((void*)"success");
     }
     if((i >= 1) && ( i <= 2))
-        (*fptr[i+1])(0);
+    {
+        ret = pthread_create(&thid, 0, fptr[i+1], 0);
+        if(ret == -1)
+        {
+            perror("Pthread_create ");
+            (*fptr[1])((void*)"failure");
+        }   
+        // (*fptr[i+1])(0);
+    }
     
     printf("%s: End\n", __func__);
     return 0;
