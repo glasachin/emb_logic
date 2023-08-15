@@ -22,7 +22,7 @@ void* openDev(void *arg)
     // }
 
     // opening device
-    fd = open("./myDev2", O_WRONLY);
+    fd = open("./mydev", O_WRONLY);
     if(fd < 0)
     {
         perror("Open Dev");

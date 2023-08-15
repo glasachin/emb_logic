@@ -1,8 +1,8 @@
 INSTALL_DIR=modules
 ifneq (${KERNELRELEASE},)
-	obj-m := mycdd.o
+	obj-m := myCDD.o
 
-mycdd-objs := initFunc.o exitFunc.o
+myCDD-objs := initFunc.o exitFunc.o
 
 else
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build

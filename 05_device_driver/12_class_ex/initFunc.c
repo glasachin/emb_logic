@@ -19,7 +19,6 @@ static int __init myDevInit(void)
 
     majorNo = MAJORNO;
     minorNo = MINORNO;
-    // nod = NOD;
 
     // register device driver into the kernel's device table
     ret = alloc_chrdev_region(&devid, minorNo, nod, CDDNAME);
@@ -42,14 +41,14 @@ static int __init myDevInit(void)
         goto OUT;
     }
 
-    memset(dev, '\0', sizeof(Dev));
+    memset(dev, '\0', sizeof(Dev)*nod);
     
     // device initialization
     for(i = 0; i < nod; i++)
     {
         cdev_init(&dev[i].c_dev, &fops);
-        //dev[i].owner = THIS_MODULE;
-        //dev[i].ops = &fops;
+        dev[i].c_dev.owner = THIS_MODULE;
+        dev[i].c_dev.ops = &fops;
         devno = MKDEV(majorNo, i);
         ret = cdev_add(&dev[i].c_dev, devno, 1);
         if(ret == -1)
