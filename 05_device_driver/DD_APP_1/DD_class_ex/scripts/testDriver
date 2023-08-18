@@ -1,0 +1,22 @@
+#! /bin/bash
+
+source ./mainMenu
+source ./buildCDD
+
+while true
+do
+    mainMenu
+    case $? in # '?' (environment variable) contains the value returned from 'mainMenu'
+        '0')
+            exit;
+            ;;
+        '1')
+            buildCDD;
+            ;;
+        '2')
+            insertcdd $1;
+            ;;
+        *)
+            echo "Invalid Choice"
+    esac
+done
