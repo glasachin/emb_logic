@@ -3,7 +3,7 @@
 #include"declarations.h"
 //#include"operations.h"
 
-int openDevice(struct inode *inode, struct file *file)
+int openDevice(struct inode *inode, struct file *filep)
 {
     Dev *ldev;
 
@@ -19,7 +19,6 @@ int openDevice(struct inode *inode, struct file *file)
         goto OUT;
     }
 
-    /*
     filep->private_data = ldev;
     if((filep->f_flags & O_ACCMODE) == O_WRONLY)
         filep->f_pos = 0;
@@ -30,9 +29,9 @@ int openDevice(struct inode *inode, struct file *file)
     else
     {
         printk(KERN_INFO "%s: Invalid Device Open Mode \n", __func__);
-        goto OUT:
+        goto OUT;
     }
-    */
+    
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);
     #endif
