@@ -1,0 +1,13 @@
+#! /bin/bash
+
+buildCDD()
+{
+    echo
+    if ( make -C ..)
+    then
+        echo "Driver Build Successfully"
+    else
+        echo "Error: Driver Build Failed"
+        read
+    fi
+}
