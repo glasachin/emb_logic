@@ -14,4 +14,6 @@ default:
 	@mv -f *.o *.ko *.mod.c .*.cmd ${INSTALL_DIR}
 clean:
 	rm -rf ${INSTALL_DIR}
+	rm -f *.o
+	
 endif

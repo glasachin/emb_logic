@@ -1,13 +1,6 @@
 #! /bin/bash
 
-buildCDD()
+insertCDD()
 {
-    echo
-    if ( make -C ..)
-    then
-        echo "Driver Build Successfully"
-    else
-        echo "Error: Driver Build Failed"
-        read
-    fi
+    insmod ../modules/mycdd.ko nod=$1
 }

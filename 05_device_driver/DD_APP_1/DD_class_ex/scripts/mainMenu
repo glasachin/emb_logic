@@ -10,6 +10,8 @@ mainMenu()
     echo "5: Build Application"
     echo "6: Test Driver with Application"
     echo "7: Remove Character Driver"
+    echo "8: Clean Build UP"
+    echo "0: Exit Main Menu"
     echo "Please Enter Your Choice: " 
     read resp
     return $resp

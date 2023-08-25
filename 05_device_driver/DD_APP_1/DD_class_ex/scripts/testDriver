@@ -1,7 +1,20 @@
 #! /bin/bash
 
+# This is the main script which needs to be run.
+# If there is any error while running the script, run as:
+#  bash testDriver
+#  we need to give the number of devices during run
+# i.e. bash ./testDriver 10
+
 source ./mainMenu
 source ./buildCDD
+source ./insertCDD
+source ./checkcddmsg
+source ./creatdevicenode
+source ./buildapplication
+source ./testDriverwithAppl
+source ./removeDriver
+source ./
 
 while true
 do
@@ -14,7 +27,27 @@ do
             buildCDD;
             ;;
         '2')
-            insertcdd $1;
+            insertCDD $1;
+            ;;
+        '3')
+            checkcddmsg;
+            ;;
+        '4')
+            echo "Enter Major No"
+            read majorno
+            creatdevicenode $majorno
+            ;;
+        '5')
+            buildapplication;
+            ;;
+        '6')
+            testDriverwithAppl;
+            ;;
+        '7')
+            removeDriver;
+            ;;
+        '8')
+            clenUp;
             ;;
         *)
             echo "Invalid Choice"
