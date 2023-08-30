@@ -1,0 +1,6 @@
+#! /bin/bash
+
+insertCDD()
+{
+    insmod ../modules/mycdd.ko nod=$1
+}

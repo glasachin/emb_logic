@@ -1,5 +1,14 @@
 extern dev_t devid, devno;
 extern int majorNo, minorNo, nod;
+extern int size-of-device, no-of-reg, size-of-reg;
+
+// it tells the device architecture i.e. number of devices etc.
+// we also tells device related info, protocols etc.
+typedef struct item
+{
+    struct item *next;
+    void **data;
+}Item;
 
 // user defined data structure
 // it will describe the hardware device architecture
@@ -8,6 +17,10 @@ typedef struct Device
     int MajorNo;
     int MinorNo;
     struct cdev c_dev; // available in cdev header file
+    struct Item *itemptr;
+    int size-of-device;
+    int no-of-reg;
+    int size-of-reg;
 }Dev;
 
 extern Dev *dev;
