@@ -53,10 +53,9 @@ static int __init myDevInit(void)
         cdev_init(&dev[i].c_dev, &fops);
         dev[i].c_dev.owner = THIS_MODULE;
         dev[i].c_dev.ops = &fops;
-        dev[i].size-of-device = size-of-device;
-        dev[i].no-of-reg = no-of-reg;
-        dev[i].size-of-reg = size-of-reg;
-
+        dev[i].size_of_device = size_of_device;
+        dev[i].no_of_reg = no_of_reg;
+        dev[i].size_of_reg = size_of_reg;
         devno = MKDEV(majorNo, i);
         ret = cdev_add(&dev[i].c_dev, devno, 1);
         if(ret == -1)

@@ -17,10 +17,11 @@ typedef struct Device
     int MajorNo;
     int MinorNo;
     struct cdev c_dev; // available in cdev header file
-    struct Item *itemptr;
-    int size-of-device;
-    int no-of-reg;
-    int size-of-reg;
+    // struct Item *itemptr;
+    Item *first;
+    int size_of_device;
+    int no_of_reg;
+    int size_of_reg;
 }Dev;
 
 extern Dev *dev;
