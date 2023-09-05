@@ -31,7 +31,11 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
     {
         lsize = ldev->size_of_device;
     }
-
+    else    
+        lsize = size;
+    
+    // ldev->first = creatScull(lsize);
+    
     size_of_item = ldev->no_of_reg * ldev->size_of_reg;
     no_of_items = lsize / size_of_item;
 
@@ -62,22 +66,44 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
     }
 
     itemPtr = ldev->first;
-    itemPtr->data = (void**)kmalloc(sizeof(char*)*ldev->no_of_reg, GFP_KERNEL)
-    if(!itemPtr->data)
+
+    for(i = 0; i < no_of_items; i++)
     {
-        #ifdef DEBUG
-            printk(KERN_ERR "%s: Error, kmalloc() failure\n", __func__);
-        #endif
-        goto OUT;
+        itemPtr->data = (void**)kmalloc(sizeof(char*)*ldev->no_of_reg, GFP_KERNEL)
+        if(!itemPtr->data)
+        {
+            #ifdef DEBUG
+                printk(KERN_ERR "%s: Error, kmalloc() failure\n", __func__);
+            #endif
+            goto OUT;
+        }
+        memset(itemPtr->data,'\0', sizeof(char*)*ldev->no_of_reg);
+        itemPtr = itemPtr->next;
     }
-    memset(itemPtr->data,'\0', sizeof(char*)*ldev->no_of_reg);
 
     // number of quantums
     noq = lsize / ldev->size_of_reg;
     if(lsize % ldev->size_of_reg)
         noq++;
     
-
+    for(l = i = 0; l < noq; l++)
+    {
+        itemPtr->data[i] = kmalloc(size_of_reg, GFP_KERNEL);
+        if(!itemPtr->data[i])
+        {
+            #ifdef DEBUG
+                printk(KERN_ERR "%s: Error, kmalloc() failure\n", __func__);
+            #endif
+            goto OUT;
+        }
+        if(i == ldef->no_of_reg -1)
+        {
+            itemPtr = itemPtr->next;
+            i = 0;
+        }
+        else
+            i++;
+    }
 
     RET:
     #ifdef DEBUG
