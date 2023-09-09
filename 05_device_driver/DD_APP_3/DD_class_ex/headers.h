@@ -5,6 +5,7 @@
 #include<linux/cdev.h>
 #include<linux/moduleparam.h>
 #include<linux/kernel.h>
+#include<linux/uaccess.h>
 
 MODULE_LICENSE("GNU/GPL");
 MODULE_AUTHOR("sachin");

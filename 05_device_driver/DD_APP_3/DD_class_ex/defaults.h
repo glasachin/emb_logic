@@ -34,3 +34,7 @@
 #ifndef REGSIZE
 #define REGSIZE 4
 #endif
+
+#ifndef DATASIZE
+#define  0
+#endif

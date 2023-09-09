@@ -24,6 +24,8 @@ static int __init myDevInit(void)
     majorNo = MAJORNO;
     minorNo = MINORNO;
 
+    size_of_data = DATASIZE;
+
     // register device driver into the kernel's device table
     ret = alloc_chrdev_region(&devid, minorNo, nod, CDDNAME);
     if(ret == -1)
@@ -56,6 +58,7 @@ static int __init myDevInit(void)
         dev[i].size_of_device = size_of_device;
         dev[i].no_of_reg = no_of_reg;
         dev[i].size_of_reg = size_of_reg;
+        dev[i].size_of_data = size_of_data;
         devno = MKDEV(majorNo, i);
         ret = cdev_add(&dev[i].c_dev, devno, 1);
         if(ret == -1)
