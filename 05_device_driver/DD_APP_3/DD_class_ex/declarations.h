@@ -1,6 +1,6 @@
 extern dev_t devid, devno;
 extern int majorNo, minorNo, nod;
-extern int size-of-device, no-of-reg, size-of-reg, size_of_data;
+extern int size_of_device, no_of_reg, size_of_reg, size_of_data;
 
 // it tells the device architecture i.e. number of devices etc.
 // we also tells device related info, protocols etc.

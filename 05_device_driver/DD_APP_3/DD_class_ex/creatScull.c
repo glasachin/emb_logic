@@ -5,7 +5,8 @@
 
 Item* creatScull(size_t lsize)
 {
-    Dev *ldev;
+    // Dev *ldev;
+    int l, i;
     //size_t lsize;
     Item *first, *itemPtr;
     int size_of_item, no_of_items, noq;
@@ -48,7 +49,7 @@ Item* creatScull(size_t lsize)
 
     for(i = 0; i < no_of_items; i++)
     {
-        itemPtr->data = (void**)kmalloc(sizeof(char*)*no_of_reg, GFP_KERNEL)
+        itemPtr->data = (void**)kmalloc(sizeof(char*)*no_of_reg, GFP_KERNEL);
         if(!itemPtr->data)
         {
             #ifdef DEBUG
@@ -86,7 +87,7 @@ Item* creatScull(size_t lsize)
             i++;
     }
 
-    RET:
+    // RET:
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);
     #endif

@@ -2,5 +2,6 @@
 
 insertCDD()
 {
-    insmod ../modules/mycdd.ko nod=$1
+    # insmod ../modules/mycdd.ko nod=$1 
+    insmod ../modules/mycdd.ko nod=$1 size_of_device=128 no_of_reg=4 size_of_reg=4
 }

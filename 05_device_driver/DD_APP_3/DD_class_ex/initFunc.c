@@ -6,15 +6,15 @@
 dev_t devid, devno;
 int majorNo, minorNo, nod;
 Dev *dev;
-int size-of-device, no-of-reg, size-of-reg;
+int size_of_device, no_of_reg, size_of_reg, size_of_data;
 //struct file_operations fops;
 // Initialization function. Here we have nod = 20, i.e. 20 devices
 // and then assign memory for them using kmalloc
 
 module_param(nod, int, S_IRUGO);
-module_param(size-of-device, int, S_IRUGO);
-module_param(no-of-reg, int, S_IRUGO);
-module_param(size-of-reg, int, S_IRUGO);
+module_param(size_of_device, int, S_IRUGO);
+module_param(no_of_reg, int, S_IRUGO);
+module_param(size_of_reg, int, S_IRUGO);
 
 static int __init myDevInit(void)
 {

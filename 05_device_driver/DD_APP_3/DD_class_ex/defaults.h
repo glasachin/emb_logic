@@ -36,5 +36,5 @@
 #endif
 
 #ifndef DATASIZE
-#define  0
+#define  DATASIZE 0
 #endif

@@ -10,7 +10,7 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
     Dev *ldev;
     size_t lsize;
     Item *curr;
-    int size_of_item, no_of_items;
+    // int size_of_item, no_of_items;
 
     #ifdef DEBUG
     printk(KERN_INFO "Begin: %s\n", __func__);
@@ -47,7 +47,7 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
     {
         if(noctw > ldev->size_of_reg)
             noctw = ldev->size_of_reg;
-        not = copy_from_user(curr->data[i], ubuff + nocsw, noctw)
+        not = copy_from_user(curr->data[i], ubuff + nocsw, noctw);
         if(not == -1)
         {
             printk(KERN_ERR "%s: copy_from_user() failure\n", __func__);
@@ -58,7 +58,7 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
         if(i == ldev->no_of_reg-1)
         {
             curr = curr->next;
-            i = 0
+            i = 0;
         }
         else
             i++;
