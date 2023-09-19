@@ -30,6 +30,7 @@ void* openDev(void *arg)
     else if (strncmp((char*)arg, "reading",7)==0)
     {
         fd = open("./mydev", O_RDONLY);
+        (*fptr[5])(NULL);
     }
     
     if(fd < 0)
