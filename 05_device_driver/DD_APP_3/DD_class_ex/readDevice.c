@@ -72,7 +72,8 @@ ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *
             i++;
     }
 
-
+    printk(KERN_INFO "%s: Read data: %s\n", __func__, ubuff);
+    
     RET:
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);

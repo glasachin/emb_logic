@@ -48,6 +48,7 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
         if(noctw > ldev->size_of_reg)
             noctw = ldev->size_of_reg;
         not = copy_from_user(curr->data[i], ubuff + nocsw, noctw);
+        printk(KERN_ERR "%s: copy_from_user() output: %d\n", __func__, not);
         if(not == -1)
         {
             printk(KERN_ERR "%s: copy_from_user() failure\n", __func__);

@@ -4,3 +4,6 @@ as moving forward
 In this we do upto the following:
     writing function call 
     reading function call
+
+
+we write into device node using application and then read the same data from application. So basically, it completes the read and write operation using driver.
