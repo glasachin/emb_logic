@@ -1,0 +1,12 @@
+#! /bin/bash
+
+clenUp()
+{
+    # if ( make clean -C ../../application)
+    # then
+    #     echo "Application Build Successfully"
+    # else
+    #     echo "Error: Application Build Failed"
+    #     read
+    # fi
+}

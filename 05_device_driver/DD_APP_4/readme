@@ -1,0 +1,14 @@
+This folder will contain the Device Driver and Application code together. We will be updating the numbers
+as moving forward
+
+In this we do upto the following:
+    writing function call 
+    reading function call
+
+
+we write into device node using application and then read the same data from application. So basically, it completes the read and write operation using driver.
+
+## DD_APP_4
+scull is created on one write command. but if write command again issued the same scull will be used which can be problematic in case if new write bytes are less or larger in numbers.
+
+So, new function is used to trim the SCULL.

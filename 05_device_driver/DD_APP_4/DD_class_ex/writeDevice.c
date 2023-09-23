@@ -36,7 +36,11 @@ ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, l
     else    
         noctw = lsize = size;
     
-    curr = ldev->first = creatScull(lsize); // It creates the structure and returns the address of first element
+    // if ldev points to NULL only then create SCULL
+    if(ldev->first || ldev->size_of_data > 0)
+        trimDevice(ldev);
+    curr = ldev->first = creatScull(lsize); 
+    
 
     // number of quantums
     noq = lsize / ldev->size_of_reg;
