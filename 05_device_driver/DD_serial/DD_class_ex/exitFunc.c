@@ -15,8 +15,10 @@ static void __exit myDevExit(void)
         cdev_del(&dev[i].c_dev);
     }
     // cdev_del(&dev->c_dev);
+    release_region(SERIAL_ADDRESS, SERIAL_ADD_LEN);
     kfree(dev);
     // unregister_chrdev(majorNo, "MyCharDriver");
+
     unregister_chrdev_region(devid, nod);
     printk(KERN_INFO "Bye for Now!!\n");
     return ;

@@ -79,6 +79,12 @@ static int __init myDevInit(void)
         release_region(SERIAL_ADDRESS, SERIAL_ADD_LEN);
 
         // request region
+        request_region(SERIAL_ADDRESS, SERIAL_ADD_LEN, CDDNAME);
+
+        // Set Baud Rate
+        set_baud_rate();
+
+        initialize_registers();
 
         // printk(KERN_INFO "%s: Device Registration successful. Minor No: %d\n", __func__, minorNo);
         printk(KERN_INFO "%s: Device Registration successful. Minor No: %d\n", __func__, MINOR(dev[i].c_dev.dev));
@@ -96,3 +102,32 @@ static int __init myDevInit(void)
 }
 
 module_init(myDevInit);
+
+int set_baud_rate(void)
+{
+    #ifdef DEBUG
+        printk(KERN_INFO "Begin: %s\n", __func__);
+    #endif
+
+    outb(0x83, LCR);
+    outb(0x03, DLL);
+    outb(0x00, DLM);
+
+    #ifdef DEBUG
+        printk(KERN_INFO "End: %s\n", __func__);
+    #endif
+    return 0;
+}
+
+int initialize_registers(void)
+{
+    #ifdef DEBUG
+        printk(KERN_INFO "Begin: %s\n", __func__);
+    #endif
+
+
+    #ifdef DEBUG
+        printk(KERN_INFO "End: %s\n", __func__);
+    #endif
+    return 0;
+}
