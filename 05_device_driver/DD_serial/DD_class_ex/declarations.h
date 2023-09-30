@@ -32,4 +32,3 @@ int releaseDevice(struct inode *, struct file *);
 ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, loff_t *loff);
 ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *loff);
 Item* creatScull(size_t);
-int trimDevice(Dev*);

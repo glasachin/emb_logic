@@ -11,15 +11,20 @@ int size_of_device, no_of_reg, size_of_reg, size_of_data;
 // Initialization function. Here we have nod = 20, i.e. 20 devices
 // and then assign memory for them using kmalloc
 
-module_param(nod, int, S_IRUGO);
-module_param(size_of_device, int, S_IRUGO);
-module_param(no_of_reg, int, S_IRUGO);
-module_param(size_of_reg, int, S_IRUGO);
+// module_param(nod, int, S_IRUGO);
+// module_param(size_of_device, int, S_IRUGO);
+// module_param(no_of_reg, int, S_IRUGO);
+// module_param(size_of_reg, int, S_IRUGO);
 
 static int __init myDevInit(void)
 {
     int ret, i;
     printk(KERN_INFO "%s: Begin \n", __func__);
+
+    nod = NOD;
+    size_of_device = DEVSIZE;
+    no_of_reg = NOOFREG;
+    size_of_reg = REGSIZE;
 
     majorNo = MAJORNO;
     minorNo = MINORNO;
@@ -52,6 +57,7 @@ static int __init myDevInit(void)
     // device initialization
     for(i = 0; i < nod; i++)
     {
+        // This loop runs for number of available devices.
         cdev_init(&dev[i].c_dev, &fops);
         dev[i].c_dev.owner = THIS_MODULE;
         dev[i].c_dev.ops = &fops;
@@ -68,10 +74,18 @@ static int __init myDevInit(void)
             goto OUT;
         }
         // minorNo = MINOR(devno);
+
+        // release existing device
+        release_region(SERIAL_ADDRESS, SERIAL_ADD_LEN);
+
+        // request region
+
         // printk(KERN_INFO "%s: Device Registration successful. Minor No: %d\n", __func__, minorNo);
         printk(KERN_INFO "%s: Device Registration successful. Minor No: %d\n", __func__, MINOR(dev[i].c_dev.dev));
     }
     
+    // 
+
     // printk(KERN_INFO "hello Kernel!!\n");
     printk(KERN_INFO "%s: End\n", __func__);
     return 0;

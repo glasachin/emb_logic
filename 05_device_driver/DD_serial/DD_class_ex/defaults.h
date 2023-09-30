@@ -11,7 +11,7 @@
 #endif
 
 #ifndef DEVSIZE
-#define DEVSIZE 128
+#define DEVSIZE 96
 #endif
 
 #ifndef MAJORNO
@@ -28,13 +28,21 @@
 
 // number of registers
 #ifndef NOOFREG
-#define NOOFREG 4
+#define NOOFREG 12
 #endif
 
 #ifndef REGSIZE
-#define REGSIZE 4
+#define REGSIZE 1   
 #endif
 
 #ifndef DATASIZE
 #define  DATASIZE 0
+#endif
+
+#ifndef SERIAL_ADDRESS
+#define SERIAL_ADDRESS  0x03F8
+#endif
+
+#ifndef SERIAL_ADD_LEN
+#define SERIAL_ADD_LEN  8
 #endif
