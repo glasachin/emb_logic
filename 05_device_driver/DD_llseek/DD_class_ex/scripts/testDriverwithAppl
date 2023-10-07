@@ -1,0 +1,7 @@
+#! /bin/bash
+
+testDriverwithAppl()
+{
+    mv ../../application/application .
+    ./application
+}

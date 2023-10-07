@@ -1,0 +1,7 @@
+#! /bin/bash
+
+removeDriver()
+{
+    rmmod ../modules/mycdd.ko
+    unlink mydev
+}
