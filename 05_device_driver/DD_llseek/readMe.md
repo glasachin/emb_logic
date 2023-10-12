@@ -18,3 +18,5 @@ pos = lseek(fd, pos, SEEK_SET); --> seeting the new position
 * send seek position in multiples of quantum size as per your driver settings.
 
 in read file of driver we need to start reading from *loff position to make functionality of lseek.
+
+(overall, this tries to implement the similarity functionality to system command or read etc.)

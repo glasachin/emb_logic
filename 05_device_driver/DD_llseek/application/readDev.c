@@ -8,7 +8,7 @@ void* readDev(void *arg)
     char ch;
     char ch1[15];
     int n;
-    int pos = 8;
+    int pos = 14;
     printf("%s: Begin \n", __func__);
     
     // Do read() system call

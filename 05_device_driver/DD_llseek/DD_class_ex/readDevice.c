@@ -8,7 +8,8 @@ ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *
     Dev *ldev;
     size_t noctr, nocsr, lsize;
     Item *curr;
-    unsigned int noq, i, l, not;
+    unsigned int noq, l, not;
+    long i, oiq;
 
     #ifdef DEBUG
     printk(KERN_INFO "Begin: %s\n", __func__);
@@ -56,19 +57,24 @@ ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *
     if(lsize % ldev->size_of_reg)
         noq++;
 
-    i = *loff / ldev->size_of_reg; // strar reading from lseek position
-
+    i = (long)*loff / ldev->size_of_reg; // strar reading from lseek position
+    oiq = (long)*loff % ldev->size_of_reg;
     for( l = 0; l < noq; l++)
     {
         if(noctr >= ldev->size_of_reg)
-            noctr = ldev->size_of_reg;
-        not = copy_to_user(ubuff+nocsr, curr->data[i], noctr);
+            noctr = ldev->size_of_reg - oiq; 
+        // not = copy_to_user(ubuff+nocsr, curr->data[i]+oiq, noctr);
+        not = copy_to_user(ubuff+nocsr, curr->data[i]+oiq, noctr);
+        // oiq = 0;
+
         if(not == -1)
         {
             printk(KERN_ERR "%s: Error: copy_to_user() failure\n", __func__);
             goto OUT;
         }
-        nocsr = nocsr + size_of_reg - not;
+        *loff = *loff + noctr - not;
+        // nocsr = nocsr + size_of_reg - not;
+        nocsr = nocsr + (noctr - not);
         noctr = lsize - nocsr;
         if( i == ldev->no_of_reg - 1)
         {
@@ -77,6 +83,7 @@ ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *
         }
         else 
             i++;
+        oiq = 0;
     }
 
     printk(KERN_INFO "%s: Read data: %s\n", __func__, ubuff);
