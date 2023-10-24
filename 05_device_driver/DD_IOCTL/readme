@@ -2,3 +2,12 @@ In this we create two things
 
 1. Driver based on IOCTL operations
 2. application
+
+During learning process, we implemented one operation at a time.
+
+IOCTL are used to configure the device driver through some application like chaning its register size, data size etc.
+simple example to change these values based on the USB device connected to the USB port.
+
+this change can be done from hardware interrupt during the device connection.
+
+So, IOCTL is important operation to control the variety of devices.

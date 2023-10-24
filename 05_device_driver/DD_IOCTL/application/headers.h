@@ -4,5 +4,6 @@
 #include<unistd.h>
 #include<fcntl.h>
 #include<pthread.h>
+#include<semaphore.h>
 #include"ioctl.h"
 #include<sys/ioctl.h>

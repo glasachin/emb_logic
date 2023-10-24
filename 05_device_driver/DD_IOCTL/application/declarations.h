@@ -12,3 +12,4 @@ extern void* operIoctl(void*);
 void* (*fptr[NOF])(void*);
 
 extern int fd;
+extern sem_t sem;

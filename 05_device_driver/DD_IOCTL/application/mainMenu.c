@@ -36,6 +36,7 @@ void* mainMenu(void *arg)
     else if( i == 1)
     {
         ret = pthread_create(&thid, 0, fptr[2], (void*)"writing");
+        
     }
     else if( i == 2)
     {
@@ -48,6 +49,7 @@ void* mainMenu(void *arg)
     else if(i == 3)
     {
         ret = pthread_create(&thid, 0, fptr[2], (void*)"ioctl");
+        sem_wait(&sem);
     }
     printf("%s: End\n", __func__);
     return 0;

@@ -11,8 +11,11 @@ void* operIoctl(void*);
 
 void* (*fptr[NOF])(void*);
 
+sem_t sem;
+
 int init()
 {
+    int res;
     printf("%s: begin.\n", __func__);
     fptr[0] = mainMenu;
     fptr[1] = exitApplication;
@@ -22,6 +25,12 @@ int init()
     fptr[5] = readDev;
     fptr[6] = operIoctl;
     
+    res = sem_init(&sem, 0, 0);
+    if(res != 0)
+    {
+        perror("Semaphore Initialization Failed\n");
+        (*fptr[1])((void*)"failure");
+    }
     printf("%s: End\n", __func__);
     return 0;
 }
