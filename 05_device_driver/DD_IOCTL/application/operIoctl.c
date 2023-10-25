@@ -36,7 +36,7 @@ void* operIoctl(void *arg)
         printf("6: set Device Register Size\n");
         printf("7: set Number of Registers\n");
         printf("8: set Device Size\n");
-        printf("9: set Data Size\n");
+        // printf("9: set Data Size\n"); // not set data size
         printf("0: Exit IOCTL Operations\n");
         scanf("%d", &choice);
         switch(choice)
@@ -87,6 +87,48 @@ void* operIoctl(void *arg)
                 }
                 printf("%s: Data Size is %d\n", __func__, data);
                 break;
+            case 6:
+                printf("\nGive new Register Size: \n");
+                scanf("%d", &data);
+                ret = ioctl(fd, SETREGSIZE, &data);
+                if(ret == -1)
+                {
+                    perror("ioctl");
+                    goto ERR;
+                }
+                // printf("%s: Device Register Size is %d\n", __func__, data);
+                break;
+            case 7:
+                printf("\nGive new Number of Registers: \n");
+                scanf("%d", &data);
+                ret = ioctl(fd, SETNOOFREG, &data);
+                if(ret == -1)
+                {
+                    perror("ioctl");
+                    goto ERR;
+                }
+                // printf("%s: Number of Registers in Device are %d\n", __func__, data);
+                break;
+            case 8:
+                printf("\nGive new Device Size: \n");
+                scanf("%d", &data);
+                ret = ioctl(fd, SETDEVICESIZE, &data);
+                if(ret == -1)
+                {
+                    perror("ioctl");
+                    goto ERR;
+                }
+                // printf("%s: Device Size is %d\n", __func__, data);
+                break;
+            // case 9:
+            //     ret = ioctl(fd, SETDATASIZE, &data);
+            //     if(ret == -1)
+            //     {
+            //         perror("ioctl");
+            //         goto ERR;
+            //     }
+            //     printf("%s: Data Size is %d\n", __func__, data);
+            //     break;
             default:
                 break;
         }

@@ -78,6 +78,66 @@ long ioctl_dev(struct file *filep, unsigned int command, unsigned long arg)
                 goto OUT;
             }
             break;
+        case SETREGSIZE:
+            #ifdef DEBUG
+                printk(KERN_INFO "Command: SETREGSIZE\n");
+                // printk(KERN_INFO "Register Size: %d\n", ldev->size_of_reg);
+            #endif
+            ret = get_user(size_of_reg, (int __user*)arg);
+            if(ret < 0)
+            {
+                #ifdef DEBUG
+                    printk(KERN_ERR "Error: put_user() failure.\n");
+                #endif
+                goto OUT;
+            }
+            ldev->size_of_reg = size_of_reg;
+            break;
+        case SETNOOFREG:
+            #ifdef DEBUG
+                printk(KERN_INFO "Command: SETNOOFREG\n");
+                // printk(KERN_INFO "Number of Registers are: %d\n", ldev->no_of_reg);
+            #endif
+            ret = get_user(no_of_reg, (int __user*)arg);
+            if(ret < 0)
+            {
+                #ifdef DEBUG
+                    printk(KERN_ERR "Error: put_user() failure.\n");
+                #endif
+                goto OUT;
+            }
+            ldev->no_of_reg = no_of_reg;
+            break;
+        case SETDEVICESIZE:
+            #ifdef DEBUG
+                printk(KERN_INFO "Command: SETNOOFREG\n");
+                // printk(KERN_INFO "Number of Registers are: %d\n", ldev->size_of_device);
+            #endif
+            ret = get_user(size_of_device, (int __user*)arg);
+            if(ret < 0)
+            {
+                #ifdef DEBUG
+                    printk(KERN_ERR "Error: put_user() failure.\n");
+                #endif
+                goto OUT;
+            }
+            ldev->size_of_device = size_of_device;
+            break;
+        // case SETDATASIZE: // no SETDATASIZE
+        //     #ifdef DEBUG
+        //         printk(KERN_INFO "Command: SETDATASIZE\n");
+        //         // printk(KERN_INFO "Number of Registers are: %d\n", ldev->size_of_data);
+        //     #endif
+        //     ret = get_user(size_of_data, (int __user*)arg);
+        //     if(ret < 0)
+        //     {
+        //         #ifdef DEBUG
+        //             printk(KERN_ERR "Error: put_user() failure.\n");
+        //         #endif
+        //         goto OUT;
+        //     }
+        //     ldev->size_of_data = size_of_data;
+        //     break;
         case DEVRESET:
             #ifdef DEBUG
                 printk(KERN_INFO "Command: DEVRESET\n");
