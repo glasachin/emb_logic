@@ -142,18 +142,29 @@ long ioctl_dev(struct file *filep, unsigned int command, unsigned long arg)
             #ifdef DEBUG
                 printk(KERN_INFO "Command: DEVRESET\n");
             #endif
-            // It will reset the following values to default vaues and passed value from driver load 
-            // times will be reset
-            size_of_reg = ldev->size_of_reg = REGSIZE;
-            no_of_reg = ldev->no_of_reg = NOOFREG;
-            size_of_data = ldev->size_of_data = DATASIZE;
-            size_of_device = ldev->size_of_device = DEVSIZE;
-            ret = trimDevice(ldev);
-            if(ret == -1)
+
+            if(access_ok(VERIFY_WRITE, ldev, sizeof(struct Dev)))
             {
-                #ifndef DEBUG
-                    printk(KERN_ERR "Error: trim_dev() failure\n");
+                #ifdef DEBUG
+                    printk(KERN_INFO "Permission Denied");
                 #endif
+            }
+            else
+            {
+
+                // It will reset the following values to default vaues and passed value from driver load 
+                // times will be reset
+                size_of_reg = ldev->size_of_reg = REGSIZE;
+                no_of_reg = ldev->no_of_reg = NOOFREG;
+                size_of_data = ldev->size_of_data = DATASIZE;
+                size_of_device = ldev->size_of_device = DEVSIZE;
+                ret = trimDevice(ldev);
+                if(ret == -1)
+                {
+                    #ifndef DEBUG
+                        printk(KERN_ERR "Error: trim_dev() failure\n");
+                    #endif
+                }
             }
             break;
         default:
