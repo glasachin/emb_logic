@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "declarations.h": "c",
-        "module.h": "c"
+        "module.h": "c",
+        "cstdlib": "c"
     }
 }
