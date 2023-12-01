@@ -1,4 +1,4 @@
-#define NOF 6
+#define NOF 7
 
 extern void* exitFunc(void*);
 extern void* mainMenu(void*);

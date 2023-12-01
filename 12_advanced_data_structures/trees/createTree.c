@@ -4,7 +4,7 @@
 
 void* createTree(void *arg)
 {
-    Node *root;
+    Node *root, *new;
     int choice;
     printf("%s: Begin\n", __func__);
 
@@ -15,6 +15,7 @@ void* createTree(void *arg)
     }
 
     // root = createNode();
+    new = (Node*)(*fptr[6])(0);
     
 
     printf("%s: End \n", __func__);

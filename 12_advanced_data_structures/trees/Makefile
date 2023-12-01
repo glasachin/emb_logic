@@ -1,7 +1,7 @@
 #! /bin/bash
 
-gTree: main.o init.o mainMenu.o exitFunc.o createTree.o insertNode.o deleteNode.o traverseTree.o
-	gcc -o gTree main.o init.o mainMenu.o exitFunc.o createTree.o insertNode.o deleteNode.o traverseTree.o
+gTree: main.o init.o mainMenu.o exitFunc.o createTree.o insertNode.o deleteNode.o traverseTree.o createNode.o
+	gcc -o gTree main.o init.o mainMenu.o exitFunc.o createTree.o insertNode.o deleteNode.o traverseTree.o createNode.o
 
 
 main.o: main.c headers.h declarations.h structures.h
@@ -27,6 +27,9 @@ deleteNode.o: deleteNode.c headers.h declarations.h structures.h
 
 traverseTree.o: traverseTree.c headers.h declarations.h structures.h 
 	gcc -c traverseTree.c 
+
+createNode.o: createNode.c headers.h declarations.h structures.h 
+	gcc -c createNode.c 
 
 clean:
 	-rm -f *.o

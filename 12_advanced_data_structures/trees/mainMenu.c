@@ -31,7 +31,7 @@ void* mainMenu(void *arg)
     if(choice == 1)
         root = (Node*)(*fptr[choice+1])(0); // create tree
     else
-        (*fptr[choice+1])(root);
+        (*fptr[choice+1])((void*)root);
 
 
     printf("%s: End \n", __func__);

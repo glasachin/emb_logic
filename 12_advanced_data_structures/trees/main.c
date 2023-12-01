@@ -2,6 +2,9 @@
 #include"declarations.h"
 #include"structures.h"
 
+/**
+ * This will store the tree into an array.
+*/
 int main()
 {
     Node *root;

@@ -2,13 +2,16 @@
 #include"declarations.h"
 #include"structures.h"
 
- void* exitFunc(void*);
+void* exitFunc(void*);
 extern void* mainMenu(void*);
 void* createTree(void*);
 void* insertNode(void*);
- void* deleteNode(void*);
- void* traverseTree(void*);
- void* (*fptr[NOF])(void*);
+void* deleteNode(void*);
+void* traverseTree(void*);
+void* createNode(void*);
+
+void* (*fptr[NOF])(void*);
+
 
 int init()
 {
@@ -21,6 +24,7 @@ int init()
     fptr[3] = insertNode;
     fptr[4] = deleteNode;
     fptr[5] = traverseTree;
+    fptr[6] = createNode;
 
 
 
