@@ -109,10 +109,10 @@ int set_baud_rate(void)
         printk(KERN_INFO "Begin: %s\n", __func__);
     #endif
 
-    outb(0x83, LCR);
+    outb(0x83, LCR); // set in the register of IC
     outb(0x03, DLL);
     outb(0x00, DLM);
-
+    
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);
     #endif
@@ -125,6 +125,7 @@ int initialize_registers(void)
         printk(KERN_INFO "Begin: %s\n", __func__);
     #endif
 
+    
 
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);

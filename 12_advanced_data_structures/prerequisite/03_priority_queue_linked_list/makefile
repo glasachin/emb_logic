@@ -29,5 +29,6 @@ display.o: display.c headers.h declarations.h structures.h
 
 
 clean: 
-	rm *.o 
+	-rm *.o 
+	-rm pq
 

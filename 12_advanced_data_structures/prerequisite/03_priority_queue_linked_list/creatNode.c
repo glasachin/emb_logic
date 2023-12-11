@@ -14,9 +14,9 @@ PQueue* createNode()
         (*fptr[1])((void*)"Failure");
     }
 
-    pq->pit = NULL;
-    pq->count = NULL;
+    pq->pfi = NULL;
+    pq->count = 0;
 
     printf("%s: End ", __func__);
-    return pq;
+    return (void*)pq;
 }

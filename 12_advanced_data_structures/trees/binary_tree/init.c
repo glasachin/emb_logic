@@ -3,14 +3,15 @@
 #include"structures.h"
 
 void* exitFunc(void*);
-extern void* mainMenu(void*);
-void* createTree(void*);
-void* insertNode(void*);
+void* mainMenu(void*);
+void** createTree(void**);
+void** insertNode(void**);
 void* deleteNode(void*);
 void* traverseTree(void*);
 void* createNode(void*);
 
-void* (*fptr[NOF])(void*);
+void* (*fnptr[NOF])(void*);
+void** (*fptr[NOF])(void**);
 
 
 int init()

@@ -17,7 +17,7 @@ void* createPQueue(void *arg)
     if(!pq)
     {
         perror("Malloc");
-        (*fptr[1])((void*)"Failure");
+        (*fptr[1])((void*)"failure");
     }
 
     pq->pfi = NULL;

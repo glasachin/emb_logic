@@ -12,8 +12,7 @@ typedef struct item // linklist node
 
 typedef struct pqueue // like start node
 {
-    struct pqueue *next;
-    // DataSet *ds;
+    // struct pqueue *next;
     Item *pfi; // pointer to first item
     int count;
 }PQueue;

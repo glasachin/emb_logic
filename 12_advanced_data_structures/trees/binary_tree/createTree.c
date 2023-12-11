@@ -2,7 +2,7 @@
 #include"declarations.h"
 #include"structures.h"
 
-void* createTree(void *arg)
+void** createTree(void **arg)
 {
     Node *root, *new;
     int choice;
@@ -17,6 +17,8 @@ void* createTree(void *arg)
     // root = createNode();
     new = (Node*)(*fptr[6])(0);
     
+
+    tree = (Node**)realloc()
 
     printf("%s: End \n", __func__);
     return arg;
