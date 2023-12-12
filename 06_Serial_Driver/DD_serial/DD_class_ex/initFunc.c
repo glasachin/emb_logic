@@ -76,6 +76,10 @@ static int __init myDevInit(void)
         // minorNo = MINOR(devno);
 
         // release existing device
+        // if(check_region(SERIAL_ADDRESS, SERIAL_ADD_LEN) < 8)
+        // {
+        //     release_region(SERIAL_ADDRESS, SERIAL_ADD_LEN);
+        // }
         release_region(SERIAL_ADDRESS, SERIAL_ADD_LEN);
 
         // request region
@@ -125,7 +129,15 @@ int initialize_registers(void)
         printk(KERN_INFO "Begin: %s\n", __func__);
     #endif
 
-    
+    outb(0x00, IER);
+    outb(0x01, IIR);
+    outb(0x03, DLL);
+    outb(0x00, DLM);
+    outb(0x0E, LCR);
+    outb(0x00, MCR);
+    outb(0x48, LSR);
+    outb(0x00, MSR);
+    outb(0x00, SCR);
 
     #ifdef DEBUG
         printk(KERN_INFO "End: %s\n", __func__);
