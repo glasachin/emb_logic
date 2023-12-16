@@ -51,6 +51,15 @@ void *enQueue(void *arg)
         if (im->pds->priority < cur->pds->priority)
         {
             // insert here
+            if(psl == cur)
+            {
+                // i.e. it is the first item and lowest priority will become first item
+                im->pnx = cur;
+                pq->pfi = im;
+                psl = pq->pfi;
+                break;
+            }
+            // im->pnx = psl->pnx;
             im->pnx = cur;
             psl->pnx = im;
             break;

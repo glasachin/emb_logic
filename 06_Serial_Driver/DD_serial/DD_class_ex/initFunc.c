@@ -130,13 +130,12 @@ int initialize_registers(void)
     #endif
 
     outb(0x00, IER);
-    outb(0x01, IIR);
-    outb(0x03, DLL);
-    outb(0x00, DLM);
-    outb(0x0E, LCR);
+    // outb(0x01, IIR);  // It is read only
+    outb(0x03, LCR);
     outb(0x00, MCR);
-    outb(0x48, LSR);
+    outb(0x00, LSR); // These are the reading flags.  
     outb(0x00, MSR);
+    outb(0x00, FCR);
     outb(0x00, SCR);
 
     #ifdef DEBUG
