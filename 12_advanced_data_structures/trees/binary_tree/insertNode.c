@@ -10,7 +10,12 @@ void **insertNode(void **arg)
     printf("%s: Begin\n", __func__);
 
     // call create node function
-    tree = (Node **)arg;
+    tree = (Node**)arg;
+    if(*(tree+1) == NULL)
+    {
+        printf("%s: Tree Not found.'\n", __func__);
+        return arg;
+    }
     *(tree + 0) = (*fptr[1])(0); // put new node at 0 location temperarily
 
     // traverse tree to insert the node at any left or right side
@@ -33,13 +38,13 @@ void **insertNode(void **arg)
         }
         else
         {
-            tree = (Node**)realloc(tree, sizeof(Node*)*(2*i+1));
+            tree = (Node**)realloc(tree, sizeof(Node*)*(2*(i+1)+1));
             if(!tree)
             {
                 perror("insertnode: realloc");
                 (*fnptr[0])((void*)"failure");
             }
-            memset()
+            memset(*(tree+(2*(i+1))), '\0', sizeof(Node*)*(2*(i+1)+1));
         }
         
         *(tree+0) = NULL;

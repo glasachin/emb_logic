@@ -18,7 +18,7 @@ void** createTree(void **arg)
     new = (Node*)(*fptr[6])(0);
     
 
-    tree = (Node**)realloc()
+    tree = (Node**)realloc();
 
     printf("%s: End \n", __func__);
     return arg;
