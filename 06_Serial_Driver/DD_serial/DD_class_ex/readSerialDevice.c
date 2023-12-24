@@ -3,7 +3,7 @@
 #include"declarations.h"
 //#include"operations.h"
 
-ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *loff)
+ssize_t readSerialDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *loff)
 {
     Dev *ldev;
     size_t noctr, nocsr, lsize;

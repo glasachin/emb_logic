@@ -3,7 +3,7 @@
 #include"declarations.h"
 //#include"operations.h"
 
-int openDevice(struct inode *inode, struct file *filep)
+int openSerialDevice(struct inode *inode, struct file *filep)
 {
     Dev *ldev;
 

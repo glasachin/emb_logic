@@ -1,1 +1,0 @@
-savedcmd_/home/sachin/emb_logic/05_device_driver/DD_serial/DD_class_ex/mycdd.mod := printf '%s\n'   initFunc.o exitFunc.o openDevice.o releaseDevice.o writeDevice.o readDevice.o creatScull.o | awk '!x[$$0]++ { print("/home/sachin/emb_logic/05_device_driver/DD_serial/DD_class_ex/"$$0) }' > /home/sachin/emb_logic/05_device_driver/DD_serial/DD_class_ex/mycdd.mod

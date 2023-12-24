@@ -2,7 +2,7 @@ INSTALL_DIR=modules
 ifneq (${KERNELRELEASE},)
 	obj-m := mycdd.o
 
-mycdd-objs := initFunc.o exitFunc.o openDevice.o releaseDevice.o writeDevice.o readDevice.o creatScull.o
+mycdd-objs := initFunc.o exitFunc.o openSerialDevice.o releaseSerialDevice.o writeSerialDevice.o readSerialDevice.o creatScull.o
 
 else
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build

@@ -51,10 +51,10 @@ struct SerialDev
 
 extern struct SerialDev *serialdev;
 
-int openDevice(struct inode *, struct file *);
-int releaseDevice(struct inode *, struct file *);
-ssize_t writeDevice(struct file *filep, const char __user *ubuff, size_t size, loff_t *loff);
-ssize_t readDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *loff);
+int openSerialDevice(struct inode *, struct file *);
+int releaseSerialDevice(struct inode *, struct file *);
+ssize_t writeSerialDevice(struct file *filep, const char __user *ubuff, size_t size, loff_t *loff);
+ssize_t readSerialDevice(struct file *filep, char __user *ubuff, size_t size, loff_t *loff);
 Item* creatScull(size_t);
 
 int set_baud_rate(void);

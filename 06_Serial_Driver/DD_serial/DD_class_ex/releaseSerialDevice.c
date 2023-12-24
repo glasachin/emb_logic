@@ -3,7 +3,7 @@
 #include"declarations.h"
 //#include"operations.h"
 
-int releaseDevice(struct inode *inode, struct file *file)
+int releaseSerialDevice(struct inode *inode, struct file *file)
 {
     #ifdef DEBUG
     printk(KERN_INFO "Begin: %s\n", __func__);
