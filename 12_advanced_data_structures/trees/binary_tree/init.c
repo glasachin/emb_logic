@@ -3,11 +3,11 @@
 #include"structures.h"
 
 void* exitFunc(void*);
-void* mainMenu(void*);
+void** mainMenu(void**);
 void** createTree(void**);
 void** insertNode(void**);
-void* deleteNode(void*);
-void* traverseTree(void*);
+void** deleteNode(void**);
+void** traverseTree(void**);
 void* createNode(void*);
 
 void* (*fnptr[NOF])(void*);
@@ -19,13 +19,15 @@ int init()
     Node *root;
     printf("%s: Begin\n", __func__);
 
-    fptr[0] = exitFunc;
-    fptr[1] = mainMenu;
-    fptr[2] = createTree;
-    fptr[3] = insertNode;
-    fptr[4] = deleteNode;
-    fptr[5] = traverseTree;
-    fptr[6] = createNode;
+    fnptr[0] = exitFunc;
+    fnptr[1] = createNode;
+    
+    fptr[0] = mainMenu;
+    fptr[1] = createTree;
+    fptr[2] = insertNode;
+    fptr[3] = deleteNode;
+    fptr[4] = traverseTree;
+    
 
 
 

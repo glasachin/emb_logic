@@ -2,7 +2,7 @@
 #include"declarations.h"
 #include"structures.h"
 
-void* traverseTree(void *arg)
+void** traverseTree(void **arg)
 {
     Node *root;
     int choice;

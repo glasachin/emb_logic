@@ -2,15 +2,15 @@
 #include"declarations.h"
 #include"structures.h"
 
-void* mainMenu(void *arg)
+void** mainMenu(void **arg)
 {
-    Node *root;
+    Node **tree;
     int choice;
     printf("%s: Begin\n", __func__);
 
-    root = (Node*)arg;
+    tree = (Node**)arg;
     printf("%s: *********Main Menu**********\n", __func__);
-    if(!root)
+    if(!tree)
         printf("%s: 1: Create Tree\n", __func__);
     else
     {
@@ -26,14 +26,14 @@ void* mainMenu(void *arg)
     if (choice == 0)
     {
         // exit
-        (*fptr[0])((void*)"Success");
+        (*fnptr[0])((void*)"Success");
     }
     if(choice == 1)
-        root = (Node*)(*fptr[choice+1])(0); // create tree
+        tree = (Node**)(*fptr[1])((void**)tree); // create tree
     else
-        (*fptr[choice+1])((void*)root);
+        tree = (Node**)(*fptr[choice])((void**)tree);
 
 
     printf("%s: End \n", __func__);
-    return (void*)root;
+    return (void**)tree;
 }

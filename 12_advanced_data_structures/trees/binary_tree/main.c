@@ -7,15 +7,16 @@
 */
 int main()
 {
-    Node *root;
+    Node **tree; // to store the array of pointer 
     printf("%s: Begin\n", __func__);
     
     init();
 
-    root = NULL;
+    tree = NULL;
+
     while(1)
     {
-        *(fptr[1])((void*)root);
+        tree = (Node**)(*fptr[0])((void**)tree);
     }
 
 

@@ -2,7 +2,7 @@
 #include"declarations.h"
 #include"structures.h"
 
-void* deleteNode(void *arg)
+void** deleteNode(void **arg)
 {
     Node *root;
     int choice;

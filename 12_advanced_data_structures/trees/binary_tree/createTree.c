@@ -4,22 +4,29 @@
 
 void** createTree(void **arg)
 {
-    Node *root, *new;
+    Node **tree;
     int choice;
     printf("%s: Begin\n", __func__);
 
-    if(arg != NULL)
+    tree = (Node**)arg;
+    if(tree)
     {
-        printf("%s: Tree Already Created\n", __func__);
+        printf("%s: Three already Exists.\n", __func__);
+        return arg;
+    }
+    
+    // tree = (Node**)malloc(sizeof(Node*)*2);
+    tree = (Node**)realloc(tree, sizeof(Node)*2); // we have created the 0th element as tree. at least of 2 to store the root.
+    if(!tree)
+    {
+        perror("realloc");
         return arg;
     }
 
-    // root = createNode();
-    new = (Node*)(*fptr[6])(0);
-    
-
-    tree = (Node**)realloc();
+    // create Node (i.e. the root node)
+    *(tree + 0) = NULL;
+    *(tree + 1) = (Node*)(*fnptr[1])(0); // root node
 
     printf("%s: End \n", __func__);
-    return arg;
+    return (void**)tree;
 }
