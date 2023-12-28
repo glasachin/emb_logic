@@ -17,3 +17,9 @@ once test is done then
 2. remove device ```sudo rmmod <driver_name.ko>```
 
 for debug information of driver use ```dmesg```
+
+## Read using block on read
+This reading operation needs to be implemented
+
+## New driver
+We need to use IOCTL to set the registers of Serial Driver. I.e. we will set the register values from application and then driver will use 'outb' to set the values
