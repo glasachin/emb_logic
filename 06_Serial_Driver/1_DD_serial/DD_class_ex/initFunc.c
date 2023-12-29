@@ -114,7 +114,7 @@ int set_baud_rate(void)
     #endif
 
     outb(0x83, LCR); // set in the register of IC
-    outb(0x0C, DLL); // for 9600 baud rate
+    outb(0x03, DLL); // for 38400 baud rate
     outb(0x00, DLM);
     
     #ifdef DEBUG
