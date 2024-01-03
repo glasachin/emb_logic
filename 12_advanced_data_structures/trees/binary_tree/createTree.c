@@ -16,13 +16,15 @@ void** createTree(void **arg)
     }
     
     // tree = (Node**)malloc(sizeof(Node*)*2);
-    tree = (Node**)realloc(tree, sizeof(Node)*2); // we have created the 0th element as tree. at least of 2 to store the root.
+    tree = (Node**)realloc(tree, sizeof(Node)*4); // we have created the 0th element as tree. at least of 2 to store the root.
+    //used 4 in above to allocate space for Left and right child as well
     if(!tree)
     {
         perror("realloc");
         return arg;
     }
 
+    memset(tree, '\0', sizeof(Node*)*4);
     // create Node (i.e. the root node)
     *(tree + 0) = NULL;
     *(tree + 1) = (Node*)(*fnptr[1])(0); // root node

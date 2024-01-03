@@ -36,26 +36,30 @@ void **insertNode(void **arg)
             printf("added node at 1\n");
             *(tree + (2 * i)) = *(tree + 0);
             *(tree + 0) = NULL;
+            break;
         }
         else if (*(tree + (2 * i + 1)) == NULL)
         {
             printf("added node at 2\n");
             *(tree + (2 * i + 1)) = *(tree + 0);
             *(tree + 0) = NULL;
+            break;
         }
         else
         {
             printf("added node at 3\n");
-            tree = (Node **)realloc(tree, sizeof(Node *) * (2 * (i + 1) + 1));
+            tree = (Node **)realloc(tree, sizeof(Node *) * (2 * (i + 1) + 2));
+            printf("tree size: %ld\n", sizeof(tree));
             if (!tree)
             {
                 perror("insertnode: realloc");
                 (*fnptr[0])((void *)"failure");
             }
             memset(*(tree + (2 * (i + 1))), '\0', sizeof(Node *) * (2 * (i + 1) + 1));
+            // break;
         }
 
-        *(tree + 0) = NULL;
+        // *(tree + 0) = NULL;
         printf("added node at 4\n");
     }
 
