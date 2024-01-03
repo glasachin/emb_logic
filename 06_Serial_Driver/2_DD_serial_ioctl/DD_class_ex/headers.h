@@ -1,0 +1,16 @@
+#include<linux/init.h>
+#include<linux/module.h>
+#include<linux/fs.h>
+#include<linux/slab.h> // to include kmalloc()
+#include<linux/cdev.h>
+#include<linux/moduleparam.h>
+#include<linux/kernel.h>
+#include<linux/uaccess.h>
+#include<linux/io.h>
+// #include <sys/types.h>
+//    #include <sys/ddi.h>
+//    #include <sys/f_ddi.h>
+
+MODULE_LICENSE("GNU/GPL");
+MODULE_AUTHOR("sachin");
+MODULE_DESCRIPTION("Implemnting Open operation");

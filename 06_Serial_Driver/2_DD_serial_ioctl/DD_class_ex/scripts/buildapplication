@@ -1,0 +1,12 @@
+#! /bin/bash
+
+buildapplication()
+{
+    if ( make -C ../../application)
+    then
+        echo "Application Build Successfully"
+    else
+        echo "Error: Application Build Failed"
+        read
+    fi
+}
