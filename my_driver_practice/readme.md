@@ -25,3 +25,6 @@ We can also update the latest kernel. Instructions for doing the same are given 
 
 ## 01_basic_driver
 It is based on the notes from internet for writing very basic driver.
+
+## 02_pass_args
+This driver file for importing and modifying different variable during the loading and run time of the driver. More information on the same can be found [here](./02_pass_args/arg_pass.md)
