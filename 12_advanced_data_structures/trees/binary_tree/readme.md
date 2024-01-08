@@ -7,3 +7,7 @@ e.g. root node will go to 1st location
 
 
 New node will go to 0th location
+
+
+## algo
+we will check for the NULL for all elements at specific level only. If all are filled then we will create new level elements using realloc and repeat the process

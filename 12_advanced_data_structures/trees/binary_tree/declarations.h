@@ -12,3 +12,5 @@ int init(void);
 
 extern void* (*fnptr[NOF])(void*);
 extern void** (*fptr[NOF])(void**);
+
+extern int treeLevel;

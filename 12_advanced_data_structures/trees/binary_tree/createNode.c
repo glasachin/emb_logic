@@ -14,7 +14,8 @@ void* createNode(void *arg)
         return arg;
     }
 
-    new = (Node*)malloc(sizeof(Node));
+    // new = (Node*)malloc(sizeof(Node));
+    new = (Node*)malloc(sizeof(*new));
     if(!new)
     {
         perror("Malloc");

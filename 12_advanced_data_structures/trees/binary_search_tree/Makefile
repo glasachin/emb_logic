@@ -1,7 +1,10 @@
 #! /bin/bash
 binFile="binaryTree"
-${binFile}: main.o init.o mainMenu.o createTree.o exitFunc.o insertNode.o 
+${binFile}: main.o init.o mainMenu.o createTree.o exitFunc.o insertNode.o inorderTraverse.o
 	gcc -o ${binFile} *.o
+
+inorderTraverse.o: inorderTraverse.c headers.h structure.h declarations.h 
+	gcc -c inorderTraverse.c 
 
 insertNode.o: insertNode.c headers.h structure.h declarations.h 
 	gcc -c insertNode.c 

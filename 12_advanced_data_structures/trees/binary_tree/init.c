@@ -13,6 +13,7 @@ void* createNode(void*);
 void* (*fnptr[NOF])(void*);
 void** (*fptr[NOF])(void**);
 
+int treeLevel = 0;
 
 int init()
 {

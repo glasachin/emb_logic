@@ -1,5 +1,6 @@
 #include"headers.h"
 #include"structure.h"
+#include"declarations.h"
 
 void* mainMenu(void* arg)
 {
@@ -28,8 +29,25 @@ void* mainMenu(void* arg)
 
     switch(choice)
     {
+        case 0:
+            (*fptr[0])((void*)"Byeee...");
+            break;
         case 1:
-            printf("Creating Tree\n");
+            // printf("Creating Tree\n");
+            arg = (void*)(*fptr[2])((void*)arg);
+            break;
+        case 2:
+            // printf("insert Node\n");
+            arg = (void*)(*fptr[3])((void*)arg);
+            break;
+        case 3:
+            arg = (void*)(*fptr[4])((void*)arg);
+            break;
+        case 4:
+            arg = (void*)(*fptr[5])((void*)arg);
+            break;
+        default:
+            printf("Wrong Choice!!\n");
             break;
     }
 
