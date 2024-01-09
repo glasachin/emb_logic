@@ -1,8 +1,11 @@
-#include "headers.h"
-#include "declarations.h"
-#include "operations.h"
+#include"headers.h"
+#include"declarations.h"
+#include"operations.h"
 
-/*-------Variable values passed by user during driver insertion----------*/
+int value;
+char *name;
+int varArray[NOE];
+int cb_value;
 
 module_param(value, int, S_IRUSR | S_IWUSR);
 module_param(name, charp, S_IRUSR | S_IWUSR); // to get string pointer

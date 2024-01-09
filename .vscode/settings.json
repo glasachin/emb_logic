@@ -2,6 +2,16 @@
     "files.associations": {
         "declarations.h": "c",
         "module.h": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "optional": "c",
+        "istream": "c",
+        "ostream": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }
