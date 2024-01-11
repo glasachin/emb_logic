@@ -10,7 +10,7 @@ static int __init init_func(void)
     int ret;
     printk(KERN_INFO "%s: Start\n", __func__);
 
-    ret = alloc_chrdev_region(&devid, MINORNUMBER, nod, DEVNAME);
+    ret = alloc_chrdev_region(&devId, MINORNUMBER, nod, DEVNAME);
 
         printk(KERN_INFO "%s: End\n", __func__);
     return 0;
