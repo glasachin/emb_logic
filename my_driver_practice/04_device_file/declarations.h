@@ -3,6 +3,6 @@
 
 extern int nod;
 extern dev_t devId; // to hold major and minor number and others information
-
+extern struct class *dev_class;
 
 #endif
