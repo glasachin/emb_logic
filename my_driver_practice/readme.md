@@ -22,9 +22,14 @@ We can also update the latest kernel. Instructions for doing the same are given 
 3. `$sudo rmmod <file_name>`
 4. `$modinfo <file_name>`
 5. `lsmod`
+6. `cat /proc/devices`: it will show the registered devices.
 
 ## 01_basic_driver
 It is based on the notes from internet for writing very basic driver.
 
 ## 02_pass_args
 This driver file for importing and modifying different variable during the loading and run time of the driver. More information on the same can be found [here](./02_pass_args/arg_pass.md)
+
+### 03_Major_Minor_number
+
+[here](./03_major_minor/major_minor.md)
