@@ -5,7 +5,7 @@
 
 int nod = NOD;
 dev_t devId = 0;
-
+struct cdev dev;
 struct class *dev_class;
 
 static int __init initFunc(void)
@@ -21,6 +21,17 @@ static int __init initFunc(void)
     }
     printk(KERN_INFO "%s: Major No.: %d, Minor No.: %d\n", __func__, MAJOR(devId), MINOR(devId));
 
+    // Creating cdev structure which will be used by inode
+    cdev_init(&dev, &fops);
+    // add device to the system
+    if(cdev_add(&dev, devId, 1) < 0)
+    {
+        pr_err("Cannot add the device to the systerm\n");
+        goto r_class;
+    }
+        
+    
+    
     // Create device class
     dev_class = class_create(THIS_MODULE, "sachin_class");
     if (IS_ERR(dev_class))

@@ -6,6 +6,7 @@
 #include <linux/fs.h>
 #include <linux/err.h>
 #include <linux/device.h>
+#include <linux/cdev.h>
 
 MODULE_AUTHOR("Sachin Sharma");
 MODULE_LICENSE("GPL");
