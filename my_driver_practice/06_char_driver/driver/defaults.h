@@ -5,4 +5,8 @@
 
 #define NOD 1
 
+#define MEM_SIZE 1024
+
+#define DEVICE_FILE_NAME "Sachin_device"
+
 #endif

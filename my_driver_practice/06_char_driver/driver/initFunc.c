@@ -42,11 +42,15 @@ static int __init initFunc(void)
     }
 
     // Create Device
-    if(IS_ERR(device_create(dev_class, NULL, devId, NULL, "Sachin_device")))
+    if(IS_ERR(device_create(dev_class, NULL, devId, NULL, DEVICE_FILE_NAME)))
     {
         pr_err("Cannot create the device\n");
         goto r_device;
     }
+
+
+    
+
 
     printk(KERN_INFO "%s: End, Module Inserted Successfully...\n", __func__);
     return 0;

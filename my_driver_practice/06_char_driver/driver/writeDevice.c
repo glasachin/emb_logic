@@ -7,6 +7,11 @@ ssize_t writeDevice(struct file *file, const char __user *buf, size_t len, loff_
 {
     printk(KERN_INFO "%s: Start\n", __func__);
 
+    if(copy_from_user(kernel_buffer, buf, len))
+    {
+        pr_err("Data Write Error\n");
+    }
+
     printk(KERN_INFO "%s: End\n", __func__);
     return len;
 }

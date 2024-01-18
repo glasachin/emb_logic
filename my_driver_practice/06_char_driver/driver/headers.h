@@ -7,6 +7,9 @@
 #include <linux/err.h>
 #include <linux/device.h>
 #include <linux/cdev.h>
+#include <linux/slab.h>
+#include <linux/uaccess.h>
+
 
 MODULE_AUTHOR("Sachin Sharma");
 MODULE_LICENSE("GPL");
