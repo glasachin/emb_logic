@@ -61,3 +61,27 @@ e.g `subnet: 255.255.255.0`
 Classlesll Inter-Domain Routing (CIDR) notation, where `10.23.2.0/255.255.255.0` is written as `10.23.2.0/24`. In binary `255.255.255.0` has 24 `1-bits` followed by 8 `0-bits`. The CIDR notation identifies the subnet mask by the number of leading `1s` in the subnet mask. Common CIDR subnet masks are `/8, /16, /12, /24, /26`.
 
 ## Routes and The Kernel Routing Table
+Connecting internet subnets is mostly a process of sending data through hosts connected to more than one subnet. Linux kernel distinguishes between two different kinds of destinations by using a routing table to determine its routing behavior. 
+
+```$ip route show```
+
+The above command shows the routing table.
+
+## The Default Gateway
+`0.0.0.0/0` for IPv4. This is the default route, and the address configured as the intermediary in the default route is the default gateway.
+
+When no other rules match, the default route always does and the default gateway is where you send messges when there is no other choice. 
+
+## The IPv6 Addresses and Networks
+
+
+## Basic ICMP and DNS Tools
+`Internet Control Message Protocol (ICMP)` which can help to root out problems with connectivity and routing and the domain name service (DNS) system. `DNS` maps names ot IP addresses so that we don't have to remember a bunch of numbers.
+
+ICMP is a transport layer protocol used to configure and diagnose internt networks. By comparison `DNS` is an application layer protocol used ot map human-readable names to internet addresses.
+
+### ping
+It very basic network debugging tools and sends ICMP echo request packets to a host that asks a recipient host ot return the packet to the sender. 
+```$ping 192.168.1.10```
+
+### DNS and host
