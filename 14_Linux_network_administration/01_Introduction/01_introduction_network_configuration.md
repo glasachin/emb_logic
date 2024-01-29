@@ -85,3 +85,57 @@ It very basic network debugging tools and sends ICMP echo request packets to a h
 ```$ping 192.168.1.10```
 
 ### DNS and host
+DNS translates the domain name such as `www.google.com` to its IP address.
+
+```$host www.google.com```
+
+## The Physical Layer and Ethernet
+Internet is a software network but in order to communicate with other system, we still have to put a network layer on top of some kind of hardware. This interface is the **physical layer**.
+
+All devices on an Ethernet network have a Media Access Control (MAC) address. Devices on an ethernet network send messages in frames, which are wrappers around the data sent. A frame contains the origin and destination MAC addresses. 
+
+We also need an `ethernet bridge` to switch between two different network media on same computer.
+
+## Linux Network Interface
+when we configure a network interface, we link the IP address settings from the internet side with the hardware identification on the physical device side.
+
+network interfaces have name such as `eth0` or `wlan0`. Such names are known as **predictable network interface** device name because it remains the same after a reboot.
+
+```$ifconfig```
+
+## Network Interface Configuration
+We have seen all the lower levels of a network stack: physical layer, the network (internet) layer and the linux kernel's network interfaces. In order to combine all these, we need a software to do the following:
+1. Connect the network hardware and ensure that the kernel has a driver for it.
+2. Perform any additional physical layer setup, such as choosing a network name or password.
+3. Assign IP addresses and subnets to ther kernel network interface.
+4. Add any additional necessary routes, including the default gateway.
+
+### Manual Configuration
+```$ip address add address/subnet dev interface```
+
+```$ip route add default via gw-address dev interface```
+
+```$ip route del default```
+
+**Example**
+```$ip route add 192168.45.0./24 via 10.23.2.44```
+```$ip route del 192.168.45.0/24```
+
+## Boot activated network configuration
+there is not specific standard due to different distributions with different implementations.
+
+A tool called `netplan` transform the configuration into the files used by existing network managers. `netplan` files are in `YAML` format and reside in `/etc/netplan`
+
+
+## Network Configuration Managers
+Network Manager is most widely used option on destops to configure networks in Linux-based systems. There is an add-on to `systemd` called `systemd-networkd` that can do basic network configuration and is useful on servers. 
+
+Other network management tools for smaller embedded systems are `OpenWRT netifd`, `Android connectivity manager service`, `ConnMan` and `Wicd`
+
+Systemd-networkd related configuration directory is `/etc/systemd/network`.
+
+### Network Manager Operation
+
+<---To be Done----->
+
+## Resolving Hostnames
