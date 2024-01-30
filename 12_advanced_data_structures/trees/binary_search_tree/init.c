@@ -20,7 +20,7 @@ void init(void)
     fptr[2] = createTree;
     fptr[3] = insertNode;
     fptr[4] = inOrderTraverse;
-    fptr[4] = preOrderTraverse;
+    fptr[5] = preOrderTraverse;
     
 
     printf("%s: End\n", __func__);

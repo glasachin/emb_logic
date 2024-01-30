@@ -5,7 +5,7 @@
 void* inOrderTraverse(void* arg)
 {
     Node *tree;
-    printf("%s: Init \n", __func__);
+    // printf("%s: Init \n", __func__);
 
     tree = (Node*)arg;
 
@@ -16,6 +16,6 @@ void* inOrderTraverse(void* arg)
         inOrderTraverse(tree->right);
     }
 
-    printf("%s: End\n", __func__);
-    return 0;
+    // printf("%s: End\n", __func__);
+    return arg;
 }

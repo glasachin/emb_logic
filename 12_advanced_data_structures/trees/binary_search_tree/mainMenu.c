@@ -24,7 +24,7 @@ void* mainMenu(void* arg)
     printf("13: Delete an element\n");
     printf("14: \n");
     
-
+    printf("\nPlease choose your option\n");
     scanf("%d", &choice);
 
     switch(choice)
