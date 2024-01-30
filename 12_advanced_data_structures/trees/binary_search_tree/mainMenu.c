@@ -46,6 +46,12 @@ void* mainMenu(void* arg)
         case 4:
             arg = (void*)(*fptr[5])((void*)arg);
             break;
+        case 6:
+            arg = (void*)(*fptr[7])((void*)arg);
+            break;
+        case 7:
+            arg = (void*)(*fptr[8])((void*)arg);
+            break;
         default:
             printf("Wrong Choice!!\n");
             break;

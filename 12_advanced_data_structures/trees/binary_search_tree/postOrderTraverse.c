@@ -9,5 +9,5 @@ void* postOrderTraverse(void* arg)
 
 
     printf("%s: End\n", __func__);
-    return 0;
+    return arg;
 }

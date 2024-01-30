@@ -8,6 +8,9 @@ void* createTree(void*);
 void* insertNode(void*);
 void* inOrderTraverse(void*);
 void* preOrderTraverse(void*);
+void* postOrderTraverse(void*);
+void* findSmallest(void*);
+void* findLargest(void*);
 
 void* (*fptr[NOF])(void*);
 
@@ -21,6 +24,9 @@ void init(void)
     fptr[3] = insertNode;
     fptr[4] = inOrderTraverse;
     fptr[5] = preOrderTraverse;
+    fptr[6] = preOrderTraverse;
+    fptr[7] = findSmallest;
+    fptr[8] = findLargest;
     
 
     printf("%s: End\n", __func__);

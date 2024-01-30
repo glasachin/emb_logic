@@ -1,7 +1,14 @@
 #! /bin/bash
 binFile="binaryTree"
-${binFile}: main.o init.o mainMenu.o createTree.o exitFunc.o insertNode.o inOrderTraverse.o preOrderTraverse.o
+${binFile}: main.o init.o mainMenu.o createTree.o exitFunc.o insertNode.o inOrderTraverse.o preOrderTraverse.o findSmallest.o \
+			findLargest.o
 	gcc -o ${binFile} *.o
+
+findLargest.o: findLargest.c headers.h structure.h declarations.h 
+	gcc -c findLargest.c 
+
+findSmallest.o: findSmallest.c headers.h structure.h declarations.h
+	gcc -c findSmallest.c 
 
 preOrderTraverse.o: preOrderTraverse.c headers.h structure.h declarations.h 
 	gcc -c preOrderTraverse.c 
