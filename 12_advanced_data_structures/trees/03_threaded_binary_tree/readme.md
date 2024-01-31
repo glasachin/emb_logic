@@ -8,9 +8,15 @@ These NULL pointers space can be used effectively to store some other informatio
 There are several different ways of threading a tree.
 
 ## One-way threading
-A thread will appear in the right field.
-* then it will point 
-* then 
+Node's right field NULL pointer will be replaced by:
+
+* If left node contains a NULL pointer then it will contain the address of its' parent.
+
+* if right node contains a null pointer then it will contain the address of its' parent's parent.
+
+Where a NULL right pointers is made to point to the inorder successor 
 
 
 ## Two-Way Threading
+Where both left and right NULL pointers are made to point to inorder predecessor and inorder successor respectively. The predecessor threads are useful for reverse inorder traversal and postorder traversal.
+
