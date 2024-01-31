@@ -12,6 +12,8 @@ void* postOrderTraverse(void*);
 void* findSmallest(void*);
 void* findLargest(void*);
 
+void* deleteNode(void*);
+
 void* (*fptr[NOF])(void*);
 
 void init(void)
@@ -27,6 +29,8 @@ void init(void)
     fptr[6] = preOrderTraverse;
     fptr[7] = findSmallest;
     fptr[8] = findLargest;
+
+    fptr[14] = deleteNode;
     
 
     printf("%s: End\n", __func__);

@@ -4,3 +4,9 @@ typedef struct node
     struct node* right;
     int data;
 }Node;
+
+typedef struct node_info
+{
+    Node *node;
+    Node *parent;
+}nodeInfo;

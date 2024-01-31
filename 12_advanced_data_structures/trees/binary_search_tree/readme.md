@@ -8,7 +8,7 @@ Normally, insert the node without violating the property of BST.
 ## Node Deletion
 While deletion we need to make sure that properties of BST are not violated.
 
-### Case 1: Deleting node that has no Children0
+### Case 1: Deleting node that has no Children
 This is the simplest case, just make the corresponding parent field NULL.
 
 ### Case 2: Deleting a Node with one child

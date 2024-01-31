@@ -47,11 +47,15 @@ void* mainMenu(void* arg)
             arg = (void*)(*fptr[5])((void*)arg);
             break;
         case 6:
-            arg = (void*)(*fptr[7])((void*)arg);
+            // smallest node
+            (void*)(*fptr[7])((void*)arg);
             break;
         case 7:
-            arg = (void*)(*fptr[8])((void*)arg);
+            // largest node
+            (void*)(*fptr[8])((void*)arg);
             break;
+        case 13:
+            arg = (void*)(*fptr[14])((void*)arg);
         default:
             printf("Wrong Choice!!\n");
             break;
