@@ -38,3 +38,9 @@ or
 5. `clear()`: removes all elements from vector container.
 
 ## Functions for Size Manipulation
+* `size()`: returns the size of vector or the number of elements
+* `capacity()`: tells the memory allocated to the vector
+* `shring_to_fit()`: reduces the memory allocated to vector to only match the number of elements.
+* `resize()`: reshapes the container to contain only a specific amount of elements.
+* `empty()`: returns a boolean whether vector is empty or not.
+
