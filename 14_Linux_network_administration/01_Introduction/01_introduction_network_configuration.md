@@ -139,3 +139,31 @@ Systemd-networkd related configuration directory is `/etc/systemd/network`.
 <---To be Done----->
 
 ## Resolving Hostnames
+DNS is used to resolve the hostnames.The resolution process typically unfolds like this:
+1. the appliation calls a function to look up the IP address behind a hostname. This function is in the system's shared library.
+2. The function acts according to a set of rule (found in `/etc/nsswitch.conf`) to determine a plan of action on lookups. E.g. the rule usually say that even before going to DNS, check for a manual override in the `/etc/hosts` file.
+3. when the function decides to use DNS for the name lookup, it consults an additional configuration file to find a DNS name server. The name server is given as an IP address.
+4. The function sends a DNS lookup request to the name server.
+5. The name server replies with the IP address for the hostname and the function returns this IP address to the application.
+
+On most systems, we can override hostname lookups with the `/etc/hosts` file.
+
+### resolv.conf
+It (`/etc/resolv.conf`) is the traditional configuration file for DNS servers.
+The search line defines rules for incomplete hostnames.
+
+### caching and zero-configuration DNS
+In traditional DNS config, local machine doesn't cache name server replies, which may result into unnecessarily slow requests. So, in many machines there is an intermediate `daemon` to intercept name server requests and cache the reply and then use the cached answers if possible. The most common of these `daemons` is `systemd-resolved`. We can also set up `BIND` as a cache.
+
+we can often tell, if we are running a name server caching daemon if we see `127.0.0.53` or `127.0.0.1` in `/etc/resolv.conf` file or listed as the server when we run `$nslookup -debug host`. 
+
+We can check the current DNS settings with the `$resolvectl status` command. If we wanted to change our settings, then we need to edit `/etc/systemd/resolved.conf` 
+
+`/etc/nsswitch.conf` is the traditional interface for controlling several name-related precedence settings on system, such as user and password information and it has a host lookup setting. 
+
+### Localhost
+The `lo` interface is called loopback as it "loops back" to itself (`127.0.0.1 or ::1 in IPv6`)
+
+## The Transport Layer TCP UDP Services
+
+
