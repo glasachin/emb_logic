@@ -109,7 +109,7 @@ constructors can be called in different ways:
 * rectangle rectc {50, 60} // uniform init
 * rectangle rectd{}; // default constructor is called
 
-## Member initialization in constructors
+### Member initialization in constructors
 other members of the class can also be initialized directly, without resorting to statements in its body. This is done by `inserting` before the constructor's body, a `colon (:)` and a list of initializations for class members.
 
 E.g.
