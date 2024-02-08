@@ -103,6 +103,42 @@ class distance
         int feet;
         float inches;
     public:
-        
+        distance() : feet(0), inches(0.0) // constructor
+        { }
+
+        distance(int ft, float in) : feet(ft), inches(in) // constructor with two arguments
+        { }
+
+        void getdist()
+        {
+            cin >> feet;
+            cin >> inches;            
+        }
+
+        distance operator + ( distance ) const; //overload to add two distances
 };
+
+distance distance :: operator + (distance d2) const
+{
+    int f = feet + d2.feet;
+    float i = inches + d2.inches;
+    if(i > 12.0)
+    {
+        i -= 12.0;
+        f++;
+    }
+    return distance(f,i);
+}
+
+int main()
+{
+    distance dist1, dist3, dist4;
+    dist1.getdist();
+    distance dist2(11, 6.25);
+    dist3 = dist1 + dist2; // single + operator
+    dist4 = dist1 + dist2 + dist3; // multiple '+' operator
+}
+
 ```
+### Multiple Overloading
+We can do multiple overloading on same operator as well. e.g. it can be used to add distances and to concatenate strings as well.
