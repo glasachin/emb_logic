@@ -87,3 +87,4 @@ This partition contains a software program for booting the system.
     * LILO, GRUB, SYSLINUX
 * Embedded bootloaders
     * U-boot (standard), secondary bootloader (custom based on company).
+    
