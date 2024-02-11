@@ -66,3 +66,21 @@ class C: public B1, public B2
 ```
 
 ## Abstract Classes
+An `abstract` class is one that is not used to create objects. An `abstract` class is designed only to act a base class (to be inherited by other classes). It provides a base upon which other classes may be built. It holds significance as far as logical program design is concerned. Also, we may include some of the common characteristics of all the derived classes in the abstract base class itself.
+
+A class can only be considered as an abstract class if it has at least `one pure virtual function`. 
+
+## Constructors in Derived Classes
+As long as no base class constructor takes any arguments, the derived class need not have constructor function. 
+
+However, if any base class contains a constructor with one or more arguments, then it is mandatory for the derived class to have a constructor and pass the arguments to the base class constructors. 
+
+When both the derived and base classes contain constructors, the base constructor is executed first and then the constructor in the derived class is executed. 
+
+In case of multiple inheritance, the base classes are constructed in `the order in which they appear in the declaration of the derived class`. Similarly, in a multilevel inheritance, the constructors will be executed in the order of inheritance.
+
+The constructor of the derived class receives the entire list of values as its arguments and passes them on to the base constructors in the order in which they are declared in the derived class. The base constructors are called and executed before executing the statements in the body of the derived constructor.
+
+![](./Constructors+in+Derived+Class.jpg)
+
+
