@@ -56,4 +56,34 @@ OS then creates the `Filesystem Table` inside the secondary storage.
 Page tables (PT) also gets created inside the RAM. It depends upon the register (`PTBR` => contains starting address of the page table) of the processor.
 
 
+## MBR
+Master boot record `MBR`. It is located in the 1st sector of the `bootable` disk `/dev/hda` or `dev/sda`.
 
+MBR is less than 512 bytes in size. It has three compenents.
+1. primary boot locader info in 1st 446 bytes.
+2. partition table info in next 64 bytes.
+3. `mbr` validation check in last 2 bytes.
+
+Note: It is not located inside any partition.
+
+`MBR may or may not be there depending upon the hardware system. If there is no MBR and BL2 will be find at 0th location (sector 0) of the secondary disk. If MBR is there then `BL2` location information will be inside (at the end) of MBR.`
+
+Now, MBR loads and executes the `GRUB` boot loader.
+
+`Note: if there is BL1.5 then MBR will not be used. This will not be there in the system if additional EEPROM is not present`
+
+So, the first 446 bytes of MBR containthe code that locates the partition to boot from.
+The rest of booting process takes place from that partition.
+This partition contains a software program for booting the system.
+
+## Stage 2 Bootloader
+
+* have enough space to do luxurious stuff
+* provides configurability and management
+* Loads the operating system
+* passes arguments to the operating system
+* jumps to start executing the operating system
+* Desktops bootloaders
+    * LILO, GRUB, SYSLINUX
+* Embedded bootloaders
+    * U-boot (standard), secondary bootloader (custom based on company).
