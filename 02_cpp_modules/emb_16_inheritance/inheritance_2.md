@@ -83,4 +83,109 @@ The constructor of the derived class receives the entire list of values as its a
 
 ![](./Constructors+in+Derived+Class.jpg)
 
+```
+#include<iostream>
+using namespace std;
 
+class alpha
+{
+    private:
+        int x;
+    public:
+        alpha(int i)
+        {
+            x = i;
+            cout << "alpha initializesd \n";
+        }
+        void show_x(void)
+        {
+            cout << "x = " << x << endl;
+        }
+};
+
+class beta
+{
+    private:
+        float y;
+    public:
+        beta(float j)
+        {
+            y = j;
+            cout << "beta initializesd\n";
+        }
+
+        void show_y(void)
+        {
+            cout << "y = " << y << "\n";
+        }
+};
+
+class gamma: public beta, public alpha
+{
+    private:
+        int m, n;
+    public: 
+        gamma(int a, float b, int c, int d): alpha(a), beta(b)
+        {
+            m = c;
+            n = d;
+            cout << "gamma initializesd \n";
+        }
+        void show_mn(void)
+        {
+            cout << "m = " << m << "\n";
+            cout << "n = " << n << "\n";
+        }
+};
+
+int main()
+{
+    gamma g(5, 10.65, 20, 30);
+    g.show_x();
+    g.show_y();
+    g.show_mn();
+    return 0;
+}
+```
+
+### Initialization List in the constructor function
+
+```
+constructor (arglist) : initialization-section
+{
+    assignment-section
+}
+```
+
+## Member Classes: Nesting of Classes
+C++ supports another way of inheriting properties of one class int another. In this, a class can contain objects of other classes as its members as shown:
+```
+class alpha{...};
+class beta{....};
+class gamma
+{
+    alpha a;
+    beta b;
+};
+```
+
+all objects of gamma class will contain the objects a and b. This kind of relationship is called `containership` or `nesting`. 
+
+Creation of an object that contains another object is very different than the creation of an independent object. A `nested` object is created in two stages:
+1. the member objects are created using their respective constructors
+2. Then the other members are created.
+
+This means, constructors of all the member objects should be called before its own constructor body is executed.
+```
+class gamma
+{
+    ...
+    alpha a;
+    beta b;
+    public:
+        gamma(arglist): a(arglist1), b(arglist2)
+        {
+            .....
+        }
+}
+```

@@ -17,3 +17,46 @@ class alpha
         }
 };
 
+class beta
+{
+    private:
+        float y;
+    public:
+        beta(float j)
+        {
+            y = j;
+            cout << "beta initializesd\n";
+        }
+
+        void show_y(void)
+        {
+            cout << "y = " << y << "\n";
+        }
+};
+
+class gamma: public beta, public alpha
+{
+    private:
+        int m, n;
+    public: 
+        gamma(int a, float b, int c, int d): alpha(a), beta(b)
+        {
+            m = c;
+            n = d;
+            cout << "gamma initializesd \n";
+        }
+        void show_mn(void)
+        {
+            cout << "m = " << m << "\n";
+            cout << "n = " << n << "\n";
+        }
+};
+
+int main()
+{
+    gamma g(5, 10.65, 20, 30);
+    g.show_x();
+    g.show_y();
+    g.show_mn();
+    return 0;
+}
