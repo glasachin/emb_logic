@@ -20,3 +20,7 @@
 2. Target System
 
 3. 
+
+## Embedded Linux Classification
+* These classification are based on
+    * Size 
