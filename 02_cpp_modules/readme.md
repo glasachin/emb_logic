@@ -21,7 +21,9 @@ more on Inheritance [here](./emb_16_inheritance/inheritance_2.md)
 
 ## Pointers, Virtual Functions and Polymorphism
 
+pointers [here](./emb_17_pointers_vf_polymorph/pointers.md)
 
+Virtual Functions [here](./emb_17_pointers_vf_polymorph/virtual_functions.md)
 
 ## vectors
 related notes can be found [here](./emb_19_vectors_arrays/readme.md)
