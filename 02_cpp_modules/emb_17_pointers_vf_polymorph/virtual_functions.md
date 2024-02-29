@@ -83,7 +83,14 @@ Show Derived
 10. If a VF is defined in the base class, it need not be necessarily redefined in the derived class. In such cases, calls will invoke the base function.
 
 ## Pure Virtual Functions
+The function `display()` in above example has been defined `emptty` and does nothing. Such functions are called **do-nothin** functions.
+It may be defined as follows:
 
+```virtual void displayy() = 0```
+
+such functions are called `pure virtual functions`. A `pure virtual function` is a function declared in a base clas that has no definition relative to the base class. In such cases, the `compiler requires each derived class to either define the function or redeclare it as a pure virtual function`. 
+
+Class containing pure virtual functions cannot be used to declare any objects of its own. Such classes are called `abstract base classes`. 
 
 
 
