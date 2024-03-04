@@ -27,3 +27,9 @@ Virtual Functions [here](./emb_17_pointers_vf_polymorph/virtual_functions.md)
 
 ## vectors
 related notes can be found [here](./emb_19_vectors_arrays/readme.md)
+
+
+## Streams and File Processing
+`streams` related notes can be found [here](./emb_15_File_IO/IOstreams.png)
+
+`File Processing` related notes can be found [here](./emb_15_File_IO/file_processing.md)
