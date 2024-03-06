@@ -4,7 +4,7 @@
 
 
 extern void* mainMenu(void*);
-
+extern void* insertNode(void*);
 
 
 void init(void);

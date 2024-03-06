@@ -4,8 +4,8 @@
 typedef struct node
 {
     int value;
-    node *left;
-    node *right;
+    struct node* left;
+    struct node* right;
 }Node;
 
 #endif

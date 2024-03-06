@@ -2,7 +2,7 @@
 #include"structures.h"
 #include"declarations.h"
 
-void* mainMenu(void *arg)
+void* insertNode(void *arg)
 {
 
     printf("%s: Start\n", __func__);
