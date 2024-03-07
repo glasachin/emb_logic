@@ -8,4 +8,11 @@ typedef struct node
     struct node* right;
 }Node;
 
+typedef enum funName
+{
+    MAIN_MENU,
+    CREATE_TREE,
+    INSERT_NODE,
+}e_fptr_funName;
+
 #endif

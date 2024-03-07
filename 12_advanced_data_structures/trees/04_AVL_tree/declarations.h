@@ -4,6 +4,7 @@
 
 
 extern void* mainMenu(void*);
+extern void* createTree(void*);
 extern void* insertNode(void*);
 
 
