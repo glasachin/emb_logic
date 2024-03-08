@@ -12,7 +12,7 @@ int main()
 
     while(1)
     {
-        avlTree = (Node*)(fptr[0])((void*)avlTree);
+        avlTree = (Node*)(*fptr[0])((void*)avlTree);
     }
 
     printf("%s: End\n", __func__);

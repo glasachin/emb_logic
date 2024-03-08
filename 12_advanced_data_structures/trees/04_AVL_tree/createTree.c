@@ -4,10 +4,20 @@
 
 void* createTree(void *arg)
 {
-
+    Node* avl;
     printf("%s: Start\n", __func__);
 
-    // printf()
+    avl = (Node*)arg;
+
+    if(!avl)
+    {
+        avl = (*fptr[CREATE_NODE])((void*)0);
+    }
+    else
+    {
+        printf("%s: Tree has been already created..\n", __func__);
+    }
+    
     printf("%s: End\n", __func__);
-    return arg;
+    return (void*)avl;
 }

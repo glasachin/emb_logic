@@ -10,7 +10,7 @@ void* mainMenu(void *arg)
 
     avlTree = (Node*)arg;
     
-    printf("----------Main Menu--------------");
+    printf("----------Main Menu--------------\n");
     if(!avlTree)
         printf("1: To Create AVL Tree.\n");
     printf("2: Insert Node\n");
@@ -20,6 +20,20 @@ void* mainMenu(void *arg)
 
     printf("Please Enter Your Choice...\n");
     scanf("%d", &ch);
+
+    switch(ch)
+    {
+        case 0:
+            (*fptr[EXIT_PROG])((void*)"success");
+            break;
+        case 1: 
+            avlTree = (Node*)(*fptr[CREATE_TREE])((void*)avlTree);
+            break;
+        default:
+            printf("%s: -------Wrong choice--------\n", __func__);
+            
+    }
+
 
     printf("%s: End\n", __func__);
     return (void*)avlTree;

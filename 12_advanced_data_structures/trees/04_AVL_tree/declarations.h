@@ -4,6 +4,8 @@
 
 
 extern void* mainMenu(void*);
+extern void* exitFunc(void*);
+extern void* createNode(void*);
 extern void* createTree(void*);
 extern void* insertNode(void*);
 
