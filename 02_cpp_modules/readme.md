@@ -27,7 +27,7 @@ pointers [here](./emb_17_pointers_vf_polymorph/pointers.md)
 
 Virtual Functions [here](./emb_17_pointers_vf_polymorph/virtual_functions.md)
 
-Shared Pointers [here](./emb_17_pointers_vf_polymorph/shared_pointers.md)
+`Smart Pointers` Shared Pointers, weak pointers etc [here](./emb_17_pointers_vf_polymorph/smart_pointers.md)
 
 ## vectors
 related notes can be found [here](./emb_19_vectors_arrays/readme.md)
