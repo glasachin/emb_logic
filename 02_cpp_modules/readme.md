@@ -37,3 +37,6 @@ related notes can be found [here](./emb_19_vectors_arrays/readme.md)
 `streams` related notes can be found [here](./emb_15_File_IO/IOstreams.png)
 
 `File Processing` related notes can be found [here](./emb_15_File_IO/file_processing.md)
+
+## Templates in C++
+`Templates` related notes can be found [here](./emb_20_templates/templates.md)
