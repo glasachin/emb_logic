@@ -90,3 +90,127 @@ class classname
     .....
 };
 ```
+
+**Example**
+```
+#include<iostream>
+
+using namespace std;
+
+template <class T1, class T2>
+class Test
+{
+    T1 a;
+    T2 b;
+    public:
+        Test(T1 x, T2 y)
+        {
+            a = x;
+            b = y;
+        }
+        void show()
+        {
+            cout << a << " and " << b << "\n";
+        }
+};
+
+int main()
+{
+    Test <float, int> test1(2.314, 35);
+    Test<int, char> test2(200, 's');
+
+    test1.show();
+    test2.show();
+    return 0;
+}
+```
+
+
+
+
+## Function Templates
+It is similar to that of the class template. 
+
+**Syntax**
+```
+templat<class T>
+returntype functioname(args)
+{
+    .......
+}
+```
+
+**Example**
+
+
+
+
+## Function Templates with Multiple Parameters
+
+
+**Syntax**
+
+```
+template<class T1, class T2,...>
+returntype functionname(args)
+{
+    .....
+}
+```
+
+**Example**
+
+```
+#include<iostream>
+
+using namespace std;
+
+template <class T1, class T2>
+void display(T1 x, T2 y)
+{
+    cout << x << ", " << y << "\n";
+}
+
+int main()
+{
+    display(200, "Sachin");
+    display(12.34, 1200);
+    return 0;
+}
+
+```
+
+## Overloading of Template Functions
+A template function may be overloaded either by template functions or ordinary functions of its name. In such cases, overloading resolution is accomplished as follows:
+1. Call an ordinary function that has an exact match.
+2. Call a template function that could be created with an exact match.
+3. Try normal overloading resolution to ordinary functions and call the one that matches.
+
+**Template function with explicit function**
+
+```
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+template<class T>
+void display(T x)
+{
+    cout << "Template display: " << x << endl;
+}
+
+void display(int x)
+{
+    cout << "Explicit Display: " << x << endl;
+}
+
+int main()
+{
+    display(100);
+    display(12.34);
+    display('C');
+    return 0;
+}
+```
+
