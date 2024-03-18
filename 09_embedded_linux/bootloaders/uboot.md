@@ -89,3 +89,54 @@ Hence to compile U-Boot, select the <target> and the device tree for the board i
 Refer to #U-Boot_build for examples.
 
 ### Kbuild
+Like the kernel, the U-Boot build system is based on configuration symbols (defined in Kconfig files). The selected values are stored in a `.config` file located in the build directory, with the same makefile target. .
+Proceed as follows:
+
+* Select a predefined configuration (defconfig file in configs directory ) and generate the first .config:
+    `$: make <config>_defconfig`
+
+* Change the U-Boot compile configuration (`modify .config`) by using `one of the following` five make commands:
+```
+  make menuconfig --> menu based program
+  make config  --> line-oriented configuration
+  make xconfig --> QT program
+  make gconfig --> GTK program
+  make nconfig --> ncurse menu based program
+```
+
+We can then compile U-Boot with the updated `.config`.
+
+Warning: the modification is performed locally in the build directory. It will be lost after a `make distclean`.
+
+Save your configuration to be able to use it as a defconfig file:
+
+`make savedefconfig`
+
+This target saves the current config as a defconfig file in the build directory. It can then be compared with the predefined configuration (`configs/stm32mp*defconfig`).
+
+The other makefile targets are the following:
+
+`make help`
+
+### Device Tree
+The board device tree has the same binding as the kernel. By default it is integrated within the `U-Boot binaries: u-boot.bin`: appended at the end of the code (CONFIG_OF_SEPARATE) or embedded in the U-Boot binary (`CONFIG_OF_EMBED`).
+
+In OpenSTLinux, the `U-Boot device tree (u-boot.dtb)` is provided as external file loaded by `FSBL=TF-A` when U-Boot code is started (u-boot-nodtb.bin: code without device tree): device tree address is provided as boot parameter (in r2 register).
+
+A default device tree is available in the defconfig file (by setting `CONFIG_DEFAULT_DEVICE_TREE`).
+
+You can either select another supported device tree using the DEVICE_TREE make flag. For STM32 Arm® Cortex® MPUs More info.png boards, the corresponding file is <dts-file-name>.dts in arch/arm/dts/stm32mp*.dts , with <dts-file-name> set to the full name of the board:
+
+`make DEVICE_TREE=<dts-file-name>`
+
+or provide a device tree blob (dtb file) resulting from the dts file compilation, by using the EXT_DTB option:
+
+`make EXT_DTB=<dts-file-name>.dtb`
+
+To obtain a device tree file `<dts-file-name>.dts` that is identical to the Linux kernel one, these U-Boot properties are only added for ST boards in the add-on file <dts-file-name>-u-boot.dtsi. This file is automatically included in <dts-file-name>.dts during device tree compilation (this is a generic U-Boot Makefile behavior).
+
+
+Device tree in `SPL` (not used in OpenSTLinux): (more on webpage https://wiki.st.com/stm32mpu/wiki/U-Boot_overview)
+
+
+## U-Boot Command Line Interface (CLI)
