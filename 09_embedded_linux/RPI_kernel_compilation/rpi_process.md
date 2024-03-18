@@ -33,3 +33,70 @@ NOTE: SD card should be mounted inside the Linux folder.
 ### Building Custom Bootloader
 `u-boot` is a second stage bootloader. Raspberry Pi, by default, has 2 bootloaders; bootcode.bin and start.elf, and we need both before booting u-boot (Because Raspberry pi is using very odd SoC, which has GPU in it. Those bootloaders take care of GPU initialization.).
 
+## boot section or partition for RPI
+
+### Preparing the Boot Partition
+
+**Format the SD Card:**
+
+Insert the SD card into your computer.
+Find the device name of your SD card (e.g., /dev/sdX). Be careful to select the correct device to avoid data loss.
+Unmount the SD card if it is automatically mounted:
+
+`sudo umount /dev/sdX*`
+
+Partition the SD card:
+
+`sudo fdisk /dev/sdX`
+
+* Type o to create a new DOS partition table.
+* Type n, then p, then 1, then Enter twice to create a new primary partition using the default values.
+* Type t, then c, to set the partition type to W95 FAT32 (LBA).
+* Type w to write the changes and exit.
+
+**Format the Boot Partition:**
+
+Format the partition as FAT32:
+
+`sudo mkfs.vfat /dev/sdX1`
+
+**Mount the Boot Partition:**
+
+Create a mount point:
+
+`sudo mkdir /mnt/boot`
+
+Mount the partition:
+
+`sudo mount /dev/sdX1 /mnt/boot`
+
+### Adding Files to the Boot Partition:
+Download Raspberry Pi Boot Files:
+
+Download the Raspberry Pi boot files from the Raspberry Pi GitHub repository:
+bash
+
+`git clone https://github.com/raspberrypi/firmware.git`
+
+Copy Boot Files to the SD Card:
+
+Copy the boot files to the boot partition of the SD card:
+bash
+Copy code
+
+`sudo cp -r firmware/boot/* /mnt/boot/`
+
+Configure the Boot Partition (Optional):
+
+If you need to configure the config.txt file or any other configuration file, you can do so now:
+bash
+Copy code
+
+`sudo nano /mnt/boot/config.txt`
+
+Unmount the Boot Partition:
+
+Safely unmount the boot partition:
+bash
+
+`sudo umount /mnt/boot`
