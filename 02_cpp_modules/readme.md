@@ -40,3 +40,7 @@ related notes can be found [here](./emb_19_vectors_arrays/readme.md)
 
 ## Templates in C++
 `Templates` related notes can be found [here](./emb_20_templates/templates.md)
+
+## Exception Handeling in C++
+`Exception` related notes can be found [here](./emb_21_exception_handeling/exception_handeling.md)
+
