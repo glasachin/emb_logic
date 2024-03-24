@@ -37,6 +37,10 @@ It will be needed to cross-compile the Linux for target system.
 
 `sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm`
 
+`sudo locale-gen en_US.UTF-8`
+`export LC_ALL="en_US.UTF-8"`
+`sudo apt-get install lz4`
+
 **Creating a Test Image**
 
 * Test image are not deployed on a target system like the RPi.
@@ -44,16 +48,20 @@ It will be needed to cross-compile the Linux for target system.
 
 **Building an Image**
 
-* `git clone http://git.yoctoproject.org/git/poky`
+`Note: Don't move the folder, it may cause un-necessary errors`
+
+repository link: `https://wiki.yoctoproject.org/wiki/Releases`
+
+* `git clone http://git.yoctoproject.org/git/poky` : `poky` is the main project name.
 * `cd poky`
-* `git checkout -b fido origin/fido` ==> `fido` is current release. we can search for latest.
+* `git checkout -b fido origin/fido` ==> `fido` is current release. we can search for latest. Use latest here.
 * `source oe-init-build-env` ==> this will need python depending upon the release
 * `bitbake -k core-image-sato`
 
 #### Running the Test Image
 goto build folder. by running `sourece oe-init-build-env`. 
 
-`runqemu qemux86`
+`runqemu qemux86` or `runqemu qemux86-64`
 
 There is a difference between default and target image configuration file.
 
@@ -62,7 +70,7 @@ There is two main configuration file inside `./poky/build/conf/`
 2. bblayers.conf 
 
 
-#### Building the basic console image for Raspberry Pi
+### Building the basic console image for Raspberry Pi
 
 * `cd poky`
 * `git clone -b fido git://git.yoctoproject.org/meta-raspberrypi`
@@ -90,4 +98,7 @@ with the rpi-basic-image
 2. Connect via `ssh`
 
 #### Building the QT5 Basic Image
+
+
+
 
