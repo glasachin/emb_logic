@@ -88,3 +88,102 @@ This partition contains a software program for booting the system.
 * Embedded bootloaders
     * U-boot (standard), secondary bootloader (custom based on company).
     
+
+
+## BIOS (another theory class from EMBLOGIC)
+There is no bios from 2020 onwards, all works on `UEFI`
+* when we power on our computer
+    * the BIOS or UEFI Firmware is the first software that runs.
+* It performs  self test.
+
+### BIOS/UEFI
+`basic ip/op system / Unified extensible firmware interface`
+
+`bios` -> BL1 -> BL1.5 -> Hard-drive
+
+`UEFI` -> direct `Hard Drive`
+
+### Bootloader
+* once the boot device is identified
+    * THe bios/uefi locads the bootloader into tmemmory from
+        * the MBR (master boot record)
+        * the GUID partition table (GPT) of the boot device
+* Common linux bootloaders include
+    * GRUB (Grand Unified Bootloader)
+    * LILO
+
+### Kenel Initialization
+* it initializes the necessary resources.
+* It is loaded into memoryb by the bootloader.
+* It idenentifies and mounts the root filesystem which contains the core of operating systems
+
+### InitRAMFs
+* In some cases
+    * an initramfs is used to provide
+        * additional driver
+        * modules needed to mount the root filesystem
+* it is a temporatry root filesystem loaded into memory
+* it allows ther kernel to locad necessary modules.
+
+### Init Process SystemD
+* The init processis the first user-space process nad has PID 1.
+* In modern Linux, init has been replaced by `systemd` or other init systems
+* systemd is widely used and manages the initialization and management of system services and processes.
+
+### User Space
+`PTBR` -> Page table base register
+* Once init or systemd process is stared, 
+    * it initializes the user space components.
+
+### Login Manager
+* If the system is configured witha a graphical user Interface (GUI)
+    * a login manager such as
+        * GDM: Genome display manager
+        * KDM: KDE display manager may start
+            * presenting a graphical login screen
+
+### User Login
+* after successfull login authentication
+    * ther user shell is started 
+    THe user is presented with a command line interface
+
+### Linux is UP
+* This completes the Linux boot process
+
+
+## BIOS
+* firmware
+* initiates hardware during the booting process
+* provides runtimver services for operating system
+* a bridge beween Operating system and hardware
+
+### A Firmware
+* Acting as a piece of firmware embedded on a small memory chip on the computer's motherboard
+* There is chip (bios chip) on mother board. It initialize and test.
+
+### core functions  of BIOS
+**POST (Power on self-test)**
+
+1. upon powering on the computer it performs POST.
+
+**Initialization**
+
+`(BRT) bit recognition time` cannot be constant. It is set each time when computer boots up.
+
+goto `/dev/` there is device `nvrm (non-volatile RAM)`. Initial BRT is set based on this.
+
+The BIOS stores device configurations and system settings in a non-volatile memory (nvram)
+* e.g. CMOS battery-backed RAM.
+* allowing the system to remember its state acroos reboots.
+
+**bootstrapping**
+
+
+**BIOS interfaces and Settings**
+
+
+**Modern Evolution: UEFI**
+
+* The `Unified extensible firmware interface (UEFI)` is a modern replacement for traditional BIOS firmware interfaces.
+    * offering more advanced freatures,
+    * better boot
