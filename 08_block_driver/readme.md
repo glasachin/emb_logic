@@ -4,6 +4,15 @@ block driver creates a `priority queue` first.
 
 sectors in device (HDD or storage) ![](./main-qimg-5d2affa5ac2d66acbd1cfef07f360f24.webp)
 
+## General Algorithm
+
+* Register block device
+* Allocate space for dev
+* set device parameters ==> size and data
+* Initialize Spinlock ==> spin_lock_init(). Try to find the location of the same. `/usr/src/linux-headers-6.5.0-26-generic/include/linux`.
+
+
+
 ## Schedulers
 There are four differnet types of schedulers running on OS.
 
@@ -42,4 +51,15 @@ struct Dev
 
 **vmalloc**
 
-* allocating
+* allocating noncontiguous chunks of physical memory. as in OS required continuous memory may not be available.
+* `fixing up` the page tables to map the memory into a continuous chunk.
+
+`dev->data = vmalloc(dev->size);`
+
+**spin lock**
+
+
+**Request Queue**
+request from application
+
+requests are represented using struct request. Requests are queued up in the request queue.
