@@ -10,7 +10,7 @@ sectors in device (HDD or storage) ![](./main-qimg-5d2affa5ac2d66acbd1cfef07f360
 * Allocate space for dev
 * set device parameters ==> size and data
 * Initialize Spinlock ==> spin_lock_init(). Try to find the location of the same. `/usr/src/linux-headers-6.5.0-26-generic/include/linux`.
-
+* Initialize request queue
 
 
 ## Schedulers
@@ -63,3 +63,22 @@ struct Dev
 request from application
 
 requests are represented using struct request. Requests are queued up in the request queue.
+
+* every device has a request queue
+* This is because actual transfers to and from a disk can take place far away from the time the kernel requests them.
+* A request function, is associated with a request queue when that queue is started
+
+```
+struct request_queue
+{
+
+}
+```
+
+**Initializing Requests Queue**
+* 
+
+**The Request Function**
+
+* The block driver request method prototype:
+`void request()`
