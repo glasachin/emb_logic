@@ -48,6 +48,7 @@ static int __init initialization_func(void)
 
     spin_lock_init(&bdev->lock);
     // blk_init_queue(bdev_request, &bdev->lock);
+    blk_put_queue(bdev->queue);
 
     return 0;
 

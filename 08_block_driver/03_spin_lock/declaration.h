@@ -17,9 +17,11 @@ struct Dev
     u8 *data;   // The data array
     short users;
     spinlock_t lock;
+    struct request_queue *queue;
 };
 
 
 extern struct Dev *bdev;
+void bdev_request(struct request_queue *);
 
 #endif

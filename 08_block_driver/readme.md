@@ -82,3 +82,7 @@ struct request_queue
 
 * The block driver request method prototype:
 `void request()`
+
+IO scheduler will work on the blocks and rearrange all the blocks so that there is minimum head movement. The request queue creation involves a request function 
+
+Empty request queue will be created. we need to put a dummy block in the request queue. 
