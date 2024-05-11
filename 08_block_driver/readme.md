@@ -4,6 +4,8 @@ block driver creates a `priority queue` first.
 
 sectors in device (HDD or storage) ![](./main-qimg-5d2affa5ac2d66acbd1cfef07f360f24.webp)
 
+```Note: These steps were for older kernel. New 6.5 kernel is different and driver is in different```
+
 ## General Algorithm
 
 * Register block device

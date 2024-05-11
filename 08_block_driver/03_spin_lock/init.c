@@ -28,7 +28,8 @@ static int __init initialization_func(void)
     printk(KERN_INFO "END: %s\n", __func__);
     #endif
 
-    bdev = kmalloc(sizeof(struct Dev), GFP_KERNEL);
+    // bdev = kmalloc(sizeof(struct Dev), GFP_KERNEL); //kmalloc will not be after 6.5
+    bdev = kzalloc(sizeof(struct Dev), GFP_KERNEL);
     if(!bdev)
     {
         printk(KERN_ERR "kmalloc() failure\n");
