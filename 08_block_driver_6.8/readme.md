@@ -1,7 +1,11 @@
 # Block Driver for latest kernel
 
 
-`/proc/modules`
+`cat /proc/modules`
+
+`cat /proc/devices`
+
+`lsmod`
 
 ## 03: *blkdev_catalog
 The catalog for listing the list of block devices for which the driver is being registered. It will be atleast `2` with `name, sector-size`
@@ -13,4 +17,14 @@ This `char *blkdev_catalog = "blkdev1, 1024; blkdev2, 2048";` is declared global
 `char *catalog`: ref to individual device in catalog.
 
 `len = strlen(blkdev_catalog);`: find out the length of the catalog
+
+# 04
+
+All block devices will be as a list of devices. so we will use a "catalog" of devices.
+
+**Example**
+
+`char *blkdev_catalog = "blkdev1, 1024; blkdev2, 2048";`
+
+There are two devices in above definition separated by `;`
 
