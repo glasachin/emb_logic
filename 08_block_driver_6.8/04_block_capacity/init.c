@@ -9,7 +9,7 @@ char *blkdev_catalog = "blkdev1, 1024; blkdev2, 2048";
 static int __init initialization_func(void)
 {
     int ret = 0, len;
-    char *catalog, *nextToken;
+    char *catalog, *nextToken, *token;
     #ifdef DEBUG
     printk(KERN_INFO "Begin: %s\n", __func__);
     #endif
@@ -59,7 +59,25 @@ static int __init initialization_func(void)
     strcpy(catalog, blkdev_catalog);
     nextToken = catalog;
 
+    while((token = strsep(&nextToken, ";")))
+    {
+        char *name;
+        char *capacity;
+        sector_t capacity_value;
 
+        name = strsep(&token, ",");
+        if(!name)
+            continue;
+        capacity = strsep(&token, ",");
+        if(!capacity)
+            continue;
+        pr_info("%s; %d; name: %s\n", __func__, __LINE__, name);
+        pr_info("%s; %d; cpacity: %s\n", __func__, __LINE__, capacity);
+        if(strncmp(capacity, "1024", 4) == 0)
+            capacity_value = 1024;
+        else if(strncmp(capacity, "2048", 4) == 0)
+            capacity_value = 2048;
+    }
 
     printk(KERN_INFO "%s: End.\n",__func__);
     return 0;

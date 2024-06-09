@@ -28,3 +28,5 @@ All block devices will be as a list of devices. so we will use a "catalog" of de
 
 There are two devices in above definition separated by `;`
 
+We have to keep the copy of the original catalogue
+
