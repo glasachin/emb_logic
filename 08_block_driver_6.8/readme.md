@@ -30,3 +30,4 @@ There are two devices in above definition separated by `;`
 
 We have to keep the copy of the original catalogue
 
+`IMP:` kstrtoull may not work on some machines

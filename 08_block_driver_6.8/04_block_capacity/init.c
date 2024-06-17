@@ -4,7 +4,7 @@
 int majorno, nsectors, hardsect_size;
 struct blkdev *bdev;
 
-char *blkdev_catalog = "blkdev1, 1024; blkdev2, 2048";
+char *blkdev_catalog = "blkdev1,1024; blkdev2,2048";
 
 static int __init initialization_func(void)
 {
@@ -73,10 +73,25 @@ static int __init initialization_func(void)
             continue;
         pr_info("%s; %d; name: %s\n", __func__, __LINE__, name);
         pr_info("%s; %d; cpacity: %s\n", __func__, __LINE__, capacity);
-        if(strncmp(capacity, "1024", 4) == 0)
-            capacity_value = 1024;
-        else if(strncmp(capacity, "2048", 4) == 0)
-            capacity_value = 2048;
+        // if(strncmp(capacity, "1024", 4) == 0)
+        //     capacity_value = 1024;
+        // else if(strncmp(capacity, "2048", 4) == 0)
+        //     capacity_value = 2048;
+        // pr_info("%s; %d: Capacity value: %d\n", __func__,__LINE__, capacity_value);
+
+        ret = kstrtoull(capacity, 10, (unsigned long long *)&capacity_value);
+        if(ret == -EINVAL)
+        {
+            pr_info("%s; %d: kstrtoull() Failure, invalid value\n", __func__, __LINE__);
+            break;
+        }
+        if(ret == -ERANGE)
+        {
+            pr_info("%s; %d: Kstrtoull() Failure, Out of range\n", __func__, __LINE__);
+            break;
+        }
+        pr_info("%s; %d: Kstrtoull() capacity_value: %ld\n", __func__, __LINE__, (long int)capacity_value);
+
     }
 
     printk(KERN_INFO "%s: End.\n",__func__);
