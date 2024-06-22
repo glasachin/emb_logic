@@ -31,3 +31,6 @@ There are two devices in above definition separated by `;`
 We have to keep the copy of the original catalogue
 
 `IMP:` kstrtoull may not work on some machines
+
+
+* Block device works on either of the two ways: `request based` or `block IO mode (bio) `
