@@ -15,6 +15,16 @@ struct blkdev *blkdev_add(int major, int minor, char *name, sector_t capacity)
         goto FAIL;
     }
 
+    INIT_LIST_HEAD(&ldev->link);
+    ldev->capacity = capacity;
+    ldev->data = __vmalloc(capacity << SECTOR_SHIFT, GFP_NOIO | __GFP_ZERO);
+    if(!ldev->data)
+    {
+        ret = -ENOMEM;
+        kfree(ldev);
+        goto FAIL;
+    }
+
     printk(KERN_INFO "%s: End: \n", __func__);
     return 0;
 
