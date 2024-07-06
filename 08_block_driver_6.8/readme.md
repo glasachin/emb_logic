@@ -34,3 +34,6 @@ We have to keep the copy of the original catalogue
 
 
 * Block device works on either of the two ways: `request based` or `block IO mode (bio) `
+
+
+## Request based blkdev_add

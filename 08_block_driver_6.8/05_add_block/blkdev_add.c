@@ -25,6 +25,16 @@ struct blkdev *blkdev_add(int major, int minor, char *name, sector_t capacity)
         goto FAIL;
     }
 
+#ifdef REQUESTS_BASED
+    ret = init_tag_set(&ldev->tag_set, ldev);
+    if(ret)
+    {
+        pr_err("Failed to allocate tag_set");
+        goto FAIL;
+    }
+    
+#endif
+
     printk(KERN_INFO "%s: End: \n", __func__);
     return 0;
 

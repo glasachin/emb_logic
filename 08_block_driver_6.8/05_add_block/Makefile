@@ -2,7 +2,7 @@ INSTALL_DIR=modules
 ifneq (${KERNELRELEASE},)
 	obj-m := blkdd.o
 
-blkdd-objs := init.o clean.o blkdev_add.o
+blkdd-objs := init.o clean.o blkdev_add.o init_tag_set.o
 
 else
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build

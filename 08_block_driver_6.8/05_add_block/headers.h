@@ -4,6 +4,7 @@
 #include<linux/types.h>
 #include<linux/slab.h> // to include kmalloc()
 #include<linux/vmalloc.h>
+#include<linux/blk-mq.h>
 // #include<linux/cdev.h>
 
 MODULE_LICENSE("GNU/GPL");
