@@ -3,7 +3,11 @@
 1. Obtain the necessary Components
     * Obtain Kernel Image
     * Setup Cross Compiler: `arm-none-eabi-gcc`
+    * Boot Loader, u-boot, busybox
+2. Set up the Cross-Cpmpiler
 
+
+`set`: gives the environment variables
 
 ## 1.
 
@@ -45,4 +49,34 @@ U-Boot is widely used bootloader for ARM boards.
 ### 1d. Root Filesystem, Busybox
 * It is a software utility that combines many common Unix/Linux command-line tools into a single executable file.
 * It is designed to be lightweight and efficient, making it ideal for use in embedded systems.
+
+Use
+
+* Minimalist shell environment
+* system initialization
+* diagnostics anddebugging
+* embedded system maintenance
+* script execution
+
+Kye Features of Busy Box
+
+* Single Binary: all commands are compiled into a single binary file.
+* Configurable: It is highly configurable
+* small footprint: Busy box is designed to have a small memory storage
+* Compatibility: 
+
+Busy box is often included in the initial filesystem to provide a basic working environment.
+
+`How is busybox used during ARM Board Bringup?`
+1. Building busybox
+    * Download `wget https://busybox.net/downloads/busybox
+    * Configure BusyBox
+        * make defconfig
+        * make menuconfig
+        * make CROSS_COMPILE=arm-none-eabi- install
+2. setting up the root filesystem
+    
+3. booting with busybox
+
+```buildroot```
 
