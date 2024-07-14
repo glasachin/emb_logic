@@ -4,7 +4,14 @@
     * Obtain Kernel Image
     * Setup Cross Compiler: `arm-none-eabi-gcc`
     * Boot Loader, u-boot, busybox
+    * Root File system
 2. Set up the Cross-Cpmpiler
+    * Choose the cross-compiler
+    * Install the cross-compiler on a debian-based system
+    * Verify the installation
+3. Buid the `U-Boot` loader
+4. 
+
 
 
 `set`: gives the environment variables
@@ -80,3 +87,22 @@ Busy box is often included in the initial filesystem to provide a basic working 
 
 ```buildroot```
 
+
+
+# 2. Setup the Compiler
+
+* `gcc-arm-none-eabi`: gcc -> compiler, arm -> for ARM architecture, `none` -> no os on host machine at which compiler wll work
+* `gcc-arm-linux-gnueabi`: `linux` -> host machine has linux
+
+
+Once the cross-compiler is used then use the same to compile some test file (hello.c).
+
+For more complex projects, we may need to configure additional settings in our build environment. IT can include makefiles etc.
+
+* Environment Variables
+* Makefiles
+
+1. `Environment Variables Setup`
+
+```export CROSS_COMPILE=arm-none-eabi
+export PATH=$
