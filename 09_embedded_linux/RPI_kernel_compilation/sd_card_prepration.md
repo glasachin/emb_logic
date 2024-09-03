@@ -61,3 +61,7 @@ Once, it is done..
 
 again create a mount point for `root` partition and mount the partition as it is done for `boot` partition.
 
+
+## Un-Mounting the device
+
+`sudo umount <mount-point>`
