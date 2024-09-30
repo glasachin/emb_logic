@@ -54,5 +54,44 @@ Much of the information was taken from the STM32 Mooc Course form the following 
 ## USB LS/FS
 LS: low speed, FS: full speed
 
+for low speed pull up at `D-` and for high speed pull up at `D+`
+
 ![](./images/ls_fs.png)
+
+
+more to hardware.
+
+**LS Idle**
+
+
+
+**FS Idle**
+
+**J-State (FS)**
+
+**K-State (FS)**
+
+**Connect**
+
+**Reset**
+
+## Switching to High-Speed (HS)
+we either connect at LS or FS. It is complex, hardware wise to switching to `High-Speed` 
+
+* `HS` uses different signaling than FS/LS.
+* Special chirp handshake done during USB reset.
+* Every HS device must support FS communication
+
+## USB-C and power delivery
+* `USB-C` is new type of connector for both host and device.
+    * can be plugged both ways (180 rotation)
+    * Supports other interfaces (HDMI, Display Port, Ethernet, Audio, Authentification)
+    * Need special negotiation/error handling
+    * USB-C is not equal to USB 3.x
+
+![](./images/usb_c.png)
+
+## USB OTG
+
+![](./images/usb_otg.png)
 
