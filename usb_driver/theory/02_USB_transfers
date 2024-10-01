@@ -93,3 +93,17 @@ It assign it to address 0, then find free address and assign to the new.
 
 ![](./images/control_seq_no_data.png)
 
+![](./images/Naming_conventions_USB.png)
+
+![](./images/request_header.png)
+
+![](./images/requests.png)
+
+![](./images/usb_request_example.png)
+
+![](./images/usb_req_eg_stall.png)
+
+![](./images/split_ping.png)
+
+![](./images/bandwidt_constraint.png)
+
