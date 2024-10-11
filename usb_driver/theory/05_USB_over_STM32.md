@@ -6,3 +6,5 @@
 
 ![](./images/stm32_usb_only.png)
 
+![](./images/stm32_otg.png)
+
