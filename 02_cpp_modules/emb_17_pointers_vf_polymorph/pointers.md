@@ -9,7 +9,7 @@ ptr = &a;
 ```
 
 ## Pointers to objects
-A pointer can point to an object created by a class. Object pointers are useful in creating objects at run time. We can also use an object pointer to access the public members of an object using `->` sign or `(*ptr).class_member()`. 
+A pointer can point to an object created by a class. Object pointers are useful in creating objects at run time. We can also use an object pointer to access the `public members` of an object using `->` sign or `(*ptr).class_member()`. 
 
 We can also create the objects using pointers and `new` operator:
 ```item *ptr = new item```

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1729677528 source:c:\users\kimbal\onedrive - sinhal udyog pvt ltd\emb_logic\software_architecture\singleton\01_example\main.cpp
+	<iostream>
+	"demo.h"
+
+1729678638 c:\users\kimbal\onedrive - sinhal udyog pvt ltd\emb_logic\software_architecture\singleton\01_example\include\demo.h
+	<iostream>
+
+1729678587 source:c:\users\kimbal\onedrive - sinhal udyog pvt ltd\emb_logic\software_architecture\singleton\01_example\src\demo.cpp
+	"demo.h"
+
