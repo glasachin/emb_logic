@@ -16,8 +16,17 @@ We can also create the objects using pointers and `new` operator:
 
 `Note`:If a class has a constructor with arguments and does not include an empty constructor, then we must supply the arguments when the object is created. 
 
+**Dynamic array of objects allocations**
+
 We can also create an `array of objects` using pointers as:
+
 ```item *ptr = new item[10]```
+
+This is knows as dynamic allocation. 
+
+1. `Dynamic Allocation`: `MyClass* myArray = new MyClass[size]`; dynamically allocates an array of MyClass objects.
+2. `Assignment`: Use `myArray[i] = MyClass(i + 1);` to initialize each element in the array. We need to initialize each object in the array, by calling their constructors.
+3. `Deallocation`: Use `delete[] myArray;` to free the memory once done, since it was dynamically allocated.
 
 ## this Pointer
 C++ uses a unique keyword called `this` to represent an object that invokes a member function. `this` is a pointer that points to the object for which `this` function was called. E.g. the function call `A.max()` will set the pointer `this` to the address of the object `A`. The starting address is the same as the address of the first variable in the class structure.

@@ -44,3 +44,8 @@ related notes can be found [here](./emb_19_vectors_arrays/readme.md)
 ## Exception Handeling in C++
 `Exception` related notes can be found [here](./emb_21_exception_handeling/exception_handeling.md)
 
+
+## Additional Specific Concepts
+
+1. Array of objects can be found [here](./additional_concepts/01_array_of_objects.md)
+ 
