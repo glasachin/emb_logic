@@ -143,4 +143,74 @@ sudo systemctl enable my-script.service
 sudo systemctl start my-script.service
 ```
 
+### Creation of '.service' file
+The systemd service file has three important and necessary sections. They are `[Unit]`, `[Service]` and `[Install]` sections. The systemd service file's extension is `.service` and we use the pound/hash symbol (#) for single line comments.
+
+**The [Unit] section**
+
+it contains details about the service. Details like 'what is its description', 'what are its dependencies' and more.
+
+Below are the fields the Unit section has:
+
+1. `Description`:- Human-readable title of the systemd service.
+2. `After`:- Set dependency on a service. For example, if you are configuring Apache web server, you want the server to start after the network is online. This typically includes targets or other services.
+3. `Before`:- Start current service before specified service. 
+
+**The [Service] section**
+
+The Service section contains details about the execution and termination of service.
+
+Below are the fields the Service section has:
+
+* `ExecStart`:- The command that needs to be executed when the service starts. In our case, we want the Apache server to start.
+* `ExecReload`:- This is an optional field. It specifies how a service is restarted. For services that perform disk I/O (especially writing to disk, like a database), it is best to gracefully kill them and start again. Use this field in case you wish to have a specific restart mechanism.
+* `Type`:- This indicates the start-up type of a process for a given systemd service. Options are `simple, exec, forking, oneshot, dbus, notify and idle`. (more info here)
+* `Restart`:- This is another optional field but one that you will very likely use. This specifies if a service should be restarted--depending on circumstances--or not. The available options are `no, on-success, on-failure, on-abnormal, on-watchdog, on-abort and always`.
+
+**The [Install] section**
+
+The Install section, as the name says, handles the installation of a systemd service/unit file. This is used when you run either `systemctl enable` and `systemctl disable` command for enabling or disabling a service.
+
+Below are the fields the Install section has:
+
+* `WantedBy`:- This is similar to the `After` and `Before` fields, but the main difference is that this is used to specify systemd-equivalent "runlevels". 
+    * The `default.target` is when all the system initialization is complete--when the user is asked to log in. Most user-facing services (like Apache, cron, GNOME-stuff, etc.) use this target.
+* `RequiredBy`:- This field might feel very similar to `WantedBy`, but the main difference is that this field specifies hard dependencies. Meaning, if a dependency, this service will fail.
+
+[good link](https://www.freedesktop.org/wiki/Software/systemd/)
+
+
+**Different Commands**
+
+* `sudo systemctl daemon-reload` : to tell systemd to read our service file
+* `systemctl start test-app.service` : To start/activate the service, run the systemctl command as follows:
+* `systemctl status test-app.service` : To check if the service is running or not, issue the systemctl command as shown.
+* `systemctl enable test-app.service`: To enable the service to start at system boot, use the systemctl enable command. 
+* `systemctl is-enabled test-app.service` : TO check if service is enabled or not
+* `systemctl enable --now test-app.service`: you can also enable and start the service at the same time as shown.
+* `systemctl stop test-app.service` : To stop/deactivate the service, run the systemctl stop command.
+* `systemctl restart test-app.service` : To restart the service, run the systemctl restart command
+* `systemctl disable test-app.service`:
+* `systemctl is-disabled test-app.service`
+* `systemctl disable --now test-app.service`: can disable and stop it at the same time as shown.
+
+**Example**
+
+```
+[Unit]
+Description=Gunicorn daemon for serving test-app
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/apps/test-app/
+Environment="PATH=/apps/test-app/bin"
+ExecStart=/apps/test-app/bin/gunicorn --workers 9  -t 0  --bind 127.0.0.1:5001 -m 007 wsgi:app --log-level debug --access-logfile /var/log/gunicorn/test_app_access.log --error-logfile /var/log/gunicorn/test_app_error.log
+ExecReload=/bin/kill -s HUP $MAINPID
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
 
