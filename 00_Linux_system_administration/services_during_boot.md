@@ -214,3 +214,4 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 
+`Note: Make sure to enable the service, so that it can be restarted at reboot`
