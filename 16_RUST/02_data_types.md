@@ -15,7 +15,7 @@ Length|	Signed|	Unsigned
 32-bit|	i32|	u32
 64-bit|	i64|	u64
 128-bit|	i128|	u128
-arch|	isize|	usize
+arch (architectrue dependent)|	isize|	usize
 
 we can write integer literals in any of the forms shown in Table.
 
@@ -40,6 +40,21 @@ To explicitly handle the possibility of overflow, you can use these families of 
 * Return the value and a boolean indicating whether there was overflow with the overflowing_* methods.
 * Saturate at the value’s minimum or maximum values with the saturating_* methods.
 
+**Special Operations**
+
+Rust provides utility methods for integers:
+1. `Check Overflow`: `.checked_add(), .wrapping_sub()`
+2. `Bit Manipulation`: `.rotate_left()`, `.rotate_right()`
+3. `Conversion`: `.to_string()`
+
+```
+fn main()
+{
+    let x: i32 = 5;
+    let y = x.checked_add(2147483647); // return none on overslow
+    println!("Result: {:?}", y); // Output none
+}
+```
 
 ### Floating-Point Type
 Rust’s floating-point types are `f32` and `f64`, The default type is f64 because on modern CPUs, it’s roughly the same speed as f32 but is capable of more precision. `All floating-point types are signed`.
@@ -84,6 +99,19 @@ fn main() {
     let f: bool = false; // with explicit type annotation
 }
 ```
+
+**Boolean Expressions**
+
+`==` : is equal to
+`!= `: is different from
+`< ` : is less than
+`<=` : is less than or equal to
+`> ` : is greater than
+`>=` : is greater than or equal to
+
+`&&` : logical and
+`||` : logical OR 
+`!`  : logical not 
 
 ### Character Type
 
@@ -141,3 +169,45 @@ The tuple without any values has a special name, `unit`. This value and its corr
 
 
 ### Array Type
+Unlike a tuple, every element of an `array` must have the `same type`. Unlike arrays in some other languages, arrays in Rust have a 
+fixed length.
+
+```
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+    let b: [i32; 5] = [1, 2, 3, 4, 5];
+}
+```
+
+You can also initialize an array to contain the same value for each element by specifying the initial value, followed by a `semicolon`, and then the length of the array in 
+square brackets
+```
+let a = [3; 5];
+```
+The array named a will contain 5 elements that will all be set to the value 3 initially. 
+This is the same as writing `let a = [3, 3, 3, 3, 3];` but in a more concise way.
+
+**Accessing Array Elements**
+
+```
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    let first = a[0];
+    let second = a[1];
+}
+```
+
+## Type Conversion
+Rust doesn't automatically convert types. Explicit casting is required using the 
+`as` keyword.
+
+```
+fn main()
+{
+    let x: i32 = 10;
+    let y: f64 = x as f64 + 3.5;
+    println!("x as f64: {}", y);
+}
+```
+
