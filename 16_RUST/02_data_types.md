@@ -55,6 +55,21 @@ fn main()
     println!("Result: {:?}", y); // Output none
 }
 ```
+method | behavior
+---|---
+checked_add | Return `none` if overflow occurs
+wrapping_add | wraps around the value (e.g. modular arithmetic)
+saturating_add | Return u32::MAX (or u32::MIN for subtraction) on overflow
+overflowing_add | Returns the result and a bool indicating overflow
+
+method | behavior
+---|---
+checked_sub | Return `none` if overflow occurs
+wrapping_sub | wraps the result to the maximum value on underflow.
+saturating_sub | Return 0 (minimum value) on underflow
+overflowing_sub | Returns the result and a bool indicating overflow
+
+
 
 ### Floating-Point Type
 Rust’s floating-point types are `f32` and `f64`, The default type is f64 because on modern CPUs, it’s roughly the same speed as f32 but is capable of more precision. `All floating-point types are signed`.
@@ -66,6 +81,21 @@ fn main() {
     let y: f32 = 3.0; // f32
 }
 ```
+
+**Special Values**
+1. `Infinity (inf)`
+2. Negative Infinity (`-inf`)
+3. NaN (Not a number)
+
+**Utility Methods**
+1. `.abs()`: Absolute Value
+2. `.sqrt()`: Square Root
+3. `.powi(n)`: Raise to an integer power
+4. `.round()`: Round to nearest integer
+5. `.ceil()`: Round up to +Inf
+5. `.floor()`: Round down to -Inf
+6. `.is_nan()`: Check if value is NaN.
+
 
 #### Numeric Operations
 addition, subtraction, multiplication, division, and remainder. `Integer division truncates toward zero to the nearest integer`.
@@ -88,6 +118,26 @@ fn main() {
     let remainder = 43 % 5;
 }
 ```
+
+#### Trigonometric Functions
+Rust provides trig functions through `std::f32` and `std::f64`
+* .sin(), .cos(), .tan()
+* .asin(), .acos(), .atan()
+* .atan2(y)
+
+
+**Example**
+```
+fn main()
+{
+    let angle = std::f64::consts::PI / 4.0;
+
+    println!("sin: {}", angle.sin());
+    println!("cos: {}", angle.cos());
+    println!("tan: {}", angle.tan());
+}
+```
+
 
 ### Boolean Type
 `true` and `false`. Booleans are `one byte` in size. The Boolean type in Rust is specified using `bool`.
@@ -210,4 +260,40 @@ fn main()
     println!("x as f64: {}", y);
 }
 ```
+
+**Utility Methods**
+```
+let x: u8 = 42;
+let y: String = x.to_string(); // converts to string
+let z: Option = "42".parse().ok();  //Parse string to number
+```
+
+## Arithmatic Operations
+
+* +, -, *, /, %(modulo)
+
+## Bitwise Operations
+
+* AND (&)
+* OR (|)
+* XOR (^)
+* NOT (!)
+* Left shift (<<) : shift bits to the left, filling with zeros.
+* Right Shift (>>) : shift bits to the right, filling with zeros (unsigned) or sign bit (signed)
+
+### Utility Methods for Bit Manipulation
+
+1. Counting Bits
+    1. `.count_ones()` : Counts 1 bits
+    2. `.count_zeros()` : Counts 0 bits
+2. Rotations
+    1. `.rotate_left(n)` : Rotate bits to the left
+    2. `.rotate_right(n)` : Rotate bits to the right
+3. Leading/Trailing Zeros
+    1. `.leading_zeros()`: Count leading zeros
+    2. `.trailing_zeros()`: Count trailing zeros
+
+
+
+
 
