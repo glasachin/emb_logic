@@ -6,6 +6,16 @@
 2. Linux System Programming 2nd edition (one pdf is in documents)
 3. Linux Device Drivers 3rd edition (LDD)
 
+## Important Points whose details are needed
+
+1. cross compiler tool chain
+    * different library architecture
+2. Logging
+    * syslob
+3. File systems
+    * ntfs, ext4, fat
+4. sysroot
+5. build-essential 
 
 ## Linux Overview
 
@@ -119,5 +129,15 @@ uid (user id) `0` is the root user.
 * example toolchain for arm and use using QEMU (emulator)
     * link is given in the slides
 
+**Sysroot**
 
+* It is the root filesystem of your (cross) toolchain.
+* Consists of files specific to the *target* type.
+
+`Sysroot Directories`
+
+* lib
+* usr/lib
+* usr/include
+* usr/(s)bin
 
