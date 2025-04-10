@@ -1,6 +1,11 @@
 # Rust
 Rust's performance is comparable to C and C++ because it compiles directly to machine code. Developers can write low-level, highly optimized code without sacrificing safety. This makes it ideal for use cases like game engines, operating systems, embedded systems, and high-performance web services.
 
+**Good Links**
+
+`https://doc.rust-lang.org/stable/rust-by-example/hello.html`
+
+`https://doc.rust-lang.org/book/`
 
 **Installations**
 
