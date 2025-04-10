@@ -1,5 +1,7 @@
 # Week 1
 
+Knowledge of system programming and device driver programming is required to understand the `Embedded Linux` properly.
+
 **book**
 
 1. Mastering Embedded Linux Programming
