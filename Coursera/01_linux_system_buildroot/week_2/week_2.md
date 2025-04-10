@@ -45,3 +45,20 @@ only points, details can be done later
     * wait() --> to obtain information about terminated child
     * waitpid(), waitid()
 * system()    
+
+**processes and Daemons**
+
+* Process should execute with minimum level of rights possible.
+* single foreground process group in a session
+* &
+* `Daemons`: which runs in the background does not connect to a controlling terminal.
+    * often ends with `d`
+* exit() ==> allows daemon's grandparent (init) to continue
+* setsid()
+* chdir("/")
+* Different Daemon Options ( other than mentioned in the book)
+
+
+## Basics of Embedded Linux
+
+
