@@ -141,3 +141,14 @@ only points, details can be done later
 * make defconfig
 * make ARCH=
 * make CONFIG_PREFIX
+
+`need to add devices`
+
+* created with mknod (make node)
+* mknod `name` `type` `major` `minor`
+    * null device
+    * console device
+* Ramdisk : disk image loaded into RAM by bootloader
+* Disk Image
+* Network file system (NFS)
+* cpio
