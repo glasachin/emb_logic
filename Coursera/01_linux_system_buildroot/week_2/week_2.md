@@ -61,4 +61,83 @@ only points, details can be done later
 
 ## Basics of Embedded Linux
 
+**Linux Kernel Overview**
 
+* Overview of kernel source directories
+    * arch : architecture files
+    * documentation
+    * drivers
+    * fs: filesystem
+    * include: #include from user/kernel space
+    * init
+    * kernel: core functions, scheduling, locking and timers
+    * mm: memory management
+    * net: networking
+    * scripts
+    * tools
+* Elements of embedded Linux
+    * toolchain
+    * bootloader
+    * kernel
+    * root filesystem
+* QEMU for Emulation
+    * emulates a processor architecture and a board.
+    * `qemu-system-arm` simulates ARM architecture devices
+    * it is initiated using command line .
+
+**Building the Linux Kernel**
+
+* KConfig
+    * text format whch controls kernel configuration
+    * e.g. drivers/char/Kconfig
+* Menuconfig
+    * Terminal based graphical tool to modify kernel configuration using KConfig files
+    * `make menuconfig`
+* KConfig Options
+    * off, on, Module
+* Kernel Defconfigs
+* Compile with `Kbuild`
+* Build Artifacts
+    * `vmlinux` : ELF binary
+    * 
+
+`steps to build/create kernel`
+
+
+
+
+**Linux Root File System**
+
+* Option 1: initramfs
+* Option 2: block device
+* minimal root filesystem contents
+    * init
+    * shell
+    * daemons
+    * shared libraries
+    * configuration files (/etc)
+    * device nodes (/dev)
+    * /proc and /sys pseudo filesystems
+    * kernel modules (/lib/modules/`kernel-version`)
+* Hierarch Standards
+    * /bin : programs for all users, used at boot
+    * /dev/
+    * /etc
+    * /lib
+    * /proc, /sys
+    * /sbin
+    * /tmp
+    * /usr /usr/bin, /usr/sbin
+    * /var
+
+`How do we create a rootfs`
+
+* start by creating the folder tree
+* Use `BusyBox` to create files
+
+`BusyBox Overview`: Make and Install Busybox
+
+* make disclean
+* make defconfig
+* make ARCH=
+* make CONFIG_PREFIX
