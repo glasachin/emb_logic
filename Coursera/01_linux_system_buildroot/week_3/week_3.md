@@ -42,6 +42,17 @@
 
 ### Buildroot Builds
 
-* config.h
+* config.in
 
 `more is through assignment only`
+
+* setting up base external
+
+### Buildroot Tips
+
+* `$0` is full execution name. 
+* Single package rebuild/local build 
+    * single package rebuild
+    * local builds
+
+
