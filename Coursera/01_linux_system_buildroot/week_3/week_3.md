@@ -56,3 +56,24 @@
     * local builds
 
 
+## Signals
+
+### Signals overview
+
+* asynchronous events
+* signal lifecycle
+* SIGKILL and SIGSTOP
+* SIGINT and SIGTERM
+* SIGSEV
+
+### signal management
+
+* avoid `signal()` use `sigaction()` instead
+* `sigqueue()` can send payload with signal
+* child inherits signal actions of the parent of `fork`
+* starting a proces with `exec()` resets all
+* signal handlers and safety
+    * `async-signal-safe`
+
+
+
