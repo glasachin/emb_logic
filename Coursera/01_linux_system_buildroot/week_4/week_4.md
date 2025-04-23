@@ -40,6 +40,51 @@ Another mechanism for IPC
 * Port forwarding
 * `port` for local addressing
 
-* `SOCK_STREAM`, `SOCK_DGRAM`
+* `SOCK_STREAM`, 
+* `SOCK_DGRAM`
+* Socket is used using a `file descriptor`
+* domain `PF_INET` or `PF_INET6`
+* `sockaddr`
+* `socketlen_t`
+
+
+
+
+
+## Embedded Socket Server
+
+### Linux System Initialization
+
+Basics of writing `init` script files.
+
+* busybox init
+    * Default for buildroot projects
+* System V init
+    * default for Yocto Projects
+* systemd
+    * More sophisticated startup manager
+
+* Busybox
+    * `/etc/init.d/rcS` ==> during startup, S: startup level
+    * `/etc/init.d/rcK` ==> during shutdown. 
+
+* `start-stop-daemon`
+    * /etc/init.d/S<-mydaemon-> start
+
+### Embedded Debug Strategies
+
+* `GDB`
+* `-g` argument to GCC for debug symbols
+* `gdb ./<-file-name->`
+* Commands
+    * r
+    * b
+    * p
+    * n
+    * finish
+    * info b
+    * delete <-x->
+    * bt : backtrace
+
 
 
