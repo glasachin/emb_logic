@@ -65,4 +65,48 @@
     * macro can be used by yourself to make backward compatibility
 
 
+* Dynamic Kernel Module Support
+
+* Kernel Symbol Table
+
+* Module Init (`__init`)
+    * Initialize everything
+* Module Exit (`__exit`)
+    * unregisters interfaces, typically done in reverse order.
+
+
+## Yocto
+
+### Introduction to Yocto
+
+* Build root was for creating `rootfs` only, while yocto builds complete linux `Distribution`.
+* Includes embedded build tools and an embedded distribution `poky`.
+
+* Setting up the Yocto
+    * Clone the "poky" project a submodule
+    * `source poky/oe-init-build-env` => sets up environment variable on current bash terminal
+    * `bitbake core-image-minimal`
+    * 
+
+* `recipes` are a set of instructions processed by the build engine.
+    * these are defined in `.bb` and `.inc` text files.
+    * `.bb` typically contains source and version information.
+    * `.inc` contains build and deploy instructions, may contain python or bash fragments.
+
+* `packages` contain binary artifacts from the build
+
+* `images` are build outputs
+    * Binary root filesystem image
+    * Linux kernel image
+    * `u-boot` or `grub` bootloader image
+
+
+* Yocto Layer Model
+    * adding a lyer
+    * adding a custom image
+
+
+### Building a Yocto Image
+
+
 
