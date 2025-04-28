@@ -108,5 +108,16 @@
 
 ### Building a Yocto Image
 
+* `meta-aesd`
 
+* `runqemu nographic`
+
+* add the recipe using `devtool`
+    * `devtool add [....]`
+
+    * Once finished it gives path to layer , `../../meta-[..]/`
+    * places the `.bb` file
+
+
+### Yocto and Buildroot Comparison
 
