@@ -63,4 +63,23 @@ Here's a more detailed breakdown: [1, 1, 4, 4]
 * `gpiomon`
 * `gpioset` and `gpioget`
 
+## Hardware Constraints or Limitations
+
+**⚡ Estimated Frequency with gpiod:**
+
+1. Typical Max Frequency: ~1–3 kHz (reliable).
+
+2. Upper Limit: Up to ~10 kHz, but not stable.
+
+3. **Why limited?**
+
+	* gpiod is a userspace library interacting with GPIO through the Linux GPIO character device.
+
+	* It incurs system call overhead and is not real-time, which causes jitter and delays.
+
+	* The toggling is done by issuing IOCTL calls for every state change, which adds latency.
+
+
+## Interrupts using libgpiod
+
 
