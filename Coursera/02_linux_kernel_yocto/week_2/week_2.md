@@ -13,4 +13,26 @@ simple example
 * `mknod [name] [type] [major] [minor]`
 * `unregister_chrdev`
 
+* `/proc/devices` : contains current list of allocated devices and associated driver
+
+* `AWK`
+
+### Device drivers File operations
+
+* connect driver operations to device number
+    * open, read, write etc
+driver open from mknod node `/dev/yourdev`
+
+```
+struct file_operations xyz = 
+{
+
+}
+```
+
+* lot of definitions in book are out of date.
+* read source code for update
+
+
+
 
