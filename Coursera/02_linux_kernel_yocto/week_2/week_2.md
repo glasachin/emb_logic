@@ -33,6 +33,29 @@ struct file_operations xyz =
 * lot of definitions in book are out of date.
 * read source code for update
 
+* file structure
+    * f_mode
+    * f_pos 
+    * f_flags
+    * struct file_operations *f_op 
+    * void *private_data
 
+* release method
+
+### Device driver and userspace continued
+
+* steps in driver compilation and loading module
+* `kmalloc`
+* `kfree`
+* `ssize_t read`
+* `ssize_t write`
+
+* `unsigned long copy_to_user`
+* `unsigned long copy_from_user`
+
+
+### Circular Buffer Implementation
+
+* `buildroot rootfs-overlay`
 
 
