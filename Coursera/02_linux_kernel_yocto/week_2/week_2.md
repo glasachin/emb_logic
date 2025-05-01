@@ -59,3 +59,18 @@ struct file_operations xyz =
 * `buildroot rootfs-overlay`
 
 
+## Buildroot/Yocto Kernel river Build
+
+### Kernel Debugging
+
+* not easily executed in a debugger
+    * not possible to halt, set, breakpoints, modify memory
+
+* `kernel hacking` enable this option in kernel menuconfig.
+* `printk` is the most common debug method
+* `proc/sys/kernel/printk` can be used to control prints redirected to the console
+
+* `strace`
+* `printk_ratelimited`
+
+
