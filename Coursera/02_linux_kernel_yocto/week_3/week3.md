@@ -34,4 +34,50 @@
 
 ### Additional Kernel Locking Options
 
+* `Mutex` in SCULL
+
+* Reader/writer semaphores. Only writer threads need exclusive access.
+
+* `completions`
+    * wait for some activity to complete
+
+
+### More fun with locking
+
+* `spinlocks` : can be used in code which cannot sleep, e.g. `interrupt handlers`
+    * higher performance than semaphores
+
+* `irqsave/irqrestore`
+
+* `deadlock` in spinlocks
+
+* Core Rules for Spin Lock
+    * Code must be atomic while holding the spinlock.
+    * Must be held for `minimum time possible`
+
+* Rules on Lock Ordering
+
+* Alternatives to locking
+    * atomic variables and bit operations
+    * lock-free algorithms
+        * circular buffer with excatly 2 threads and atomic count values
+        * read-copy-update
+
+## Kernel Driver Development
+Mainly on assignment
+
+### Additional on DEBUG
+
+* compile with `CONFIG_DEBUG_INFO`
+
+* `dynamic probing`
+    * replaced by `systemTap`
+
+* Kernel Memory Leaks
+    * `kmemleak`
+
+* `bash -x (or sh -x)`
+
+* `strace`
+
 
