@@ -28,6 +28,19 @@
 * `waking up`
 
 
+### Kernel sleep continued
+
+* Blocking I/O Buffering
+
+* Task states
+    * TASK_RUNNING
+    * TASK_INTERRUPTIBLE and TASK_UNINTERRUPTIBLE
+* schedule()
+
+* Non-blocking I/O
+    * O_NONBLOCK 
+
+### Poll and select
 
 
 
