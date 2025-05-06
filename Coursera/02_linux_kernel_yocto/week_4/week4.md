@@ -42,5 +42,22 @@
 
 ### Poll and select
 
+* `poll_wait`
+
+* To ensure transmissions complete to the device, the driver must provide `fsync`
+
+**Seeking on a device**
+
+* `lseek`
+
+* call `nonseekable_open` in open function if seek doesn't make sense for device
+    * serial port
+    * keyboard
+
+### Assignment: Kernel driver IOCTL implementation
+
+* `f_pos`
+
+
 
 
