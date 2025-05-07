@@ -1,10 +1,15 @@
 # Information
 
+## C Programming with Linux Specialization
+7 course series
+
+7. C Programming: Using Linux Tools and Libraries => `Done` (not much in this)
+
 ## Advanced Embedded Linux Development Specialization
 It contains three courses
 
-1. Linux System Programming and Introduction to Buildroot ==> Done
-2. Linux Kernel Programming and Introduction to Yocto Project ==> Done
+1. Linux System Programming and Introduction to Buildroot ==> `Done`
+2. Linux Kernel Programming and Introduction to Yocto Project ==> `Done`
 3. Linux Embedded System Topics and Projects
 
 
