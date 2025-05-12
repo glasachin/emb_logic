@@ -15,7 +15,7 @@ It contains three courses
 
 ## Object Oriented Programming Specialization
 
-1. Introduction to Object-Oriented Programming in C++
+1. Introduction to Object-Oriented Programming in C++ ==> `Done`
 2. C++ Programming: Classes and Data
 3. Object-Oriented Programming in C++: Functions
 4. Working with Objects in C++
