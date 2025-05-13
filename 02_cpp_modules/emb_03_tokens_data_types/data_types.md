@@ -108,6 +108,34 @@ to delete  the dynamically allocated array following form of `delete` will be us
 
 `delete []p;`
 
+### enum
+same as that of in `C`
+
+### enum class
+Enum classes provide stronger type safety than traditional enums. 
+`enum class Colors {blue, reg, gree};`
+
+```c++
+enum class colors
+{
+hello,
+hi,
+};
+
+int main()
+{
+    colors abc = colors::hi;
+    cout << "enum value: " << int(abc) << endl;
+}
+
+```
+
+Feature|	Traditional Enum|	Enum Class
+---|---|---
+Type Safety|	No|	Yes
+Scope|	Global|	Scoped
+Implicit Conversion|	Converts to int	|No implicit conversion
+Enumerator Conflicts|	Possible|	Not possible
 
 
 
