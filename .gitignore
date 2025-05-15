@@ -5,3 +5,7 @@
 *target
 *debug
 .vscode
+
+*.out
+
+*.vscode
