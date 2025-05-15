@@ -44,3 +44,13 @@ or
 * `resize()`: reshapes the container to contain only a specific amount of elements.
 * `empty()`: returns a boolean whether vector is empty or not.
 
+
+## Some good concepts
+
+### Printing vectors
+
+**Normal for loop**
+
+
+**Iterator**
+
