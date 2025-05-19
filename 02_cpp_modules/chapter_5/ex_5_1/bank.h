@@ -12,7 +12,7 @@ private:
     float balance;
 public:
     void startAccount(void);
-    void depositAmount(int amount);
-    void withdrawAmount(int amount);
+    void depositAmount(void);
+    void withdrawAmount(void);
     void displayInformation(void);
 };
