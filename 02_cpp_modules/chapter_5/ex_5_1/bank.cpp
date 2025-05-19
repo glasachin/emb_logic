@@ -1,13 +1,21 @@
 #include "bank.h"
 
+bankAccount::bankAccount()
+{
+    balance = 0.0;
+    accNumber = 0;
+}
+
 void bankAccount::startAccount(void)
 {
     std::cout << "Welcome to New Account Creation ==>" << std::endl;
     std::cout << "Enter Your Name: ";
+    std::cin.ignore();
     getline(std::cin, name);
     std::cout << "Enter the Depositing Amount: ";
     std::cin >> balance;
     std::cout << "Enter the Account Type: ";
+    std::cin.ignore();
     getline(std::cin, acType);
     // generate random account number
     accNumber = std::rand();

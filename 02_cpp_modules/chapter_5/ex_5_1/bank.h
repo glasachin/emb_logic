@@ -11,6 +11,7 @@ private:
     std::string acType;
     float balance;
 public:
+    bankAccount();
     void startAccount(void);
     void depositAmount(void);
     void withdrawAmount(void);
