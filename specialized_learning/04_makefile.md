@@ -89,4 +89,57 @@ clean:
 .PHONY: all clean
 ```
 
+## Multiple directory structure
 
+project/
+│
+├── Makefile
+├── src/
+│   ├── main.cpp
+│   ├── module1/
+│   │   └── mod1.cpp
+│   └── module2/
+│       └── mod2.cpp
+├── include/
+    ├── mod1.h
+    └── mod2.h
+
+
+```makefile
+# Compiler and flags
+CXX := g++
+CXXFLAGS := -std=c++17 -Wall -Iinclude
+
+# Directories
+SRC_DIR := src
+OBJ_DIR := obj
+BIN_DIR := bin
+
+# Sources and objects
+SOURCES := $(wildcard $(SRC_DIR)/*.cpp) \
+           $(wildcard $(SRC_DIR)/module1/*.cpp) \
+           $(wildcard $(SRC_DIR)/module2/*.cpp)
+
+OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
+
+TARGET := $(BIN_DIR)/app
+
+# Default target
+all: $(TARGET)
+
+# Link objects into executable
+$(TARGET): $(OBJECTS)
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(OBJECTS) -o $@
+
+# Compile .cpp files into .o files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean up
+clean:
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
+
+.PHONY: all clean
+```
