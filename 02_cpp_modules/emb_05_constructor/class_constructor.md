@@ -146,3 +146,173 @@ class foo
 };
 ```
 
+
+## initializer list
+An `initializer list` in C++ is a way to initialize class members directly in a constructor, before the constructor's body is executed. It's a comma-separated list of members and their initial values, placed after a colon following the constructor's parameter list.
+
+```C++
+class MyClass {
+public:
+    int x;
+    int y;
+
+    // Constructor with an initializer list
+    MyClass(int a, int b) : x(a), y(b) {}
+};
+```
+
+Initializer lists are particularly useful and sometimes necessary in several situations:
+1. `Initializing const and reference members:` const and reference members must be initialized in the initializer list because they cannot be assigned values later.
+2. `Initializing member objects without default constructors:`
+If a class member is an object of another class that doesn't have a default constructor, it must be initialized in the initializer list, specifying the appropriate constructor and arguments.
+3. `Initializing base class members:`
+When inheriting from a base class, the base class constructor can be explicitly called in the initializer list.
+4. `Efficiency:`
+Initializer lists can be more efficient than assigning values in the constructor body, especially for complex objects, as they directly initialize the members instead of default-initializing them first and then assigning new values.
+5. `Order of Initialization:`
+Initializer lists guarantee that members are initialized in the order they are declared in the class, regardless of the order in the initializer list itself.
+
+**if Class A has default constructor and parametrized constructor then how will we create object of class A in class B**
+
+✅ Scenario 1: Use Default Constructor of Class A
+
+```c++
+class A {
+public:
+    A();             // default constructor
+    A(int x);        // parameterized constructor
+    void display();
+};
+
+#include "A.h"
+
+class B {
+private:
+    A objA;   // uses default constructor
+
+public:
+    B();      // B's constructor
+    void useA();
+};
+
+// b.cpp
+#include "B.h"
+#include <iostream>
+using namespace std;
+
+B::B() {
+    cout << "Class B Constructor" << endl;
+}
+
+void B::useA() {
+    objA.display();
+}
+
+```
+
+✅ Scenario 2: Use Parameterized Constructor of Class A
+
+```c++
+class B {
+private:
+    A objA;
+
+public:
+    B(int x);   // Pass value to A's constructor
+    void useA();
+};
+
+#include "B.h"
+#include <iostream>
+using namespace std;
+
+B::B(int x) : objA(x) {
+    cout << "Class B Constructor" << endl;
+}
+
+void B::useA() {
+    objA.display();
+}
+```
+
+**both class have both constructors**
+
+```c++
+// A.h
+class A {
+public:
+    A();             // Default constructor
+    A(int x);        // Parameterized constructor
+    void display();
+};
+
+// B.h
+#include "A.h"
+
+class B {
+private:
+    A objA;
+
+public:
+    B();             // Default constructor
+    B(int x);        // Parameterized constructor
+    void useA();
+};
+
+// B.cpp
+#include "B.h"
+#include <iostream>
+using namespace std;
+
+B::B() : objA() {
+    cout << "B's Default Constructor\n";
+}
+
+B::B(int x) : objA(x) {
+    cout << "B's Parameterized Constructor\n";
+}
+
+void B::useA() {
+    objA.display();
+}
+
+// A.cpp
+#include "A.h"
+#include <iostream>
+using namespace std;
+
+A::A() {
+    cout << "A's Default Constructor\n";
+}
+
+A::A(int x) {
+    cout << "A's Parameterized Constructor with x = " << x << endl;
+}
+
+void A::display() {
+    cout << "Inside A::display()\n";
+}
+
+//main.cpp
+#include "B.h"
+
+int main() {
+    B b1;        // Calls B's default constructor -> A's default constructor
+    B b2(10);    // Calls B's param constructor -> A's param constructor
+
+    b1.useA();
+    b2.useA();
+
+    return 0;
+}
+
+```
+
+```NOTE: 
+1. Make sure that constructor of A doesn't have any default arguments for above to work
+2. Class A object in Class B should not be static. for static process is different.
+3. if Class B doesn't define a constructor, the compiler will default-initialize its members. Hence, Class A must have a default constructor.
+```
+
+
+

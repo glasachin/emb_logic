@@ -1,0 +1,25 @@
+#include "staff.hpp"
+
+staff::staff(void)
+{
+    count++;
+}
+
+void staff::getInformation(void)
+{
+    std::cout << "Enter Employee Code: ";
+    std::cin >> code;
+    std::cout << "Enter Employee Name: ";
+    getline(std::cin, name);
+}
+
+void staff::display(void)
+{
+    std::cout << "Staff Code: " << code
+              << "\tStaff Name: " << name << std::endl;
+}
+
+int staff::totalStaff(void)
+{
+    std::cout << "Total Staff: " << count << std::endl;
+}
