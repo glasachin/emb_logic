@@ -1,5 +1,7 @@
 #include "staff.hpp"
 
+int staff::count;
+
 staff::staff(void)
 {
     count++;
@@ -22,4 +24,5 @@ void staff::display(void)
 int staff::totalStaff(void)
 {
     std::cout << "Total Staff: " << count << std::endl;
+    return count;
 }

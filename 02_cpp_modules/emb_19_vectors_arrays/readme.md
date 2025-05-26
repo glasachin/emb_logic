@@ -32,6 +32,7 @@ or
 ## Modifying the vector
 
 1. `push_back()`: allows to add a number to the end of the vector.
+    * `vector_1.push_back(value)`
 2. `pop_back()`: helps to remove the last element in the vector.
 3. `insert()`: insert an element at a given index or position.
 4. `erase()`: remove elements from vector from specified indices or range.
