@@ -37,6 +37,7 @@ or
 3. `insert()`: insert an element at a given index or position.
 4. `erase()`: remove elements from vector from specified indices or range.
 5. `clear()`: removes all elements from vector container.
+6. `emplace_back()`
 
 ## Functions for Size Manipulation
 * `size()`: returns the size of vector or the number of elements
@@ -54,4 +55,43 @@ or
 
 
 **Iterator**
+
+
+### vector of class objects
+
+```c++
+#include <iostream>
+#include <vector>
+
+class MyClass {
+public:
+    int value;
+    MyClass(int val) : value(val) {}
+    void display() const {
+        std::cout << "Value: " << value << std::endl;
+    }
+};
+
+int main() {
+    // Create a vector of MyClass objects
+    std::vector<MyClass> myVector;
+
+    // Add objects to the vector
+    myVector.push_back(MyClass(10));
+    myVector.push_back(MyClass(20));
+    myVector.emplace_back(30); // Efficiently construct in place
+
+    // Access and use objects in the vector
+    for (const auto& obj : myVector) {
+        obj.display();
+    }
+
+    // Modify an object in the vector
+    myVector[0].value = 15;
+    myVector[0].display();
+
+    return 0;
+}
+```
+
 

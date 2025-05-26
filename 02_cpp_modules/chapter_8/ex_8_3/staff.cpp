@@ -11,6 +11,7 @@ void staff::getInformation(void)
 {
     std::cout << "Enter Employee Code: ";
     std::cin >> code;
+    std::cin.ignore();
     std::cout << "Enter Employee Name: ";
     getline(std::cin, name);
 }
