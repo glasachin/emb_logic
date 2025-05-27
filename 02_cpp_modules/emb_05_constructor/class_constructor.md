@@ -308,6 +308,8 @@ int main() {
 
 ```
 
+This is known as `Nesting of classes` or `containership`.
+
 ```NOTE: 
 1. Make sure that constructor of A doesn't have any default arguments for above to work
 2. Class A object in Class B should not be static. for static process is different.
