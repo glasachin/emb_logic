@@ -123,6 +123,9 @@ unsigned short int ntohs(unsigned short int netshort);
 
 The above converted between `native host format ` and `standard network ordering`. 
 
+`htonl`: host to network long (for IP addresses and integers)
+`ntons`: host to network short (for port numbers)
+
 **E.G.**
 
 at server
