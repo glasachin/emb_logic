@@ -5,6 +5,7 @@ int staff::count;
 staff::staff(void)
 {
     count++;
+    std::cout << "Staff counter incremented" << std::endl;
 }
 
 void staff::getInformation(void)
