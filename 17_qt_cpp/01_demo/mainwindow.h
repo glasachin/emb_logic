@@ -26,6 +26,8 @@ private slots:
 
     void on_btnDiv_clicked();
 
+    void manual_linked_btn();
+
 private:
     Ui::MainWindow *ui;
 };

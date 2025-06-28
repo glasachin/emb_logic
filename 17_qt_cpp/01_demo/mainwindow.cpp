@@ -1,11 +1,13 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "iostream"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->btnManual, SIGNAL(clicked()), SLOT(manual_linked_btn())); //for manual button slot
 }
 
 MainWindow::~MainWindow()
@@ -55,3 +57,8 @@ void MainWindow::on_btnDiv_clicked()
     ui->txtResult->setText(QString::number(result));
 }
 
+void MainWindow::manual_linked_btn()
+{
+    std::cout << "Hi Manual button is pressed" << std::endl;
+    ui->txtResult->setText("Manual");
+}
