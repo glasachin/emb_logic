@@ -28,6 +28,8 @@ private slots:
 
     void manual_linked_btn();
 
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };
