@@ -62,3 +62,9 @@ void MainWindow::manual_linked_btn()
     std::cout << "Hi Manual button is pressed" << std::endl;
     ui->txtResult->setText("Manual");
 }
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    std::cout << "Checkbox State: " << arg1 << std::endl;
+}
+

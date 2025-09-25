@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,17 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnSum_clicked();
-
-    void on_btnSub_clicked();
-
-    void on_btnMul_clicked();
-
-    void on_btnDiv_clicked();
-
-    void manual_linked_btn();
-
-    void on_checkBox_stateChanged(int arg1);
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
