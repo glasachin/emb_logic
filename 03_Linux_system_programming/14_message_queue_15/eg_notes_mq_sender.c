@@ -52,8 +52,8 @@ void sendMessage()
 
 int main()
 {
-    system("touch messagequeue.txt");
-    if((key = ftok("messagequeue.txt", 'B')) == -1)
+    system("touch /dev/mqueue/messagequeue.txt");
+    if((key = ftok("/dev/mqueue/messagequeue.txt", 'B')) == -1)
     {
         perror("ftok");
         exit(EXIT_FAILURE);
@@ -69,6 +69,7 @@ int main()
     object.messageType = 1;
     sendMessage();
     //deleting the created file
-    system("rm messagequeue.txt");
+    // system("rm messagequeue.txt");
+    msgctl(msqid, IPC_RMID, NULL);
     return 0;
 }

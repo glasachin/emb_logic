@@ -7,6 +7,7 @@
 #include<sys/types.h>
 #include<sys/ipc.h>
 #include<sys/msg.h>
+#include<errno.h>
 
 #define PERMISSIONS 0777
 
@@ -22,16 +23,21 @@ int string_status;
 key_t key;
 
 void receiveMessages()
-{
+{ int *msgLen, msg;
+    msgLen = &msg;
     while(1)
     {
-        if(msgrcv(msqid, &object, sizeof(object.data),0,0) == -1)
+        *msgLen = msgrcv(msqid, &object, sizeof(object.data),0,0);
+        // *msgLen = msgrcv(msqid, &object, sizeof(object.data),(long)0x00,IPC_NOWAIT);
+        if( *msgLen == -1)
+        // if(errno == ENOMSG)
+        // if(msgrcv(msqid, &object, sizeof(object.data),0,0) == -1)
         {
             perror("msgrcv");
             exit(EXIT_FAILURE);
         }
 
-        printf("Received: \"%s\"\n", object.data);
+        printf("Received: Id: %ld, Data:  \"%s\" , Len: %d\n", object.mtype, object.data, msg);
         string_status = strcmp(object.data,"end");
         if(string_status == 0)
             break;
@@ -40,7 +46,7 @@ void receiveMessages()
 
 int main()
 {
-    if((key = ftok("messagequeue.txt",'B')) == -1)
+    if((key = ftok("/dev/mqueue/messagequeue.txt",'B')) == -1)
     {
         perror("ftok");
         exit(EXIT_FAILURE);
