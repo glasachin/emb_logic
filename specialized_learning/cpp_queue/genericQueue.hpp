@@ -23,3 +23,5 @@ public:
     bool isEmpty(void);
     size_t size(void);
 };
+
+#include "genericQueue.tpp"
