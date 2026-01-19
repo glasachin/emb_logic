@@ -96,6 +96,7 @@ int main()
     dbMsgQueue->enqueue(insetValue);
     dbMsgQueue->enqueue("hello, Uttarpradesh");
     std::cout << "Size: " << dbMsgQueue->size() << std::endl;
+    // It is working because, in pass by reference to queue, queue is creating its own copy of the string and storing it on heap.
 
     while (!dbMsgQueue->isEmpty())
     {
