@@ -71,7 +71,7 @@ ProcStats getCpuTicks(int pid) {
 }
 
 int main() {
-    const std::string target = "htop";
+    const std::string target = "code";
     int pid = findPidByName(target);
 
     if (pid == -1) {
